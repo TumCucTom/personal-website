@@ -29,14 +29,14 @@ export default function Intro() {
         animate={{opacity: 1, scale: 1 }}
         transition={{type: "tween", delay: 0.1, duration: 0.3}}
         >
-        <h1 className="md:text-6xl sm:text-5xl text-4xl font-bold text-black">
+        <h1 className="md:text-5xl sm:text-4xl text-3xl font-bold text-black">
             Hi! I am Thomas Bale
         </h1>
         <div className="Animated">
-            <h1 className="md:text-9xl sm:text-7xl text-7xl font-bold text-black md:py-6 py-3">
+            <h1 className="md:text-8xl sm:text-6xl text-6xl font-bold text-black md:py-6 py-3">
                 <TypeAnimation className="Animated"
 
-                  sequence={["Student", 2000, "Developer", 2000,]}
+                  sequence={["Student", 2000, "Developer", 2000,"Entrepreneur",2000]}
                   wrapper="span"
                   speed={65}
                   cursor={true}
