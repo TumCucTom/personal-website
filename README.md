@@ -1,3 +1,1 @@
-# Personal Website
-
-See it [here]()
+# [Visit my personal website](https://www.thomasbale.com)
