@@ -132,20 +132,20 @@ export const projectsData = [
     link: "https://github.com/TumCucTom/py2noteAI"
   },
   {
-    title: "Quantum Compiler [Ongoing]",
-    description:
-        "Basic quantum compiler that translates classical algorithms into quantum circuits. Currently has basic level conversion of gates and some use of quantum adders.",
-    tags: ["Python", "Quantum computing", "Qiskit"],
-    imageUrl: QCImg,
-    link: "https://github.com/TumCucTom/quantum-compiler/tree/main"
-  },
-  {
     title: "georgia-AI",
     description:
     "An AI - using a NN and beam search with sampling to infer the NYT Wordle without playing the game, only using the results of how up to 20 other people had guessed",
     tags: ["Python", "NumPy", "Pandas", "Torch","NNs"],
     imageUrl: GAIImg,
     link: "https://github.com/TumCucTom/georgia-AI"
+  },
+  {
+    title: "Quantum Compiler [Ongoing]",
+    description:
+        "Basic quantum compiler that translates classical algorithms into quantum circuits. Currently has basic level conversion of gates and some use of quantum adders.",
+    tags: ["Python", "Quantum computing", "Qiskit"],
+    imageUrl: QCImg,
+    link: "https://github.com/TumCucTom/quantum-compiler/tree/main"
   },
   {
     title: "Parallel vs Distributed Implementations for Conway's Game of Life",
