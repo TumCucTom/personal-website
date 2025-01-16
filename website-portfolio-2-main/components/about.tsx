@@ -22,7 +22,7 @@ export default function About() {
         <SectionHeading>About me</SectionHeading>
         <p className="mb-5">
                 My name is{" "}
-                <span className="  font-semibold">Thomas (Tom) Bale</span>,
+                <span className="  font-semibold">Thomas (Tom) Bale</span>
                 . I am pursuing a Bachelor&apos;s degree in{" "}
                 <span className="  font-semibold">
                   Computer Science
@@ -32,13 +32,13 @@ export default function About() {
                   {" "}
                   University of Bristol
                 </span>{" "}
-                with strong super-curricular passions for quantum computing, AI and HPC. I also have a strong passion for Triathlon and co-own a performance cycling products small business.
+                with strong super-curricular passions for quantum computing, AI and HPC. I also have a strong passion for triathlons and co-own a performance cycling products small business.
               </p>
         <p className="mb-5">
         My academic, super curricular and professional experience have given me a good foundation in full-stack development, computer vision and ML; and quantum computing and algorithms. Find my projects below or on my Github relating to quantum and AI.
         </p>
         <p >
-        Please contact me below if you have any queries or find out more about me on my LinkedIn!
+        Please contact me below if you have any queries or find out more about me on my LinkedIn profile!
         </p>
 
     </motion.section>

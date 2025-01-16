@@ -99,7 +99,7 @@ export const experiencesData = [
 
     CIUK high performance computing cluster challenge. Best result of 2nd in the Logicalis real-time data scraping and visualisation challenge.
 
-    Competitive swimming (Social Secretary), Triathlon and Computer science societies.
+    Competitive swimming (Social Secretary), Triathlon and Computer Science societies.
     `,
     icon: React.createElement(LuGraduationCap),
     date: "Sep 2023 - Jul 2026",
@@ -118,7 +118,7 @@ export const projectsData = [
   {
     title: "All Weather Horse Racing Predictions [Ongoing]",
     description:
-        "Racing odds predictor alongside a racing trading director at Entain. Experimenting with many ML and statistical approaches. Heavy NN optimisation wrt output type, loss function, layout, optimisers and other hyperparameters.",
+        "Racing odds predictor co-developed with a racing trading director at Entain. Experimenting with many ML and statistical approaches. Heavy NN optimisation wrt output type, loss function, layout, optimisers and other hyperparameters.",
     tags: ["Python", "Torch", "Tensor", "ML", "AI", "NNs", "Pandas","NumPy","GBDTs"],
     imageUrl: AWHImg,
     link: "https://github.com/TumCucTom/all-weather-horse-racing-predictions"
@@ -134,7 +134,7 @@ export const projectsData = [
   {
     title: "georgia-AI",
     description:
-    "An AI - using a NN and beam search with sampling to infer the NYT Wordle without playing the game, only using the results of how up to 20 other people had guessed",
+    "An AI designed for inferring the NYT Wordle without playing the game, only using the results of how up to 20 other people had guessed. Implements NN and beam search with sampling.",
     tags: ["Python", "NumPy", "Pandas", "Torch","NNs"],
     imageUrl: GAIImg,
     link: "https://github.com/TumCucTom/georgia-AI"
@@ -150,7 +150,7 @@ export const projectsData = [
   {
     title: "Parallel vs Distributed Implementations for Conway's Game of Life",
     description:
-    "Implemented, optimised (inc halo exchange, communication overhead, architecture considerations) and compared parallel (concurrent go programming) and distributed (AWS EC2 instances using RPC calls) versions for Conway's Game of Life. Report includes benchmarking algorithmic performance, Matlab for graphs and identifying bottlenecks using CPU profiling. Optimised network communication via publish/subscribe model ensuring fault tolerance and scalability.",
+    "Implemented, optimised (including halo exchange, communication overhead, architecture considerations) and compared parallel (concurrent go programming) and distributed (AWS EC2 instances using RPC calls) versions for Conway's Game of Life. Report includes benchmarking algorithmic performance, Matlab for graphs and identifying bottlenecks using CPU profiling. Optimised network communication via publish/subscribe model ensuring fault tolerance and scalability.",
     tags: ["Go", "R","AWS","Academic writing","LaTeX","Concurrent programming", "Distributed","Algorithmic optimisations"],
     imageUrl: REPImg,
     link: "https://github.com/TumCucTom/Distributed-Vs-Parallel-GoL"
@@ -158,12 +158,12 @@ export const projectsData = [
   {
     title: "AI for chess in 3 Dimensions ",
     description:
-        "The first ever game and engine for Chess in 3 dimensions. Makes use of an AI with a NN and mini-max. Includes a customisable UI. Includes and extensive report, with: Code\n" +
-        "UML diagram\n" +
-        "Flow charts for complicated algos and AI\n" +
-        "Unity environment, configuration and assets\n" +
-        "AI justifications\n" +
-        "Client feedback and interviews\n" +
+        "The first ever game and engine for Chess in 3 dimensions. Makes use of an AI with a NN and Mini-Max. Includes a customisable UI. Includes and extensive report, with: Code,\n" +
+        "UML diagram,\n" +
+        "Flow charts for complicated algos and AI,\n" +
+        "Unity environment, configuration and assets,\n" +
+        "AI justifications,\n" +
+        "Client feedback and interviews,\n" +
         "Research. Maximum mark scoring project.",
     tags: ["C#", "Game development", "Unity","OOP","AI", "ML", "MNs"],
     imageUrl: CHESSImg,
@@ -172,7 +172,7 @@ export const projectsData = [
   {
     title: "Advent of Code",
     description:
-        "My advent of code solutions",
+        "My advent of code daily solutions. All 2024 days solved in python.",
     tags: ["Python", "algorithms", "graph theory", "Number Theory", "Dynamic Programming"],
     imageUrl: AOCImg,
     link: "https://github.com/TumCucTom/Advent-Of-Code"
@@ -188,7 +188,7 @@ export const projectsData = [
   {
     title: "Other Projects - Github",
     description:
-        "These include: Quantum hackathon for UoB, ML challenge for sixth form society, Algorithms II minigame, .PGM to .SK converter, mandelbrot set visualisation, decimal to binary converter.",
+        "These include: Quantum hackathon for UoB; ML challenge for sixth form society; Algorithms II minigame; .PGM to .SK converter; mandelbrot set visualisation; and decimal to binary converter.",
     tags: ["C","Haskell","Python","Game development", "Hackathons"],
     imageUrl: gitImg,
     link: "https://github.com/TumCucTom/"
