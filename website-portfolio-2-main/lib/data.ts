@@ -118,10 +118,18 @@ export const projectsData = [
   {
     title: "All Weather Horse Racing Predictions [Ongoing]",
     description:
-        "Utilised Go distributed processing on AWS EC2 to improve efficiency by benchmarking algorithmic performance and identifying bottlenecks using CPU profiling. Optimised network communication via publish/subscribe model ensuring fault tolerance and scalability.",
+        "Racing odds predictor alongside a racing trading director at Entain. Experimenting with many ML and statistical approaches. Heavy NN optimisation wrt output type, loss function, layout, optimisers and other hyperparameters.",
     tags: ["Python", "Torch", "Tensor", "ML", "AI", "NNs", "Pandas","NumPy", "Hyperparameter optimisation", "GBDTs"],
     imageUrl: AWHImg,
     link: "https://github.com/TumCucTom/all-weather-horse-racing-predictions"
+  },
+  {
+    title: "py2note-AI",
+    description:
+        "Py2Notebook AI is a Python library that transforms Python scripts into Jupyter Notebooks. The tool leverages AI to generate insightful comments for each code block, helping to document and explain the code effectively.",
+    tags: ["Java", "JavaScript", "Python", "Stable Diffusion"],
+    imageUrl: pyImg,
+    link: "https://github.com/TumCucTom/py2noteAI"
   },
   {
     title: "Quantum Compiler [Ongoing]",
@@ -138,14 +146,6 @@ export const projectsData = [
     tags: ["Python", "NumPy", "Pandas", "Torch","NNs"],
     imageUrl: GAIImg,
     link: "https://github.com/TumCucTom/georgia-AI"
-  },
-  {
-    title: "py2note-AI",
-    description:
-    "Py2Notebook AI is a Python library that transforms Python scripts into Jupyter Notebooks. The tool leverages AI to generate insightful comments for each code block, helping to document and explain the code effectively.",
-    tags: ["Java", "JavaScript", "Python", "Stable Diffusion"],
-    imageUrl: pyImg,
-    link: "https://github.com/TumCucTom/py2noteAI"
   },
   {
     title: "Parallel vs Distributed Implementations for Conway's Game of Life",
