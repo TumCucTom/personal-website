@@ -35,7 +35,7 @@ export default function About() {
                 with strong super-curricular passions for quantum computing, AI and HPC. I also have a strong passion for triathlons and co-own a performance cycling products small business.
               </p>
         <p className="mb-5">
-        My academic, super curricular and professional experience have given me a good foundation in full-stack development, computer vision and ML; and quantum computing and algorithms. Find my projects below or on my Github relating to quantum and AI.
+        My academic, super curricular and professional experience have given me a good foundation in full-stack development, computer vision and ML; and quantum computing and algorithms. Find my projects below or on my GitHub relating to quantum and AI.
         </p>
         <p >
         Please contact me below if you have any queries or find out more about me on my LinkedIn profile!
