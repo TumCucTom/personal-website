@@ -186,7 +186,7 @@ export const projectsData = [
     link: "https://github.com/TumCucTom/Scotland-Yard-AI"
   },
   {
-    title: "Other Projects - Github",
+    title: "Other Projects - GitHub",
     description:
         "These include: Quantum hackathon for UoB; ML challenge for sixth form society; Algorithms II minigame; .PGM to .SK converter; mandelbrot set visualisation; and decimal to binary converter.",
     tags: ["C","Haskell","Python","Game development", "Hackathons"],

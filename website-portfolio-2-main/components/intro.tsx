@@ -32,15 +32,18 @@ export default function Intro() {
         <h1 className="md:text-6xl sm:text-5xl text-4xl font-bold text-black">
             Hi! I am Thomas Bale
         </h1>
-        <h1 className="md:text-9xl sm:text-7xl text-7xl font-bold text-black md:py-6 py-3">
-            <TypeAnimation
-              
-              sequence={["Student", 1500, "Developer", 1500, "Business Owner", 1500, "Quantum Enthusiast", 1500]}
-              wrapper="span"
-              speed={65}
-              repeat={Infinity}
-            />
-        </h1>
+        <div className="Animated">
+            <h1 className="md:text-9xl sm:text-7xl text-7xl font-bold text-black md:py-6 py-3">
+                <TypeAnimation className="Animated"
+
+                  sequence={["Student", 2000, "Developer", 2000,]}
+                  wrapper="span"
+                  speed={65}
+                  cursor={true}
+                  repeat={Infinity}
+                />
+            </h1>
+        </div>
         
         </motion.div>
         <motion.div className='flex flex-col sm:flex-row items-center justify-center gap-5 
