@@ -21,9 +21,9 @@ export default function About() {
     >
         <SectionHeading>About me</SectionHeading>
         <p className="mb-5">
-                My name is{" "}
+                Hi, my name is{" "}
                 <span className="  font-semibold">Thomas (Tom) Bale</span>
-                . I am pursuing a Bachelor&apos;s degree in{" "}
+                 and I'm a student, developer, buisness owner and Ironman AG Athlete. I am pursuing a Bachelor&apos;s degree in{" "}
                 <span className="  font-semibold">
                   Computer Science
                 </span>{" "}
