@@ -36,7 +36,7 @@ export default function Intro() {
             <h1 className="md:text-8xl sm:text-6xl text-6xl font-bold text-black md:py-6 py-3">
                 <TypeAnimation className="Animated"
 
-                  sequence={["Student", 2000, "Developer", 2000,"Entrepreneur",2000]}
+                  sequence={["Student", 2000, "Developer", 2000,"Entrepreneur",2000, "Athlete",2000]}
                   wrapper="span"
                   speed={65}
                   cursor={true}
