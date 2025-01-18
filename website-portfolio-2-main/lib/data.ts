@@ -118,8 +118,8 @@ export const projectsData = [
   {
     title: "All Weather Horse Racing Predictions [Ongoing]",
     description:
-        "Racing odds predictor co-developed with a racing trading director at Entain. Experimenting with many ML and statistical approaches. Heavy NN optimisation wrt output type, loss function, layout, optimisers and other hyperparameters. Monte Carlo simulation using Gaussian performance modeling for odds creation.",
-    tags: ["Python", "Torch", "Tensor", "ML", "AI", "NNs", "Pandas","NumPy","GBDTs"],
+        "Racing odds predictor co-developed with a racing trading director at Entain. Experimenting with many ML and statistical approaches. Monte Carlo simulation using Gaussian performance modeling for odds creation.",
+    tags: ["Python", "Torch", "Tensor", "ML", "AI", "NNs", "Pandas","NumPy"],
     imageUrl: AWHImg,
     link: "https://github.com/TumCucTom/all-weather-horse-racing-predictions"
   },
@@ -132,20 +132,20 @@ export const projectsData = [
     link: "https://github.com/TumCucTom/py2noteAI"
   },
   {
+    title: "Quantum Traffic Flow [Ongoing]",
+    description:
+    "A project leveraging the Quantum Approximate Optimization Algorithm (QAOA) to enhance local traffic management in Bristol, England. Web-app to visualise the traffic and optimisations coming.",
+    tags: ["Python", "Quantum computing", "Qiskit", "QAOA", "flask","vue","data science"],
+    imageUrl: QCImg,
+    link: "https://github.com/TumCucTom/quantum-compiler/tree/main"
+  },
+  {
     title: "georgia-AI",
     description:
     "An AI designed for inferring the NYT Wordle without playing the game, only using the results of how up to 20 other people had guessed. Implements NN and beam search with sampling.",
     tags: ["Python", "NumPy", "Pandas", "Torch","NNs"],
     imageUrl: GAIImg,
     link: "https://github.com/TumCucTom/georgia-AI"
-  },
-  {
-    title: "Quantum Compiler [Ongoing]",
-    description:
-        "Basic quantum compiler that translates classical algorithms into quantum circuits. Currently has basic level conversion of gates and some use of quantum adders.",
-    tags: ["Python", "Quantum computing", "Qiskit"],
-    imageUrl: QCImg,
-    link: "https://github.com/TumCucTom/quantum-compiler/tree/main"
   },
   {
     title: "Parallel vs Distributed Implementations for Conway's Game of Life",
