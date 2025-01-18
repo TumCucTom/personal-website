@@ -118,7 +118,7 @@ export const projectsData = [
   {
     title: "All Weather Horse Racing Predictions [Ongoing]",
     description:
-        "Racing odds predictor co-developed with a racing trading director at Entain. Experimenting with many ML and statistical approaches. Heavy NN optimisation wrt output type, loss function, layout, optimisers and other hyperparameters.",
+        "Racing odds predictor co-developed with a racing trading director at Entain. Experimenting with many ML and statistical approaches. Heavy NN optimisation wrt output type, loss function, layout, optimisers and other hyperparameters. Monte Carlo simulation using Gaussian performance modeling for odds creation.",
     tags: ["Python", "Torch", "Tensor", "ML", "AI", "NNs", "Pandas","NumPy","GBDTs"],
     imageUrl: AWHImg,
     link: "https://github.com/TumCucTom/all-weather-horse-racing-predictions"
