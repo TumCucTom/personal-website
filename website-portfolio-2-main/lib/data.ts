@@ -228,4 +228,6 @@ export const skillsData = [
   "Test Driven Development",
   "Databases",
   "React",
+    "CLI",
+    "Flask"
 ] as const;
