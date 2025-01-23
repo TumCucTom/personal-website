@@ -93,7 +93,7 @@ export const experiencesData = [
     title: "University of Bristol",
     subtitle: "BSc Computer Science",
     description:
-    `Predicted 1st Class
+    `Achieving 83.5% avg in contributing modules (1st class)
      
      Lead a team and coached 2 teams for UoB to attend MIT's iQuHack quantum hackathon. I ran an in house quantum hackathon to select teams and sessions to prepare.
 
@@ -150,7 +150,7 @@ export const projectsData = [
   {
     title: "Parallel vs Distributed Implementations for Conway's Game of Life",
     description:
-    "Implemented, optimised (including halo exchange, communication overhead, architecture considerations) and compared parallel (concurrent go programming) and distributed (AWS EC2 instances using RPC calls) versions for Conway's Game of Life. Report includes benchmarking algorithmic performance, Matlab for graphs and identifying bottlenecks using CPU profiling. Optimised network communication via publish/subscribe model ensuring fault tolerance and scalability.",
+    "86% scoring coursework. Implemented, optimised (including halo exchange, communication overhead, architecture considerations) and compared parallel (concurrent go programming) and distributed (AWS EC2 instances using RPC calls) versions for Conway's Game of Life. Report includes benchmarking algorithmic performance, Matlab for graphs and identifying bottlenecks using CPU profiling. Optimised network communication via publish/subscribe model ensuring fault tolerance and scalability.",
     tags: ["Go", "R","AWS","Academic writing","LaTeX","Concurrent programming", "Distributed","Algorithmic optimisations"],
     imageUrl: REPImg,
     link: "https://github.com/TumCucTom/Distributed-Vs-Parallel-GoL"
