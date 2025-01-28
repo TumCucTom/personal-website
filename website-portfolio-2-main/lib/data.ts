@@ -20,7 +20,7 @@ import AOCImg from "@/public/aoc.png"
 import IS1 from "@/public/IS1.png"
 import IS2 from "@/public/IS2.png"
 import IS3 from "@/public/IS3.png"
-import Q1 from "@/public/Q1.png"
+import Q1 from "@/public/Q1-1.png"
 
 export const links = [
   {
