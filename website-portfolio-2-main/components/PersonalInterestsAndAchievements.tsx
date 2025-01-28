@@ -4,15 +4,15 @@ import { interestsAndAchievements } from "@/lib/data";
 import SectionHeading from './section-heading'
 import { motion } from "framer-motion";
 import Image from "next/image";
-import {useSectionInView} from "@/lib/hooks";
-import {useTheme} from "@/context/theme-context";
+import { useSectionInView } from "@/lib/hooks";
+import { useTheme } from "@/context/theme-context";
 import React from "react";
 
 export default function PersonalInterestsAndAchievements() {
     const { ref } = useSectionInView('Achievements');
-    const {theme } = useTheme();
+    const { theme } = useTheme();
     return (
-        <div ref={ref} id="achievements"  className="p-6 space-y-8 mb-28  scroll-mt-28 text-center sm:mb-40">
+        <div ref={ref} id="achievements" className="p-6 space-y-8 mb-28 scroll-mt-28 text-center sm:mb-40">
             <SectionHeading>My achievements and interests</SectionHeading>
             {interestsAndAchievements.map((item, index) => (
                 <motion.div
@@ -26,16 +26,17 @@ export default function PersonalInterestsAndAchievements() {
                     <h2 className="text-2xl font-semibold mb-2">{item.title}</h2>
                     <p className="text-gray-700 dark:text-gray-300">{item.description}</p>
                     {item.photos && item.photos.length > 0 && (
-                        <div className="flex space-x-4 mt-4">
+                        <div className="mt-4 overflow-x-auto flex space-x-4 pb-4">
                             {item.photos.slice(0, 3).map((photo, photoIndex) => (
-                                <Image
-                                    key={photoIndex}
-                                    src={photo}
-                                    alt={`${item.title} photo ${photoIndex + 1}`}
-                                    width={250}
-                                    height={250}
-                                    className="rounded-lg shadow-md object-cover"
-                                />
+                                <div key={photoIndex} className="flex-shrink-0">
+                                    <Image
+                                        src={photo}
+                                        alt={`${item.title} photo ${photoIndex + 1}`}
+                                        width={200} // Default to 200px for mobile
+                                        height={200} // Default to 200px for mobile
+                                        className="rounded-lg shadow-md object-cover sm:w-[250px] sm:h-[250px]" // 250px for laptops
+                                    />
+                                </div>
                             ))}
                         </div>
                     )}
