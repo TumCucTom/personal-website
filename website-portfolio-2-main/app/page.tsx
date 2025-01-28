@@ -6,6 +6,7 @@ import Projects from '@/components/projects'
 import Experience from '@/components/experience'
 import Skills from '@/components/skills'
 import Contact from '@/components/contact'
+import Interests from '@/components/PersonalInterestsAndAchievements'
 import { Toaster } from 'react-hot-toast'
 
 export default function Home() {
@@ -17,7 +18,7 @@ export default function Home() {
       <Projects/>
       <Experience/>
       <Skills/>
-
+      <Interests/>
       <Contact/>
       <Toaster/>
     </main>
