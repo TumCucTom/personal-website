@@ -1,39 +1,40 @@
 "use client"
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import SectionHeading from './section-heading'
 import { motion } from 'framer-motion'
-import { useInView} from 'react-intersection-observer'
-import { useActiveSectionContext } from '@/context/active-section-context'
 import { useSectionInView } from '@/lib/hooks'
+import { useTheme } from '@/context/theme-context' // Import your custom useTheme
 
 export default function About() {
     const { ref } = useSectionInView("About", 0.8)
+    const { theme } = useTheme() // Use your custom theme hook
+
+    const getFontWeight = (isDarkTheme) => isDarkTheme ? 'font-bold' : 'font-semibold'
 
     return (
         <motion.section ref={ref} className='mb-28 max-w-[45rem] text-center leading-8 sm:mb-40
-    scroll-mt-28'
-
-                        initial = {{opacity:0, y: 100 }}
-                        animate = {{opacity:100, y: 0 }}
+        scroll-mt-28'
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 100, y: 0 }}
                         transition={{ delay: 0.175 }}
                         id="about"
         >
             <SectionHeading>About me</SectionHeading>
             <p className="mb-5">
                 Hi, my name is{" "}
-                <span className="  font-semibold">Thomas (Tom) Bale </span>
+                <span className={` ${getFontWeight(theme === 'dark')}`}>Thomas (Tom) Bale </span>
                 and I&apos;m a student, developer, business owner and Ironman AG Athlete. I am pursuing a Bachelor&apos;s degree in{" "}
-                <span className="  font-semibold">
+                <span className={` ${getFontWeight(theme === 'dark')}`}>
                   Computer Science
                 </span>{" "}
                 at the
-                <span className=" font-semibold">
+                <span className={` ${getFontWeight(theme === 'dark')}`}>
                   {" "}
                     University of Bristol,
                 </span>{" "}
                 currently achieving
-                <span className=" font-semibold">
+                <span className={` ${getFontWeight(theme === 'dark')}`}>
                   {" "}
                     83.5% (1st class)
                 </span>{" "}
