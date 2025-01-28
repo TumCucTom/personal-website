@@ -10,7 +10,8 @@ export default function About() {
     const { ref } = useSectionInView("About", 0.8)
     const { theme } = useTheme() // Use your custom theme hook
 
-    const getFontWeight = (isDarkTheme) => isDarkTheme ? 'font-bold' : 'font-semibold'
+    // Explicitly define the type of `isDarkTheme` as boolean
+    const getFontWeight = (isDarkTheme: boolean): string => isDarkTheme ? 'font-bold' : 'font-semibold'
 
     return (
         <motion.section ref={ref} className='mb-28 max-w-[45rem] text-center leading-8 sm:mb-40
