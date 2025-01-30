@@ -39,7 +39,7 @@ export default function About() {
                   {" "}
                     83.5% (1st class)
                 </span>{" "}
-                in my contributing modules. Alongside my university work, I explore my strong super-curricular passions for quantum computing, AI and HPC. I also participate triathlons / Ironman training and co-own a performance cycling products small business.
+                average in my contributing modules. Alongside my university work, I explore my strong super-curricular passions for quantum computing, AI and HPC. I also participate triathlons / Ironman training and co-own a performance cycling products small business.
             </p>
             <p className="mb-5">
                 My academic, super curricular and professional experience have given me a good foundation in full-stack development, computer vision and ML; and quantum computing and algorithms. Find my projects below or on my GitHub relating to quantum and AI.
