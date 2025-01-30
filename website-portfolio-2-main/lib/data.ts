@@ -77,10 +77,9 @@ export const experiencesData = [
   {
     title: "DigitalU3",
     subtitle: "Machine Learning and Software Engineer",
-    description:
-    `• Contract to create a ML micro-service top layer to integrate on top of an existing IoT platform for fire, smoke, and oil hazard detection.
-    • Integration with AI edge and cloud cameras for dual deployment, SMS alerts, augmentation, preprocessing, and hyper parameter optimisation for the NN, database querys and async encryption for user data.
-    • Quasar web-app, login pages and verification, data and logs pages, user and admin privileges.`,
+    description:'• Contract to design a product for the u3core suite for a neural network approach for fire, smoke and oil detection.\n' +
+        '• Dual deployment for AI edge and cloud cameras. Included is a web app for real time data visualisation, logs and\n' +
+        'live video streaming.',
     icon: React.createElement(FaBuilding),
     date: "Sept 2024 - Current",
   },
