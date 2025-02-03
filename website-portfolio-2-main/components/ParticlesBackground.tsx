@@ -1,57 +1,54 @@
 "use client";
 
-import React, { useEffect } from "react";
-import { useTheme } from "@/context/theme-context"; // Import theme context
+import React, { useState, useEffect } from "react";
+import { useTheme } from "@/context/theme-context";
 
 export default function ParticlesBackground() {
     const { theme } = useTheme(); // Get the current theme ("light" or "dark")
+    const [videoSize, setVideoSize] = useState({ width: "100vw", height: "100vh" });
 
     useEffect(() => {
-        const loadParticles = async () => {
-            try {
-                // @ts-ignore
-                if (typeof window !== "undefined" && !window.particlesJS) {
-                    await new Promise<void>((resolve, reject) => {
-                        const script = document.createElement("script");
-                        script.src = "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js";
-                        script.async = true;
-                        script.onload = () => resolve();
-                        script.onerror = () => reject(new Error("Failed to load particles.js"));
-                        document.body.appendChild(script);
-                    });
-                }
+        const updateSize = () => {
+            const aspectRatio = 16 / 9; // Adjust based on your video
+            const windowRatio = window.innerWidth / window.innerHeight;
 
-                // Determine the correct particle config based on the theme
-                const configFile = theme === "dark"
-                    ? "/particlesjs-config-dark.json"
-                    : "/particlesjs-config-light.json";
-
-                // Remove any existing particles instance before reloading
-                // @ts-ignore
-                if (window.pJSDom && window.pJSDom.length) {
-                    // @ts-ignore
-                    window.pJSDom[0].pJS.fn.vendors.destroypJS();
-                    // @ts-ignore
-                    window.pJSDom = [];
-                }
-
-                // Load particles with the correct theme configuration
-                // @ts-ignore
-                if (window.particlesJS) {
-                    // @ts-ignore
-                    window.particlesJS.load("particles-container", configFile, function () {
-                        console.log(`Particles.js loaded with ${theme} theme!`);
-                    });
-                } else {
-                    console.error("particlesJS is still undefined after script load.");
-                }
-            } catch (error) {
-                console.error("Error loading particles.js:", error);
+            if (windowRatio > aspectRatio) {
+                // If screen is wider than video aspect ratio → set height to full screen
+                setVideoSize({ width: "auto", height: "100vh" });
+            } else {
+                // If screen is taller than video aspect ratio → set width to full screen
+                setVideoSize({ width: "100vw", height: "auto" });
             }
         };
 
-        loadParticles();
-    }, [theme]); // Re-run when theme changes
+        updateSize(); // Call initially
+        window.addEventListener("resize", updateSize);
 
-    return <div id="particles-container" className="absolute inset-0 -z-10"></div>;
+        return () => window.removeEventListener("resize", updateSize);
+    }, []); // Empty dependency array ensures this runs only once
+
+    // Choose video based on theme
+    const videoSrc = theme === "dark"
+        ? "/particles-dark.webm"  // Dark particles for light theme
+        : "/particles-light.webm"; // Light particles for dark theme
+
+    return (
+        <video
+            className="absolute top-0 left-0 -z-10"
+            autoPlay
+            loop
+            muted
+            playsInline
+            key={videoSrc} // Forces React to re-render when theme changes
+            style={{
+                width: videoSize.width,
+                height: videoSize.height,
+                objectFit: "cover",
+                position: "fixed"
+            }}
+        >
+            <source src={videoSrc} type="video/webm" />
+            <source src={videoSrc.replace(".webm", ".mp4")} type="video/mp4" />
+        </video>
+    );
 }
