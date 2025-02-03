@@ -9,6 +9,7 @@ export default function ParticlesBackground() {
     useEffect(() => {
         const loadParticles = async () => {
             try {
+                // @ts-ignore
                 if (typeof window !== "undefined" && !window.particlesJS) {
                     await new Promise<void>((resolve, reject) => {
                         const script = document.createElement("script");
@@ -26,13 +27,18 @@ export default function ParticlesBackground() {
                     : "/particlesjs-config-light.json";
 
                 // Remove any existing particles instance before reloading
+                // @ts-ignore
                 if (window.pJSDom && window.pJSDom.length) {
+                    // @ts-ignore
                     window.pJSDom[0].pJS.fn.vendors.destroypJS();
+                    // @ts-ignore
                     window.pJSDom = [];
                 }
 
                 // Load particles with the correct theme configuration
+                // @ts-ignore
                 if (window.particlesJS) {
+                    // @ts-ignore
                     window.particlesJS.load("particles-container", configFile, function () {
                         console.log(`Particles.js loaded with ${theme} theme!`);
                     });
