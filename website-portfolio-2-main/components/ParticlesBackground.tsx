@@ -6,6 +6,7 @@ import { useTheme } from "@/context/theme-context";
 export default function ParticlesBackground() {
     const { theme } = useTheme();
     const [isPortrait, setIsPortrait] = useState(false);
+    const [needsScrollToStart, setNeedsScrollToStart] = useState(false);
     const videoRef = useRef<HTMLVideoElement | null>(null);
 
     useEffect(() => {
@@ -24,13 +25,28 @@ export default function ParticlesBackground() {
             const playPromise = videoRef.current.play();
             if (playPromise !== undefined) {
                 playPromise.catch(() => {
-                    // Autoplay failed due to restrictions, attempt user interaction
-                    videoRef.current!.muted = true; // Ensure muted
-                    videoRef.current!.play(); // Retry play
+                    // Autoplay failed, require scroll interaction
+                    setNeedsScrollToStart(true);
                 });
             }
         }
     }, [theme]);
+
+    useEffect(() => {
+        if (needsScrollToStart) {
+            const handleScroll = () => {
+                if (videoRef.current) {
+                    videoRef.current.play().catch(() => {}); // Ensure play attempt
+                }
+                setNeedsScrollToStart(false);
+                window.removeEventListener("scroll", handleScroll);
+            };
+
+            window.addEventListener("scroll", handleScroll, { once: true }); // Remove after first scroll
+
+            return () => window.removeEventListener("scroll", handleScroll);
+        }
+    }, [needsScrollToStart]);
 
     const videoSrc = theme === "dark"
         ? "/particles-dark.webm"
