@@ -102,7 +102,7 @@ export default function IntroAbout() {
                 <SectionHeading>About Me</SectionHeading>
                 <p className="mb-10 text-lg leading-9">
                     Hi, my name is{" "}
-                    <span className="font-bold">Thomas (Tom) Bale</span>, and I&apos;m a student, developer, business owner, and Ironman AG Athlete. I am pursuing a Bachelor's degree in{" "}
+                    <span className="font-bold">Thomas (Tom) Bale</span>, and I&apos;m a student, developer, business owner, and Ironman AG Athlete. I am pursuing a Bachelor&apos;s degree in{" "}
                     <span className="font-bold">Computer Science</span>
                     {" "} at the{" "}
                     <span className="font-bold">University of Bristol</span>
