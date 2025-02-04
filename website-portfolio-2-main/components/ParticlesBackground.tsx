@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/context/theme-context";
 
 export default function ParticlesBackground() {
     const { theme } = useTheme();
     const [isPortrait, setIsPortrait] = useState(false);
+    const videoRef = useRef<HTMLVideoElement | null>(null);
 
     useEffect(() => {
         const updateSize = () => {
@@ -18,12 +19,26 @@ export default function ParticlesBackground() {
         return () => window.removeEventListener("resize", updateSize);
     }, []);
 
+    useEffect(() => {
+        if (videoRef.current) {
+            const playPromise = videoRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // Autoplay failed due to restrictions, attempt user interaction
+                    videoRef.current!.muted = true; // Ensure muted
+                    videoRef.current!.play(); // Retry play
+                });
+            }
+        }
+    }, [theme]);
+
     const videoSrc = theme === "dark"
         ? "/particles-dark.webm"
         : "/particles-light.webm";
 
     return (
         <video
+            ref={videoRef}
             className="fixed inset-0 w-screen h-screen -z-10"
             autoPlay
             loop
