@@ -31,10 +31,10 @@ export default function Experience() {
             <div key={index} ref={ref} className="vertical-timeline-element">
               <VerticalTimelineElement
                 contentStyle={{
-                  
+
                   background:
-                  theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
-                  color: '#000', 
+                  theme === "light" ? "rgba(255, 255, 255, 0.550)" : "rgba(255, 255, 255, 0.05)",
+                  color: '#000',
                   boxShadow: 'none',
                   border: '1px solid rgba(0, 0, 0, 0.05)',
                   textAlign: 'left',
@@ -51,10 +51,10 @@ export default function Experience() {
                 visible={true}
 
                 // date={item.date}
-                
-             
+
+
                 icon={item.icon}
-              
+
                 iconStyle={{
                   background:
                     theme === "light" ? "white" : "black",

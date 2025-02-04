@@ -21,6 +21,8 @@ import IS1 from "@/public/IS1.png"
 import IS2 from "@/public/IS2.png"
 import IS3 from "@/public/IS3.png"
 import Q1 from "@/public/Q1-1.png"
+import bris1 from "@/public/bris1.png"
+import bris2 from "@/public/bris2.png"
 
 export const links = [
   {
@@ -69,6 +71,8 @@ export const interestsAndAchievements = [
     description: "Founded University of Bristol Quantum Computing after have a large uptake in applications for a UoB hackathon team for MIT iQuHack. This first involved leading a team to participate in a quantum computing hackathon hosted my MIT iQuse. Now, I run weekly sessions and plan to provide training and mentorship for new students to the area as well as designing and hosting accessible intra uni competitions..",
     photos: [
         Q1,
+        bris1,
+        bris2,
     ],
   },
 ];

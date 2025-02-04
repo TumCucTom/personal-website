@@ -20,9 +20,12 @@ export default function PersonalInterestsAndAchievements() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.2 }}
-                    className="bg-gray-100 dark:bg-gray-800 rounded-lg shadow-lg p-6 mx-auto max-w-screen-sm"
+                    className="bg-white/55 border border-black/5 rounded-lg
+                        overflow-hidden sm:pr-8 relative mb-3 sm:mb-8 last:mb-0 even:pl-8
+                        hover:bg-white/90 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20 shadow-lg p-6 mx-auto max-w-screen-sm"
                     style={{ maxWidth: "850px" }} // Limiting the width
                 >
+
                     <h2 className="text-2xl font-semibold mb-2">{item.title}</h2>
                     <p className="text-gray-700 dark:text-gray-300">{item.description}</p>
                     {item.photos && item.photos.length > 0 && (
@@ -32,14 +35,14 @@ export default function PersonalInterestsAndAchievements() {
                                     <Image
                                         src={photo}
                                         alt={`${item.title} photo ${photoIndex + 1}`}
-                                        width={200} // Default to 200px for mobile
-                                        height={200} // Default to 200px for mobile
-                                        className="rounded-lg shadow-md object-cover sm:w-[250px] sm:h-[250px]" // 250px for laptops
+                                        width={200}
+                                        height={200}
+                                        className="rounded-lg shadow-md object-cover aspect-square sm:w-[250px] sm:h-[250px]"
                                     />
                                 </div>
                             ))}
                         </div>
-                    )}
+                )}
                 </motion.div>
             ))}
         </div>

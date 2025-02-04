@@ -18,7 +18,6 @@ export default function Home() {
                 <main className="relative flex flex-col items-center px-4">
                     <Intro />
                     <SectionDivider />
-                    <About />
                     <Projects />
                     <Experience />
                     <Skills />
