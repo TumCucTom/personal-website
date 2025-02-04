@@ -68,7 +68,7 @@ export default function IntroAbout() {
                     </a>
 
                     <a
-                        className="group bg-white bg-opacity-90 px-10 py-4 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border border-black dark:bg-gray-950 dark:bg-opacity-75"
+                        className="group bg-white bg-opacity-90 px-10 py-4 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer border border-black dark:bg-gray-950 dark:border-white dark:bg-opacity-75"
                         href="/CV_Thomas_Bale.pdf"
                         download
                     >
