@@ -24,8 +24,8 @@ import Q1 from "@/public/Q1-1.png"
 import bris1 from "@/public/bris1.png"
 import bris2 from "@/public/bris2.png"
 import c1 from "@/public/c1.png"
-import c2 from "@/public/c2.png"
-import c3 from "@/public/c3.png"
+import c3 from "@/public/c2.png"
+import c2 from "@/public/c3.png"
 
 export const links = [
   {
