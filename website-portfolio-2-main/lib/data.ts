@@ -26,6 +26,7 @@ import bris2 from "@/public/bris2.png"
 import c1 from "@/public/c1.png"
 import c3 from "@/public/c2.png"
 import c2 from "@/public/c3.png"
+import MeDIImg from "@/public/medi.png"
 
 export const links = [
   {
@@ -151,6 +152,14 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    title: "Quantum cross-chain arbitrage",
+    description:
+        "Quantum-Enhanced Cross-Chain Arbitrage Bot (QXAB) uses Quantum Optimization (QAOA) and Flare’s blockchain protocols to execute fast, secure, and profitable cross-chain arbitrage trades via flash loans.",
+    tags: ["Blockchain", "Quantum", "Vyper","QAOA"],
+    imageUrl: MeDIImg,
+    link: "https://github.com/TumCucTom/quantum-cross-chain-arbitrage"
+  },
+  {
     title: "Quantum Finance Predictions",
     description:
     "A web app that takes a stock symbol, fetches historical data using alpha vantage's API and outputs predictions for future movement from training a QNN on that stock's past performance. Solution for a 3h creative hackathon - submitted with 4 jupyter notebooks for recreating the project and a LaTex report.",
@@ -183,14 +192,6 @@ export const projectsData = [
     link: "https://github.com/TumCucTom/quantum-compiler/tree/main"
   },
   {
-    title: "georgia-AI",
-    description:
-    "An AI designed for inferring the NYT Wordle without playing the game, only using the results of how up to 20 other people had guessed. Implements NN and beam search with sampling.",
-    tags: ["Python", "NumPy", "Pandas", "Torch","NNs"],
-    imageUrl: GAIImg,
-    link: "https://github.com/TumCucTom/georgia-AI"
-  },
-  {
     title: "Parallel vs Distributed Implementations for Conway's Game of Life",
     description:
     "86% scoring coursework. Implemented, optimised (including halo exchange, communication overhead, architecture considerations) and compared parallel (concurrent go programming) and distributed (AWS EC2 instances using RPC calls) versions for Conway's Game of Life. Report includes benchmarking algorithmic performance, Matlab for graphs and identifying bottlenecks using CPU profiling. Optimised network communication via publish/subscribe model ensuring fault tolerance and scalability.",
@@ -221,12 +222,12 @@ export const projectsData = [
     link: "https://github.com/TumCucTom/Advent-Of-Code"
   },
   {
-    title: "Scotland Yard Board Game & AI",
+    title: "georgia-AI",
     description:
-        "OOP implementation of the popular board game, using many designs patterns. AI agent designed to play the Scotland Yard boardgame, implementing Dijkstra’s algorithm and a Mini-Max game tree with alpha-beta pruning to optimize the AI agents winning performance based on a custom scoring function.",
-    tags: ["Java","OOP", "Design Patterns", "AI"],
-    imageUrl: scotlandImg,
-    link: "https://github.com/TumCucTom/Scotland-Yard-AI"
+        "An AI designed for inferring the NYT Wordle without playing the game, only using the results of how up to 20 other people had guessed. Implements NN and beam search with sampling.",
+    tags: ["Python", "NumPy", "Pandas", "Torch","NNs"],
+    imageUrl: GAIImg,
+    link: "https://github.com/TumCucTom/georgia-AI"
   },
   {
     title: "Other Projects - GitHub",
