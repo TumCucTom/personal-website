@@ -154,7 +154,7 @@ export const projectsData = [
   {
     title: "Quantum cross-chain arbitrage",
     description:
-        "🏆Winners - ETH Oxford DeFi hackathon prize ($5000)🏆 Quantum-Enhanced Cross-Chain Arbitrage Bot (QXAB) uses Quantum Optimization (QAOA) and Flare’s blockchain protocols to execute fast, secure, and profitable cross-chain arbitrage trades via flash loans.",
+        "🏆 Winners - ETH Oxford DeFi hackathon prize ($5000)🏆🥈Vyperlang bounty - 2nd place🥈Quantum-Enhanced Cross-Chain Arbitrage Bot (QXAB) uses Quantum Optimization (QAOA) and Flare’s blockchain protocols to execute fast, secure, and profitable cross-chain arbitrage trades via flash loans.",
     tags: ["Blockchain", "Quantum", "Vyper","QAOA"],
     imageUrl: MeDIImg,
     link: "https://github.com/TumCucTom/quantum-cross-chain-arbitrage"
