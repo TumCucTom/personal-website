@@ -81,7 +81,7 @@ export const interestsAndAchievements = [
   },
   {
     title: "Avid climber - bouldering",
-    description: "Enjoy indoor bouldering, started this year with a best climb of a v7 - F7a. If I'm not on my laptop or in the pool, you'll probably find me at flashpoint Bristol!",
+    description: "Enjoy indoor bouldering, started this year with a best climb of a v6. If I'm not on my laptop or in the pool, you'll probably find me at flashpoint Bristol!",
     photos: [
       c1,
         c2,
