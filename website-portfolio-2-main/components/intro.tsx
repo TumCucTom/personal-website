@@ -34,7 +34,7 @@ export default function IntroAbout() {
                 >
                     <a href="https://github.com/TumCucTom/TumCucTom">
                         <img
-                            alt="Thomas Bale's GitHub Profile"
+                            alt="Thomas Bale&apos;s GitHub Profile"
                             src={
                                 theme === "light"
                                     ? "https://raw.githubusercontent.com/TumCucTom/TumCucTom/main/light_mode.svg"
@@ -111,9 +111,9 @@ export default function IntroAbout() {
                 >
                     <SectionHeading>About Me</SectionHeading>
                     <p className="mb-4 text-lg leading-9">
-                        Hi, my name is <span className="font-bold">Thomas (Tom) Bale</span>, and I'm a
+                        Hi, my name is <span className="font-bold">Thomas (Tom) Bale</span>, and I&apos;m a
                         student, developer, business owner, and Ironman AG Athlete. I am pursuing a
-                        Bachelor's degree in <span className="font-bold">Computer Science</span> at the{" "}
+                        Bachelor&apos;s degree in <span className="font-bold">Computer Science</span> at the{" "}
                         <span className="font-bold">University of Bristol</span>, currently achieving{" "}
                         <span className="font-bold">83.5% (1st class)</span> average in my contributing
                         modules. Alongside my university work, I explore my strong super-curricular passions
