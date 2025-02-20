@@ -5,6 +5,8 @@ import { LuGraduationCap } from "react-icons/lu";
 import { FaFirstAid } from "react-icons/fa";
 import { FaBook } from "react-icons/fa";
 import { AiFillDatabase } from "react-icons/ai";
+import { FaBookOpen } from "react-icons/fa";
+import { GiAtom } from "react-icons/gi";
 
 
 import QFPImg from "@/public/QFP.png";
@@ -92,8 +94,29 @@ export const interestsAndAchievements = [
 
 export const experiencesData = [
   {
-    title: "DigitalU3",
-    subtitle: "Machine Learning and Software Engineer",
+    title: "Machine Learning Research Assistant",
+    subtitle: "University of Bristol",
+    description:'• Using NNs to develop a scalable and cost effective workflow for generating photorealistic stimulus sets for psychological research of emotional face stimuli.',
+    icon: React.createElement(FaBookOpen),
+    date: "Sept 2024 - Current",
+  },
+  {
+    title: "Founder",
+    subtitle: "University of Bristol Quantum Computing",
+    description:'• Founder - After gauging interest for a quantum hackathon at the University of Bristol, it was clear that there were many like-minded people eager to break into this area.',
+    icon: React.createElement(GiAtom),
+    date: "Sept 2024 - Current",
+  },
+  {
+    title: "President",
+    subtitle: "University of Bristol Quantum Computing",
+    description:'• First elected president - Prepared and managed the planning of the university’s first quantum computing hackathon. Run, manage and oversee: weekly sessions, challenges and member’s interests.',
+    icon: React.createElement(GiAtom),
+    date: "Sept 2024 - Current",
+  },
+  {
+    title: "Machine Learning and Software Engineer",
+    subtitle: "DigitalU3",
     description:'• Contract to design a product for the u3core suite for a neural network approach for fire, smoke and oil detection.\n' +
         '• Dual deployment for AI edge and cloud cameras. Included is a web app for real time data visualisation, logs and\n' +
         'live video streaming.',
@@ -101,8 +124,8 @@ export const experiencesData = [
     date: "Sept 2024 - Current",
   },
   {
-    title: "Veloworks Components",
-    subtitle: "Co-owner",
+    title: "Co-owner",
+    subtitle: "Veloworks Components",
     description:
     `• Co-own and run a small business, where we create 3D printed, performance cycling products.
       • My role involves designing new products and customising existing designs for customers, arranging sponsorships with influencer athletes and cycling/tri clubs, social media marketing, overseeing the printing process and managing accounts.`,
@@ -110,32 +133,24 @@ export const experiencesData = [
     date: "Sept 2024 - Current",
   },
   {
-    title: "Everyone Active SLM",
-    subtitle: "Casual lifeguard",
-    description:
-    `0 hour contact at local pool`,
-    icon: React.createElement(FaFirstAid),
-    date: "Nov 2023 - Dec 2024",
-  },
-  {
-    title: "Self Employed",
-    subtitle: "Academic Tutor",
+    title: "Academic Tutor",
+    subtitle: "Self Employed",
     description:
     `Tutored in Maths, English, Physics and Computer science for A-level, GCSE and 11+.`,
     icon: React.createElement(FaBook),
     date: "Jun 2021 - Sep 2023",
   },
   {
-    title: "TriConsultants Ltd",
-    subtitle: "VAT Database Management",
+    title: " VAT Database Management",
+    subtitle: "TriConsultants Ltd",
     description:
     `Summer job: Inputted to and managed a database for VAT from receipts and invoices for a small business that ships luxury goods to Vietnam. `,
     icon: React.createElement(AiFillDatabase),
     date: "Jul 2021 - Sep 2022",
   },
   {
-    title: "University of Bristol",
-    subtitle: "BSc Computer Science",
+    title: "BSc Computer Science",
+    subtitle: "University of Bristol",
     description:
     `Achieving 83.5% avg in contributing modules (1st class)
      
