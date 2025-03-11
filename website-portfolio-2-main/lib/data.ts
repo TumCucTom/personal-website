@@ -94,9 +94,9 @@ export const interestsAndAchievements = [
 
 export const experiencesData = [
   {
-    title: "Machine Learning Research Assistant",
+    title: "Researcher - Machine Learning",
     subtitle: "University of Bristol",
-    description:'• Using NNs to develop a scalable and cost effective workflow for generating photorealistic stimulus sets for psychological research of emotional face stimuli.',
+    description:'• Using NNs to develop a scalable and cost effective workflow for generating photorealistic stimulus sets for psychological research of emotional face stimuli. University of Bristol, School of Brain, Behaviour and Health.',
     icon: React.createElement(FaBookOpen),
     date: "Sept 2024 - Current",
   },
