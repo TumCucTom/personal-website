@@ -98,21 +98,21 @@ export const experiencesData = [
     subtitle: "University of Bristol",
     description:'• Using NNs to develop a scalable and cost effective workflow for generating photorealistic stimulus sets for psychological research of emotional face stimuli. University of Bristol, School of Brain, Behaviour and Health.',
     icon: React.createElement(FaBookOpen),
-    date: "Sept 2024 - Current",
+    date: "Feb 2025 - Current",
   },
   {
     title: "Founder",
     subtitle: "University of Bristol Quantum Computing",
     description:'• Founder - After gauging interest for a quantum hackathon at the University of Bristol, it was clear that there were many like-minded people eager to break into this area.',
     icon: React.createElement(GiAtom),
-    date: "Sept 2024 - Current",
+    date: "Dec 2024 - Current",
   },
   {
     title: "President",
     subtitle: "University of Bristol Quantum Computing",
     description:'• First elected president - Prepared and managed the planning of the university’s first quantum computing hackathon. Run, manage and oversee: weekly sessions, challenges and member’s interests.',
     icon: React.createElement(GiAtom),
-    date: "Sept 2024 - Current",
+    date: "Jan 2025 - Current",
   },
   {
     title: "Machine Learning and Software Engineer",
@@ -130,7 +130,7 @@ export const experiencesData = [
     `• Co-own and run a small business, where we create 3D printed, performance cycling products.
       • My role involves designing new products and customising existing designs for customers, arranging sponsorships with influencer athletes and cycling/tri clubs, social media marketing, overseeing the printing process and managing accounts.`,
     icon: React.createElement(LuBike),
-    date: "Sept 2024 - Current",
+    date: "Aug 2024 - Current",
   },
   {
     title: "Academic Tutor",
@@ -161,7 +161,7 @@ export const experiencesData = [
     Competitive swimming (Social Secretary), Triathlon and Computer Science societies.
     `,
     icon: React.createElement(LuGraduationCap),
-    date: "Sep 2023 - Jul 2026",
+    date: "Sep 2023 - Jun 2026",
   },
 ] as const;
 
