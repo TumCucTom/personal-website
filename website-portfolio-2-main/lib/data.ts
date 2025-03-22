@@ -118,7 +118,7 @@ export const experiencesData = [
     title: "Machine Learning and Software Engineer",
     subtitle: "DigitalU3",
     description:'• Contract to design a product for the u3core suite for a neural network approach for fire, smoke and oil detection.\n' +
-        '• Dual deployment for AI edge and cloud cameras. Included is a web app for real time data visualisation, logs and\n' +
+        '• Dual deployment for AI edge and cloud cameras (existing IoT platforms). Included is a web app for real time data visualisation, logs and\n' +
         'live video streaming.',
     icon: React.createElement(FaBuilding),
     date: "Sept 2024 - Current",
