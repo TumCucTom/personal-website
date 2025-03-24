@@ -40,7 +40,7 @@ export default function VideoCyclePlayer() {
             className="relative min-h-screen w-full bg-white flex flex-col items-center justify-start z-10"
         >
             {/* Desktop Header (absolute, left and right) */}
-            <div className="hidden md:flex w-full absolute top-1/3 px-20 justify-between items-center z-20">
+            <div className="hidden md:flex w-full absolute top-1/4 px-20 justify-between items-center z-20">
                 {/* Left Text */}
                 <div className="text-black text-left">
                     <div className="flex flex-col items-center space-y-1">
@@ -49,18 +49,17 @@ export default function VideoCyclePlayer() {
                             Entrepreneur | Athlete | Developer | Student
                         </div>
                     </div>
-                </div>
-
-                {/* Right Logo */}
-                <div className="img-wrapper w-full max-w-xs">
-                    <a target="_self" href="/">
-                        <img
-                            className="header-logo w-full"
-                            id="header-logo"
-                            src="/veloworks.png"
-                            alt="Logo"
-                        />
-                    </a>
+                    {/* Right Logo */}
+                    <div className="img-wrapper w-full max-w-xs">
+                        <a target="_self" href="/">
+                            <img
+                                className="header-logo w-full"
+                                id="header-logo"
+                                src="/veloworks.png"
+                                alt="Logo"
+                            />
+                        </a>
+                    </div>
                 </div>
             </div>
 
