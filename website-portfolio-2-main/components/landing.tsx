@@ -48,7 +48,7 @@ export default function VideoCyclePlayer() {
             className="relative min-h-screen w-full bg-white flex flex-col items-top justify-start z-10"
         >
             {/* Desktop Header (absolute, left and right) */}
-            <div className="hidden md:flex w-full absolute top-1/4 px-20 justify-between z-20">
+            <div className="hidden md:flex w-full absolute style={{ top: '23%' }} px-20 justify-between z-20">
                 {/* Left Text - 3/4 Up (25% from top) */}
                 <div className="text-black absolute left-10 text-left">
                     <div className="flex flex-col items-center space-y-1">
@@ -79,7 +79,7 @@ export default function VideoCyclePlayer() {
 
                 {/* Video Section */}
                 <div
-                    className="w-full max-w-3xl mx-auto overflow-hidden cursor-pointer transition duration-300"
+                    className="w-full max-w-3xl mx-auto overflow-hidden items-top cursor-pointer transition duration-300"
                     onClick={handleClick}
                 >
                     {!isLoaded && (
