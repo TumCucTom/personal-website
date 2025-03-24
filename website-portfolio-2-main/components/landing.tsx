@@ -79,7 +79,7 @@ export default function VideoCyclePlayer() {
 
             {/* Video Section */}
             <div
-                className="w-full max-w-3xl mx-auto overflow-hidden items-top md:-top-40 cursor-pointer transition duration-300"
+                className="absolute left-1/2 top-1/2 md:top-60 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl cursor-pointer transition duration-300"
                 onClick={handleClick}
             >
                 {!isLoaded && (
