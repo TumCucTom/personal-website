@@ -79,7 +79,7 @@ export default function VideoCyclePlayer() {
 
             {/* Video Section */}
             <div
-                className="absolute left-1/2 top-1/2 md:top-[70px] transform -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl cursor-pointer transition duration-300"
+                className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl cursor-pointer transition duration-300"
                 onClick={handleClick}
             >
                 {!isLoaded && (
