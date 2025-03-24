@@ -40,7 +40,7 @@ export default function VideoCyclePlayer() {
             className="relative min-h-screen w-full bg-white flex flex-col items-center justify-start z-10"
         >
             {/* Desktop Header (absolute, left and right) */}
-            <div className="hidden md:flex w-full absolute top-1/4 px-20 justify-between items-center z-20">
+            <div className="hidden md:flex w-full absolute top-1/5 px-20 justify-between items-center z-20">
                 {/* Left Text */}
                 <div className="text-black text-left">
                     <div className="flex flex-col items-center space-y-1">
@@ -85,7 +85,7 @@ export default function VideoCyclePlayer() {
             </div>
 
             {/* Mobile Stacked Header (below video) */}
-            <div className="md:hidden flex flex-col items-center mt-12 px-6 text-black text-center space-y-4">
+            <div className="md:hidden flex flex-col items-center mt-6 px-6 text-black text-center space-y-4">
                 <div className="text-2xl font-semibold">Thomas Bale</div>
                 <div className="text-base text-gray-600">
                     Entrepreneur | Athlete | Developer | Student
