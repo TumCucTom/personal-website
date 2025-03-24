@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useTheme } from "@/context/theme-context";
 
 const videoListWhite = [
@@ -19,12 +19,20 @@ export default function VideoCyclePlayer() {
 
     const [videoIndex, setVideoIndex] = useState(0);
     const [isLoaded, setIsLoaded] = useState(false);
+    const videoRef = useRef<HTMLVideoElement | null>(null);
 
     useEffect(() => {
         const savedIndex = parseInt(localStorage.getItem(LOCAL_STORAGE_KEY) || "0");
         const nextIndex = (savedIndex + 1) % videoList.length;
         setVideoIndex(nextIndex);
         localStorage.setItem(LOCAL_STORAGE_KEY, nextIndex.toString());
+
+        const handlePlayVideo = () => {
+            videoRef.current?.play().catch(() => {});
+        };
+
+        window.addEventListener("playLandingVideo", handlePlayVideo);
+        return () => window.removeEventListener("playLandingVideo", handlePlayVideo);
     }, [theme]);
 
     const handleClick = () => {
@@ -73,6 +81,7 @@ export default function VideoCyclePlayer() {
                 )}
 
                 <video
+                    ref={videoRef}
                     key={videoList[videoIndex]}
                     className={`w-full h-auto ${!isLoaded ? "hidden" : "block"}`}
                     src={videoList[videoIndex]}

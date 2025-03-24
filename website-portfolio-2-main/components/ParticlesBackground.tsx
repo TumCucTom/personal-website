@@ -30,7 +30,12 @@ export default function ParticlesBackground() {
         }
 
         setShowPopup(false);
+
+        // Play this background video
         videoRef.current?.play().catch(() => {});
+
+        // ✅ Dispatch event to notify other components (e.g., landing video)
+        window.dispatchEvent(new Event("playLandingVideo"));
     };
 
     // Update screen orientation
