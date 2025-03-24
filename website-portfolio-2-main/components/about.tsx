@@ -24,18 +24,18 @@ export default function About() {
             <SectionHeading>About me</SectionHeading>
             <p className="mb-5">
                 Hi, my name is{" "}
-                <span className={` ${getFontWeight(theme === 'dark')}`}>Thomas (Tom) Bale </span>
+                <span className={` ${getFontWeight(true)}`}>Thomas (Tom) Bale </span>
                 and I&apos;m a student, developer, business owner and Ironman AG Athlete. I am pursuing a Bachelor&apos;s degree in{" "}
-                <span className={` ${getFontWeight(theme === 'dark')}`}>
+                <span className={` ${getFontWeight(true)}`}>
                   Computer Science
                 </span>{" "}
                 at the
-                <span className={` ${getFontWeight(theme === 'dark')}`}>
+                <span className={` ${getFontWeight(true)}`}>
                   {" "}
                     University of Bristol,
                 </span>{" "}
                 currently achieving
-                <span className={` ${getFontWeight(theme === 'dark')}`}>
+                <span className={` ${getFontWeight(true)}`}>
                   {" "}
                     83.5% (1st class)
                 </span>{" "}
