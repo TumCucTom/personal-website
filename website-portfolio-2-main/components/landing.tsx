@@ -37,7 +37,7 @@ export default function VideoCyclePlayer() {
     return (
         <section
             id="home"
-            className="relative min-h-screen w-full bg-white flex flex-col items-center justify-start z-10"
+            className="relative min-h-screen w-full bg-white flex flex-col items-top justify-start z-10"
         >
             {/* Desktop Header (absolute, left and right) */}
             <div className="hidden md:flex w-full absolute top-1/5 px-20 justify-between items-center z-20">

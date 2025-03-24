@@ -69,12 +69,6 @@ export default function ParticlesBackground() {
                         >
                             Light Mode
                         </button>
-                        <button
-                            onClick={() => handleThemeSelection("dark")}
-                            className="bg-gray-700 text-white px-6 py-2 rounded-lg w-full"
-                        >
-                            Dark Mode
-                        </button>
                     </div>
                 </div>
             )}
