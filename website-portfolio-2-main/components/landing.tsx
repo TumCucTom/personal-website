@@ -48,9 +48,9 @@ export default function VideoCyclePlayer() {
             className="relative min-h-screen w-full bg-white flex flex-col items-top justify-start z-10"
         >
             {/* Desktop Header (absolute, left and right) */}
-            <div className="hidden md:flex w-full absolute top-1/3 px-10 justify-between items-top z-20">
-                {/* Left Text */}
-                <div className="text-black text-left">
+            <div className="hidden md:flex w-full absolute top-1/4 px-10 justify-between z-20">
+                {/* Left Text - 3/4 Up (25% from top) */}
+                <div className="text-black absolute left-10 text-left">
                     <div className="flex flex-col items-center space-y-1">
                         <div className="header-title text-xl font-semibold">Thomas Bale</div>
                         <div className="some text-sm text-gray-600 text-center">
@@ -58,8 +58,11 @@ export default function VideoCyclePlayer() {
                         </div>
                     </div>
                 </div>
-                {/* Right Logo */}
-                <div className="img-wrapper w-full max-w-xs">
+            </div>
+
+            {/* Right Logo - 3/4 Down (75% from top) */}
+            <div className="hidden md:flex w-full absolute top-3/4 px-10 justify-between z-20">
+                <div className="absolute right-10 bottom-1/4 img-wrapper max-w-xs w-full">
                     <a target="_self" href="/">
                         <img
                             className="header-logo w-full"
@@ -71,46 +74,46 @@ export default function VideoCyclePlayer() {
                 </div>
             </div>
 
-            {/* Video Section */}
-            <div
-                className="w-full max-w-3xl mx-auto overflow-hidden cursor-pointer transition duration-300"
-                onClick={handleClick}
-            >
-                {!isLoaded && (
-                    <div className="h-full bg-white animate-pulse rounded-xl"/>
-                )}
+                {/* Video Section */}
+                <div
+                    className="w-full max-w-3xl mx-auto overflow-hidden cursor-pointer transition duration-300"
+                    onClick={handleClick}
+                >
+                    {!isLoaded && (
+                        <div className="h-full bg-white animate-pulse rounded-xl"/>
+                    )}
 
-                <video
-                    ref={videoRef}
-                    key={videoList[videoIndex]}
-                    className={`w-full h-auto ${!isLoaded ? "hidden" : "block"}`}
-                    src={videoList[videoIndex]}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    onLoadedData={() => setIsLoaded(true)}
-                />
-            </div>
+                    <video
+                        ref={videoRef}
+                        key={videoList[videoIndex]}
+                        className={`w-full h-auto ${!isLoaded ? "hidden" : "block"}`}
+                        src={videoList[videoIndex]}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        onLoadedData={() => setIsLoaded(true)}
+                    />
+                </div>
 
-            {/* Mobile Stacked Header (below video) */}
-            <div className="md:hidden flex flex-col items-center mt-6 px-6 text-black text-center space-y-4">
-                <div className="text-2xl font-semibold">Thomas Bale</div>
-                <div className="text-base text-gray-600">
-                    Entrepreneur | Athlete | Developer | Student
+                {/* Mobile Stacked Header (below video) */}
+                <div className="md:hidden flex flex-col items-center mt-6 px-6 text-black text-center space-y-4">
+                    <div className="text-2xl font-semibold">Thomas Bale</div>
+                    <div className="text-base text-gray-600">
+                        Entrepreneur | Athlete | Developer | Student
+                    </div>
+                    <div className="w-full max-w-sm">
+                        <a target="_self" href="/">
+                            <img
+                                className="header-logo w-full"
+                                id="header-logo"
+                                src="/veloworks.png"
+                                alt="Logo"
+                            />
+                        </a>
+                    </div>
                 </div>
-                <div className="w-full max-w-sm">
-                    <a target="_self" href="/">
-                        <img
-                            className="header-logo w-full"
-                            id="header-logo"
-                            src="/veloworks.png"
-                            alt="Logo"
-                        />
-                    </a>
-                </div>
-            </div>
         </section>
 
-    );
+);
 }
