@@ -2,6 +2,7 @@ import Intro from "@/components/intro";
 import SectionDivider from "@/components/section-divider";
 import About from "@/components/about";
 import Projects from "@/components/projects";
+import Landing from "@/components/landing";
 import Experience from "@/components/experience";
 import Skills from "@/components/skills";
 import Contact from "@/components/contact";
@@ -16,6 +17,8 @@ export default function Home() {
                 <ParticlesBackground />
 
                 <main className="relative flex flex-col items-center px-4">
+                    <Landing />
+                    <SectionDivider />
                     <Intro />
                     <SectionDivider />
                     <Projects />
