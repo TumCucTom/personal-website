@@ -11,20 +11,11 @@ const videoListWhite = [
     "/video/zero-home.mp4",
 ];
 
-const videoListBlack = [
-    "/video/001.mp4",
-    "/video/002.mp4",
-    "/video/003.mp4",
-    "/video/004.mp4",
-    "/video/005.mp4",
-];
-
 const LOCAL_STORAGE_KEY = "lastPlayedVideoIndex";
 
 export default function VideoCyclePlayer() {
     const { theme } = useTheme();
-    const isDark = theme === "dark";
-    const videoList = isDark ? videoListBlack : videoListWhite;
+    const videoList = videoListWhite;
 
     const [videoIndex, setVideoIndex] = useState(0);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -44,25 +35,74 @@ export default function VideoCyclePlayer() {
     };
 
     return (
-        <div
-            className="w-full max-w-3xl mx-auto overflow-hidden cursor-pointer transition duration-300"
-            onClick={handleClick}
+        <section
+            id="home"
+            className="relative min-h-screen w-full bg-white flex flex-col items-center justify-start z-10"
         >
-            {/* Placeholder with 16:9 aspect ratio */}
-            {!isLoaded && (
-                <div className="w-full aspect-video bg-gray-300 dark:bg-gray-700 animate-pulse rounded-xl" />
-            )}
+            {/* Desktop Header (absolute, left and right) */}
+            <div className="hidden md:flex w-full absolute top-1/3 px-20 justify-between items-center z-20">
+                {/* Left Text */}
+                <div className="text-black text-left">
+                    <div className="flex flex-col items-center space-y-1">
+                        <div className="header-title text-2xl font-semibold">Thomas Bale</div>
+                        <div className="some text-base text-gray-600 text-center">
+                            Entrepreneur | Athlete | Developer | Student
+                        </div>
+                    </div>
+                </div>
 
-            <video
-                key={videoList[videoIndex]} // Force reload on video source change
-                className={`w-full h-auto ${!isLoaded ? "hidden" : "block"}`}
-                src={videoList[videoIndex]}
-                autoPlay
-                muted
-                loop
-                playsInline
-                onLoadedData={() => setIsLoaded(true)}
-            />
-        </div>
+                {/* Right Logo */}
+                <div className="img-wrapper w-full max-w-xs">
+                    <a target="_self" href="/">
+                        <img
+                            className="header-logo w-full"
+                            id="header-logo"
+                            src="/veloworks.png"
+                            alt="Logo"
+                        />
+                    </a>
+                </div>
+            </div>
+
+            {/* Video Section */}
+            <div
+                className="w-full max-w-3xl mx-auto overflow-hidden cursor-pointer transition duration-300"
+                onClick={handleClick}
+            >
+                {!isLoaded && (
+                    <div className="h-full bg-white animate-pulse rounded-xl"/>
+                )}
+
+                <video
+                    key={videoList[videoIndex]}
+                    className={`w-full h-auto ${!isLoaded ? "hidden" : "block"}`}
+                    src={videoList[videoIndex]}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    onLoadedData={() => setIsLoaded(true)}
+                />
+            </div>
+
+            {/* Mobile Stacked Header (below video) */}
+            <div className="md:hidden flex flex-col items-center mt-12 px-6 text-black text-center space-y-4">
+                <div className="text-2xl font-semibold">Thomas Bale</div>
+                <div className="text-base text-gray-600">
+                    Entrepreneur | Athlete | Developer | Student
+                </div>
+                <div className="w-full max-w-sm">
+                    <a target="_self" href="/">
+                        <img
+                            className="header-logo w-full"
+                            id="header-logo"
+                            src="/veloworks.png"
+                            alt="Logo"
+                        />
+                    </a>
+                </div>
+            </div>
+        </section>
+
     );
 }

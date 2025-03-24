@@ -7,6 +7,7 @@ export default function ParticlesBackground() {
     const { theme, toggleTheme } = useTheme();
     const [isPortrait, setIsPortrait] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
+    const [fadeIn, setFadeIn] = useState(false); // NEW
     const videoRef = useRef<HTMLVideoElement | null>(null);
 
     // Attempt to autoplay video on mount
@@ -15,7 +16,6 @@ export default function ParticlesBackground() {
             const playPromise = videoRef.current.play();
             if (playPromise !== undefined) {
                 playPromise.catch(() => {
-                    // If autoplay fails, show theme selection popup
                     setShowPopup(true);
                 });
             }
@@ -25,38 +25,40 @@ export default function ParticlesBackground() {
     // Handle theme selection & play video
     const handleThemeSelection = (selectedTheme: "light" | "dark") => {
         const currentTheme = window.localStorage.getItem("theme");
-
-        // Only toggle if the chosen theme is different from the current one
         if (currentTheme !== selectedTheme) {
             toggleTheme();
         }
 
         setShowPopup(false);
-
-        if (videoRef.current) {
-            videoRef.current.play().catch(() => {}); // Ensure play attempt
-        }
+        videoRef.current?.play().catch(() => {});
     };
 
-    // Update screen orientation state
+    // Update screen orientation
     useEffect(() => {
         const updateSize = () => {
             setIsPortrait(window.matchMedia("(orientation: portrait)").matches);
         };
-
         updateSize();
         window.addEventListener("resize", updateSize);
-
         return () => window.removeEventListener("resize", updateSize);
     }, []);
 
-    const videoSrc = theme === "dark"
-        ? "/particles-dark.webm"
-        : "/particles-light.webm";
+    // NEW: Detect scroll past landing section
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const triggerPoint = window.innerHeight * 0.8; // 80% down the first section
+            setFadeIn(scrollY > triggerPoint);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    const videoSrc = "/particles-light.webm";
 
     return (
         <>
-            {/* Theme Selection Popup (Only appears if autoplay fails) */}
             {showPopup && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
                     <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg text-center">
@@ -79,7 +81,9 @@ export default function ParticlesBackground() {
 
             <video
                 ref={videoRef}
-                className="fixed inset-0 w-screen h-screen -z-10"
+                className={`fixed top-0 left-0 -z-10 transition-opacity duration-[1500ms] ease-in-out ${
+                    fadeIn ? "opacity-100" : "opacity-0"
+                }`}
                 autoPlay
                 loop
                 muted
@@ -94,9 +98,10 @@ export default function ParticlesBackground() {
                     position: "fixed",
                     top: "50%",
                     left: "50%",
-                    transform: isPortrait ? "translate(-50%, -50%) rotate(90deg)" : "translate(-50%, -50%)",
+                    transform: isPortrait
+                        ? "translate(-50%, -50%) rotate(90deg)"
+                        : "translate(-50%, -50%)",
                     transformOrigin: "center center",
-                    zIndex: "-10",
                 }}
             >
                 <source src={videoSrc} type="video/webm" />
