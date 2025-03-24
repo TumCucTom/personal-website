@@ -48,26 +48,26 @@ export default function VideoCyclePlayer() {
             className="relative min-h-screen w-full bg-white flex flex-col items-top justify-start z-10"
         >
             {/* Desktop Header (absolute, left and right) */}
-            <div className="hidden md:flex w-full absolute top-1/5 px-20 justify-between items-center z-20">
+            <div className="hidden md:flex w-full absolute top-1/3 px-10 justify-between items-center z-20">
                 {/* Left Text */}
                 <div className="text-black text-left">
                     <div className="flex flex-col items-center space-y-1">
-                        <div className="header-title text-2xl font-semibold">Thomas Bale</div>
-                        <div className="some text-base text-gray-600 text-center">
+                        <div className="header-title text-xl font-semibold">Thomas Bale</div>
+                        <div className="some text-sm text-gray-600 text-center">
                             Entrepreneur | Athlete | Developer | Student
                         </div>
                     </div>
-                    {/* Right Logo */}
-                    <div className="img-wrapper w-full max-w-xs">
-                        <a target="_self" href="/">
-                            <img
-                                className="header-logo w-full"
-                                id="header-logo"
-                                src="/veloworks.png"
-                                alt="Logo"
-                            />
-                        </a>
-                    </div>
+                </div>
+                {/* Right Logo */}
+                <div className="img-wrapper w-full max-w-xs">
+                    <a target="_self" href="/">
+                        <img
+                            className="header-logo w-full"
+                            id="header-logo"
+                            src="/veloworks.png"
+                            alt="Logo"
+                        />
+                    </a>
                 </div>
             </div>
 
