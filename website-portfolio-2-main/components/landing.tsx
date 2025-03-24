@@ -56,6 +56,9 @@ export default function VideoCyclePlayer() {
                         <div className="some text-base text-gray-600 text-center">
                             Entrepreneur | Athlete | Developer | Student
                         </div>
+                        <div className="some text-base text-gray-600 text-center">
+                            Quantum | ML/AI | HPC
+                        </div>
                     </div>
                 </div>
             </div>
