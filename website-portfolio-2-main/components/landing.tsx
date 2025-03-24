@@ -48,7 +48,7 @@ export default function VideoCyclePlayer() {
             className="relative min-h-screen w-full bg-white flex flex-col items-top justify-start z-10"
         >
             {/* Desktop Header (absolute, left and right) */}
-            <div className="hidden md:flex w-full absolute top-1/4 px-20 justify-between z-20">
+            <div className="hidden md:flex w-full absolute top-1/5 px-20 justify-between z-20">
                 {/* Left Text - 3/4 Up (25% from top) */}
                 <div className="text-black absolute left-10 text-left">
                     <div className="flex flex-col items-center space-y-1">
