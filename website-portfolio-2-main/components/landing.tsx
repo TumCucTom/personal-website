@@ -66,12 +66,15 @@ export default function VideoCyclePlayer() {
             {/* Right Logo - 3/4 Down (75% from top) */}
             <div className="hidden md:flex w-full absolute top-3/4 px-10 justify-between z-20">
                 <div className="absolute right-10 bottom-1/4 img-wrapper max-w-xs w-full">
-                    <a target="_self" href="/">
+                    <a>
                         <img
                             className="header-logo w-full"
                             id="header-logo"
                             src="/veloworks.png"
                             alt="Logo"
+                            onClick={() => {
+                                window.open("https://www.shopveloworks.com/", "_blank");
+                            }}
                         />
                     </a>
                 </div>
@@ -106,12 +109,15 @@ export default function VideoCyclePlayer() {
                         Entrepreneur | Athlete | Developer | Student
                     </div>
                     <div className="w-full max-w-sm">
-                        <a target="_self" href="/">
+                        <a>
                             <img
                                 className="header-logo w-full"
                                 id="header-logo"
                                 src="/veloworks.png"
                                 alt="Logo"
+                                onClick={() => {
+                                    window.open("https://www.shopveloworks.com/", "_blank");
+                                }}
                             />
                         </a>
                     </div>
