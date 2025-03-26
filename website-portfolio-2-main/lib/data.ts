@@ -133,26 +133,10 @@ export const experiencesData = [
     date: "Aug 2024 - Current",
   },
   {
-    title: "Academic Tutor",
-    subtitle: "Self Employed",
-    description:
-    `Tutored in Maths, English, Physics and Computer science for A-level, GCSE and 11+.`,
-    icon: React.createElement(FaBook),
-    date: "Jun 2021 - Sep 2023",
-  },
-  {
-    title: " VAT Database Management",
-    subtitle: "TriConsultants Ltd",
-    description:
-    `Summer job: Inputted to and managed a database for VAT from receipts and invoices for a small business that ships luxury goods to Vietnam. `,
-    icon: React.createElement(AiFillDatabase),
-    date: "Jul 2021 - Sep 2022",
-  },
-  {
     title: "BSc Computer Science",
     subtitle: "University of Bristol",
     description:
-    `Achieving 83.5% avg in contributing modules (1st class)
+    `Achieving 83.5% (1st class), top in cohort (86%) for computer systems A
      
      Lead a team and coached 2 teams for UoB to attend MIT's iQuHack quantum hackathon. I ran an in house quantum hackathon to select teams and sessions to prepare.
 

@@ -116,7 +116,8 @@ export default function IntroAbout() {
                         Bachelor&apos;s degree in <span className="font-bold">Computer Science</span> at the{" "}
                         <span className="font-bold">University of Bristol</span>, currently achieving{" "}
                         <span className="font-bold">83.5% (1st class)</span> average in my contributing
-                        modules. Alongside my university work, I explore my strong super-curricular passions
+                        modules and <span className="font-bold">top in cohort</span> for computer systems A (86%). Alongside my university work,
+                        I explore my strong super-curricular passions
                         for quantum computing, AI, and HPC. I also participate in triathlons/Ironman training
                         and co-own a performance cycling products small business.
                     </p>
