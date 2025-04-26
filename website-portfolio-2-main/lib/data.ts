@@ -17,7 +17,7 @@ import pyImg from "@/public/py.png";
 import AWHImg from "@/public/AWH.png"
 import REPImg from "@/public/rep.png"
 import CHESSImg from "@/public/chess.png"
-import adventImg from "@public/advent.png"
+import adventImg from "@/public/advent.png"
 import IS1 from "@/public/IS1.png"
 import IS2 from "@/public/IS2.png"
 import IS3 from "@/public/IS3.png"
