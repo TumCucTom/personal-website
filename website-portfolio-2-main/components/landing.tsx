@@ -32,13 +32,13 @@ export default function AchievementsTimeline() {
         >
             {/* Desktop Header */}
             <div className="hidden md:flex w-full absolute top-[0%] px-20 justify-between z-20">
-                <div className="text-black absolute left-10 text-left">
+                <div className="text-black absolute left-1/2 transform -translate-x-1/2 text-center">
                     <div className="flex flex-col items-center space-y-1">
-                        <div className="header-title text-2xl font-semibold">Thomas Bale</div>
-                        <div className="some text-base text-gray-600 text-center">
+                        <div className="header-title text-8xl font-semibold">Hi, I&apos;m Thomas Bale</div>
+                        <div className="some text-3xl text-gray-600 text-center">
                             Athlete | Developer | Student | Entrepreneur
                         </div>
-                        <div className="some text-base text-gray-600 text-center">
+                        <div className="some text-2xl text-gray-600 text-center">
                             Quantum | ML | AI | HPC
                         </div>
                     </div>
@@ -47,7 +47,7 @@ export default function AchievementsTimeline() {
 
             {/* Desktop Right Logo */}
             <div className="hidden md:flex w-full absolute top-3/4 px-10 justify-between z-20">
-                <div className="absolute right-10 bottom-1/4 img-wrapper max-w-xs w-full">
+                <div className="absolute bottom-1/5 left-1/2 transform -translate-x-1/2 img-wrapper max-w-xs w-full">
                     <a>
                         <img
                             className="header-logo w-full"
@@ -61,7 +61,7 @@ export default function AchievementsTimeline() {
 
             {/* Desktop Timeline */}
             <div
-                className="hidden md:flex absolute left-0 top-[40%] transform -translate-y-1/2
+                className="hidden md:flex absolute left-0 top-[50%] transform -translate-y-1/2
                    w-full h-[500px] overflow-x-auto overflow-y-hidden
                    flex items-center snap-x snap-mandatory hide-scrollbar z-10"
             >
@@ -114,7 +114,7 @@ export default function AchievementsTimeline() {
             </div>
 
             {/* Center Horizontal Line (desktop only) */}
-            <div className="hidden md:block absolute top-[40%] transform -translate-y-1/2 w-full h-1 bg-gray-300 z-0" />
+            <div className="hidden md:block absolute top-[50%] transform -translate-y-1/2 w-full h-1 bg-gray-300 z-0" />
 
             {/* Mobile Layout */}
             <div className="md:hidden w-full flex flex-col items-center text-center px-6">
