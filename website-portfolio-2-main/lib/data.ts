@@ -17,7 +17,7 @@ import pyImg from "@/public/py.png";
 import AWHImg from "@/public/AWH.png"
 import REPImg from "@/public/rep.png"
 import CHESSImg from "@/public/chess.png"
-import AOCImg from "@/public/aoc.png"
+import adventImg from "@public/advent.png"
 import IS1 from "@/public/IS1.png"
 import IS2 from "@/public/IS2.png"
 import IS3 from "@/public/IS3.png"
@@ -222,7 +222,7 @@ export const projectsData = [
     description:
         "My advent of code daily solutions. All 2024 days solved in python.",
     tags: ["Python", "algorithms", "graph theory", "Number Theory", "Dynamic Programming"],
-    imageUrl: AOCImg,
+    imageUrl: adventImg,
     link: "https://github.com/TumCucTom/Advent-Of-Code"
   },
   {
