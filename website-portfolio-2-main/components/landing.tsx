@@ -1,55 +1,37 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { useTheme } from "@/context/theme-context";
 
-const videoListWhite = [
-    "/video/first-house.mp4",
-    "/video/main-tower.mp4",
-    "/video/tower.mp4",
-    "/video/tower-water.mp4",
-    "/video/zero-home.mp4",
+const timelineEvents = [
+    { date: "June 2023", title: "AI for Chess in 3 Dimensions" },
+    { date: "July 2024", title: "Ironman Switzerland 140.6" },
+    { date: "September 2024", title: "Veloworks Founded" },
+    { date: "September 2024", title: "DigitalU3 u3Core Contract" },
+    { date: "December 2025", title: "Winner - MIT iQuHack IonQ Content Bounty" },
+    { date: "December 2025", title: "Winner - UoB Quantum Computing Society Founded" },
+    { date: "February 2025", title: "Winner - ETH Oxford Hackathon" },
+    { date: "February 2025", title: "Machine Learning Researcher" },
+    { date: "February 2025", title: "Winner - ETH Oxford Hackathon" },
+    { date: "March 2025", title: "Google Deepmind Research Internship Offer" },
+    { date: "April 2025", title: "Winner - EncodeAI Wormhole Bounty" },
 ];
 
-const LOCAL_STORAGE_KEY = "lastPlayedVideoIndex";
-
-export default function VideoCyclePlayer() {
+export default function AchievementsTimeline() {
     const { theme } = useTheme();
-    const videoList = videoListWhite;
-
-    const [videoIndex, setVideoIndex] = useState(0);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const videoRef = useRef<HTMLVideoElement | null>(null);
-
-    useEffect(() => {
-        const savedIndex = parseInt(localStorage.getItem(LOCAL_STORAGE_KEY) || "0");
-        const nextIndex = (savedIndex + 1) % videoList.length;
-        setVideoIndex(nextIndex);
-        localStorage.setItem(LOCAL_STORAGE_KEY, nextIndex.toString());
-
-        const handlePlayVideo = () => {
-            videoRef.current?.play().catch(() => {});
-        };
-
-        window.addEventListener("playLandingVideo", handlePlayVideo);
-        return () => window.removeEventListener("playLandingVideo", handlePlayVideo);
-    }, [theme]);
-
-    const handleClick = () => {
-        const nextIndex = (videoIndex + 1) % videoList.length;
-        setVideoIndex(nextIndex);
-        localStorage.setItem(LOCAL_STORAGE_KEY, nextIndex.toString());
-        setIsLoaded(false); // Reset loader when switching
-    };
+    const [mobileIdx, setMobileIdx] = useState(0);
+    const total = timelineEvents.length;
+    const aboveEvent = timelineEvents[mobileIdx];
+    const belowEvent = timelineEvents[(mobileIdx + 1) % total];
 
     return (
         <section
             id="home"
-            className="relative min-h-screen w-full bg-white flex flex-col items-top justify-start z-10"
+            className="relative min-h-screen w-full bg-white flex flex-col items-top justify-start z-10 overflow-hidden"
         >
-            {/* Desktop Header (absolute, left and right) */}
-            <div className="hidden md:flex w-full absolute style={{ top: '21%' }} px-20 justify-between z-20">
-                {/* Left Text - 3/4 Up (25% from top) */}
+            {/* Desktop Header */}
+            <div className="hidden md:flex w-full absolute top-[20%] px-20 justify-between z-20">
                 <div className="text-black absolute left-10 text-left">
                     <div className="flex flex-col items-center space-y-1">
                         <div className="header-title text-2xl font-semibold">Thomas Bale</div>
@@ -63,66 +45,155 @@ export default function VideoCyclePlayer() {
                 </div>
             </div>
 
-            {/* Right Logo - 3/4 Down (75% from top) */}
+            {/* Desktop Right Logo */}
             <div className="hidden md:flex w-full absolute top-3/4 px-10 justify-between z-20">
                 <div className="absolute right-10 bottom-1/4 img-wrapper max-w-xs w-full">
                     <a>
                         <img
                             className="header-logo w-full"
-                            id="header-logo"
                             src="/veloworks.png"
                             alt="Logo"
-                            onClick={() => {
-                                window.open("https://www.shopveloworks.com/", "_blank");
-                            }}
+                            onClick={() => window.open("https://www.shopveloworks.com/", "_blank")}
                         />
                     </a>
                 </div>
             </div>
 
-            {/* Video Section */}
+            {/* Desktop Timeline */}
             <div
-                className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-[50%] md:-translate-y-[65%] w-full max-w-3xl cursor-pointer transition duration-300"
-                onClick={handleClick}
+                className="hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2
+                   w-full h-[500px] overflow-x-auto overflow-y-hidden
+                   flex items-center snap-x snap-mandatory hide-scrollbar z-10"
             >
-                {!isLoaded && (
-                    <div className="h-full bg-white animate-pulse rounded-xl"/>
-                )}
+                <div className="flex space-x-20 px-20 relative h-full">
+                    {timelineEvents.map((event, idx) => {
+                        const isAbove = idx % 2 === 0;
+                        const initialY = isAbove ? -50 : 50;
 
-                <video
-                    ref={videoRef}
-                    key={videoList[videoIndex]}
-                    className={`w-full h-auto ${!isLoaded ? "hidden" : "block"}`}
-                    src={videoList[videoIndex]}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    onLoadedData={() => setIsLoaded(true)}
-                />
+                        return (
+                            <div
+                                key={idx}
+                                className="relative flex-shrink-0 flex flex-col items-center justify-center min-w-[300px] snap-center h-full"
+                            >
+                                {/* dot */}
+                                <div
+                                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2
+                              w-3 h-3 rounded-full bg-gray-600 z-20"
+                                />
+
+                                <motion.div
+                                    className={`relative flex flex-col items-center justify-center ${
+                                        isAbove ? "mb-48" : "mt-48"
+                                    }`}
+                                    initial={{ opacity: 0, y: initialY }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: false, amount: 0.5 }}
+                                    whileHover={{ scale: 1.05, y: isAbove ? -10 : 10 }}
+                                    transition={{ duration: 0.5, ease: "easeOut" }}
+                                >
+                                    {isAbove && (
+                                        <div className="text-xl font-bold text-gray-800 mb-2">
+                                            {event.date}
+                                        </div>
+                                    )}
+
+                                    <div className="p-6 bg-gray-100 rounded-xl shadow-lg text-center z-10">
+                                        <div className="text-lg text-gray-700">{event.title}</div>
+                                    </div>
+
+                                    {!isAbove && (
+                                        <div className="text-xl font-bold text-gray-800 mt-2">
+                                            {event.date}
+                                        </div>
+                                    )}
+                                </motion.div>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
 
-                {/* Mobile Stacked Header (below video) */}
-                <div className="md:hidden flex flex-col items-center mt-6 px-6 text-black text-center space-y-4">
+            {/* Center Horizontal Line (desktop only) */}
+            <div className="hidden md:block absolute top-1/2 transform -translate-y-1/2 w-full h-1 bg-gray-300 z-0" />
+
+            {/* Mobile Layout */}
+            <div className="md:hidden w-full flex flex-col items-center text-center px-6">
+                {/* Name & roles */}
+                <div className="mt-6 space-y-2">
                     <div className="text-2xl font-semibold">Thomas Bale</div>
                     <div className="text-base text-gray-600">
                         Entrepreneur | Athlete | Developer | Student
                     </div>
-                    <div className="w-full max-w-sm">
-                        <a>
-                            <img
-                                className="header-logo w-full"
-                                id="header-logo"
-                                src="/veloworks.png"
-                                alt="Logo"
-                                onClick={() => {
-                                    window.open("https://www.shopveloworks.com/", "_blank");
-                                }}
-                            />
-                        </a>
-                    </div>
                 </div>
-        </section>
 
-);
+                {/* Mobile Timeline */}
+                <div className="relative w-full h-[300px] flex flex-col items-center justify-center mt-8">
+                    {/* Above card */}
+                    <motion.div
+                        key={`above-${mobileIdx}`}
+                        initial={{ opacity: 0, y: -50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="flex flex-col items-center"
+                    >
+                        <div className="text-xl font-bold text-gray-800 mb-2">
+                            {aboveEvent.date}
+                        </div>
+                        <div className="p-4 bg-gray-100 rounded-xl shadow-lg text-center w-full max-w-xs break-words">
+                            <div className="text-lg text-gray-700">{aboveEvent.title}</div>
+                        </div>
+                    </motion.div>
+
+                    {/* Below card */}
+                    <motion.div
+                        key={`below-${mobileIdx}`}
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                        className="flex flex-col items-center pt-6"
+                    >
+                        <div className="p-4 bg-gray-100 rounded-xl shadow-lg text-center w-full max-w-xs break-words">
+                            <div className="text-lg text-gray-700">{belowEvent.title}</div>
+                        </div>
+                        <div className="text-xl font-bold text-gray-800 mt-2">
+                            {belowEvent.date}
+                        </div>
+                    </motion.div>
+                </div>
+
+                {/* Mobile Horizontal Line */}
+                <div className="w-full h-1 bg-gray-300 my-6" />
+
+                {/* Navigation Buttons */}
+                <div className="flex space-x-4 mt-6 mb-6">
+                    <button
+                        onClick={() => setMobileIdx((mobileIdx - 2 + total) % total)}
+                        className="px-4 py-2 bg-gray-200 rounded-lg shadow"
+                    >
+                        ←
+                    </button>
+                    <button
+                        onClick={() => setMobileIdx((mobileIdx + 2) % total)}
+                        className="px-4 py-2 bg-gray-200 rounded-lg shadow"
+                    >
+                        →
+                    </button>
+                </div>
+
+                {/* Veloworks Logo (mobile) */}
+                <div className="mb-6">
+                    <a>
+                        <img
+                            className="w-full max-w-full"
+                            src="/veloworks.png"
+                            alt="Logo"
+                            onClick={() =>
+                                window.open("https://www.shopveloworks.com/", "_blank")
+                            }
+                        />
+                    </a>
+                </div>
+            </div>
+        </section>
+    );
 }
