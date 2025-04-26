@@ -31,7 +31,7 @@ export default function AchievementsTimeline() {
             className="relative min-h-screen w-full bg-white flex flex-col items-top justify-start z-10 overflow-hidden"
         >
             {/* Desktop Header */}
-            <div className="hidden md:flex w-full absolute top-[5%] px-20 justify-between z-20">
+            <div className="hidden md:flex w-full absolute top-[0%] px-20 justify-between z-20">
                 <div className="text-black absolute left-10 text-left">
                     <div className="flex flex-col items-center space-y-1">
                         <div className="header-title text-2xl font-semibold">Thomas Bale</div>
@@ -160,9 +160,6 @@ export default function AchievementsTimeline() {
                         </div>
                     </motion.div>
                 </div>
-
-                {/* Mobile Horizontal Line */}
-                <div className="w-full h-1 bg-gray-300 my-6" />
 
                 {/* Navigation Buttons */}
                 <div className="flex space-x-4 mt-6 mb-6">
