@@ -1,42 +1,28 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "@/context/theme-context";
 
 export default function ParticlesBackground() {
     const { theme, toggleTheme } = useTheme();
     const [isPortrait, setIsPortrait] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
-    const [fadeIn, setFadeIn] = useState(false); // NEW
-    const videoRef = useRef<HTMLVideoElement | null>(null);
+    const [fadeInIndex, setFadeInIndex] = useState(0); // Track which image is fading in
+    const images = [
+        "/heatmaps/1.png",
+        "/heatmaps/3.png",
+        "/heatmaps/4.png",
+        "/heatmaps/5.png", // Add more images as needed
+    ];
 
-    // Attempt to autoplay video on mount
+    // Function to change the current image every 15 seconds
     useEffect(() => {
-        if (videoRef.current) {
-            const playPromise = videoRef.current.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(() => {
-                    setShowPopup(true);
-                });
-            }
-        }
+        const interval = setInterval(() => {
+            setFadeInIndex((prevIndex) => (prevIndex + 1) % images.length); // Change to the next image
+        }, 15000); // 15 seconds interval
+
+        return () => clearInterval(interval);
     }, []);
-
-    // Handle theme selection & play video
-    const handleThemeSelection = (selectedTheme: "light" | "dark") => {
-        const currentTheme = window.localStorage.getItem("theme");
-        if (currentTheme !== selectedTheme) {
-            toggleTheme();
-        }
-
-        setShowPopup(false);
-
-        // Play this background video
-        videoRef.current?.play().catch(() => {});
-
-        // ✅ Dispatch event to notify other components (e.g., landing video)
-        window.dispatchEvent(new Event("playLandingVideo"));
-    };
 
     // Update screen orientation
     useEffect(() => {
@@ -53,41 +39,18 @@ export default function ParticlesBackground() {
         const handleScroll = () => {
             const scrollY = window.scrollY;
             const triggerPoint = window.innerHeight * 0.8; // 80% down the first section
-            setFadeIn(scrollY > triggerPoint);
+            setFadeInIndex(scrollY > triggerPoint ? fadeInIndex : -1); // Fade images when scrolled past a certain point
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    const videoSrc = "/particles-light.webm";
+    }, [fadeInIndex]);
 
     return (
         <>
-            {showPopup && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black/60 z-50">
-                    <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg text-center">
-                        <p className="mb-4 text-lg">Choose a theme:</p>
-                        <button
-                            onClick={() => handleThemeSelection("light")}
-                            className="bg-white text-black px-6 py-2 rounded-lg mb-2 w-full"
-                        >
-                            Light Mode
-                        </button>
-                    </div>
-                </div>
-            )}
 
-            <video
-                ref={videoRef}
-                className={`fixed top-0 left-0 -z-10 transition-opacity duration-[1500ms] ease-in-out ${
-                    fadeIn ? "opacity-100" : "opacity-0"
-                }`}
-                autoPlay
-                loop
-                muted
-                playsInline
-                key={videoSrc}
+            <div
+                className={`fixed top-0 left-0 -z-10`}
                 style={{
                     minWidth: isPortrait ? "100vh" : "100vw",
                     minHeight: isPortrait ? "100vw" : "100vh",
@@ -103,9 +66,32 @@ export default function ParticlesBackground() {
                     transformOrigin: "center center",
                 }}
             >
-                <source src={videoSrc} type="video/webm" />
-                <source src={videoSrc.replace(".webm", ".mp4")} type="video/mp4" />
-            </video>
+                <div
+                    className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out`}
+                    style={{
+                        opacity: fadeInIndex === 0 ? 1 : 0, // Fade the first image out
+                    }}
+                >
+                    <img
+                        src={images[(fadeInIndex - 1 + images.length) % images.length]} // Show the previous image when fading out
+                        alt="Background"
+                        className="object-cover w-full h-full"
+                    />
+                </div>
+
+                <div
+                    className={`absolute inset-0 transition-opacity duration-[1500ms] ease-in-out`}
+                    style={{
+                        opacity: fadeInIndex === 0 ? 0 : 1, // Fade the next image in
+                    }}
+                >
+                    <img
+                        src={images[fadeInIndex]} // Show the current image when fading in
+                        alt="Background"
+                        className="object-cover w-full h-full"
+                    />
+                </div>
+            </div>
         </>
     );
 }
