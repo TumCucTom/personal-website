@@ -31,7 +31,7 @@ export default function AchievementsTimeline() {
             className="relative min-h-screen w-full bg-white flex flex-col items-top justify-start z-10 overflow-hidden"
         >
             {/* Desktop Header */}
-            <div className="hidden md:flex w-full absolute top-[20%] px-20 justify-between z-20">
+            <div className="hidden md:flex w-full absolute top-[5%] px-20 justify-between z-20">
                 <div className="text-black absolute left-10 text-left">
                     <div className="flex flex-col items-center space-y-1">
                         <div className="header-title text-2xl font-semibold">Thomas Bale</div>
@@ -61,7 +61,7 @@ export default function AchievementsTimeline() {
 
             {/* Desktop Timeline */}
             <div
-                className="hidden md:flex absolute left-0 top-1/2 transform -translate-y-1/2
+                className="hidden md:flex absolute left-0 top-1/3 transform -translate-y-1/2
                    w-full h-[500px] overflow-x-auto overflow-y-hidden
                    flex items-center snap-x snap-mandatory hide-scrollbar z-10"
             >
@@ -114,7 +114,7 @@ export default function AchievementsTimeline() {
             </div>
 
             {/* Center Horizontal Line (desktop only) */}
-            <div className="hidden md:block absolute top-1/2 transform -translate-y-1/2 w-full h-1 bg-gray-300 z-0" />
+            <div className="hidden md:block absolute top-1/3 transform -translate-y-1/2 w-full h-1 bg-gray-300 z-0" />
 
             {/* Mobile Layout */}
             <div className="md:hidden w-full flex flex-col items-center text-center px-6">
