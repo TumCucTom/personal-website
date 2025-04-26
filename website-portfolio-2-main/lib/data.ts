@@ -9,7 +9,7 @@ import { FaBookOpen } from "react-icons/fa";
 import { GiAtom } from "react-icons/gi";
 
 
-import QFPImg from "@/public/QFP.png";
+import ENCimg from "@/public/encode.png";
 import GAIImg from "@/public/GAI.png";
 import scotlandImg from "@/public/scotlandyard_ai.png";
 import QCImg from "@/public/QC.png";
@@ -159,12 +159,18 @@ export const projectsData = [
     link: "https://github.com/TumCucTom/quantum-cross-chain-arbitrage"
   },
   {
-    title: "Quantum Finance Predictions",
+    title: "CertAInty Quantum",
     description:
-    "A web app that takes a stock symbol, fetches historical data using alpha vantage's API and outputs predictions for future movement from training a QNN on that stock's past performance. Solution for a 3h creative hackathon - submitted with 4 jupyter notebooks for recreating the project and a LaTex report.",
-    tags: ["Python","Qiskit","ML","AI","Node.js", "Jupyter", "NumPy", "Pandas", "LaTeX"],
-    imageUrl: QFPImg,
-    link: "https://github.com/TumCucTom/quantum-finanace-predictions"
+    "👑Winners EncodeAI Wormhole bounty👑\n" +
+        "CertAInty Quantum is a suite of tools for quantum enhanced portfolio optimisation - made easy to understand and execute with informed AIs.\n" +
+        "\n" +
+        "We enhance Starkware's Brian AI (|Brian⟩) with our quantum pre execution scripts.\n" +
+        "Empower users with quantum financial tools powered by Wormhole API\n" +
+        "Provide a quantum informed XAI assistant to demystify the quantum x (De)Fi world in an explainable manner\n" +
+        "We use solana to rebalance portfoliio's for low cost (gas fees)\n",
+    tags: ["Python","Qiskit","ML","AI","Node.js"],
+    imageUrl: ENCimg,
+    link: "https://github.com/TumCucTom/Quantum-AI-DeFi-Portfolio-Optimisation"
   },
   {
     title: "All Weather Horse Racing Predictions [Ongoing]",
