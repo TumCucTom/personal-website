@@ -61,7 +61,7 @@ export default function AchievementsTimeline() {
 
             {/* Desktop Timeline */}
             <div
-                className="hidden md:flex absolute left-0 top-[45%] transform -translate-y-1/2
+                className="hidden md:flex absolute left-0 top-[40%] transform -translate-y-1/2
                    w-full h-[500px] overflow-x-auto overflow-y-hidden
                    flex items-center snap-x snap-mandatory hide-scrollbar z-10"
             >
@@ -114,7 +114,7 @@ export default function AchievementsTimeline() {
             </div>
 
             {/* Center Horizontal Line (desktop only) */}
-            <div className="hidden md:block absolute top-[45%] transform -translate-y-1/2 w-full h-1 bg-gray-300 z-0" />
+            <div className="hidden md:block absolute top-[40%] transform -translate-y-1/2 w-full h-1 bg-gray-300 z-0" />
 
             {/* Mobile Layout */}
             <div className="md:hidden w-full flex flex-col items-center text-center px-6">
