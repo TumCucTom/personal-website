@@ -11,7 +11,6 @@ import { GiAtom } from "react-icons/gi";
 
 import ENCimg from "@/public/encode.png";
 import GAIImg from "@/public/GAI.png";
-import scotlandImg from "@/public/scotlandyard_ai.png";
 import QCImg from "@/public/QC.png";
 import gitImg from "@/public/git.png";
 import pyImg from "@/public/py.png";
