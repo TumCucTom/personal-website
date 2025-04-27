@@ -7,6 +7,7 @@ import Link from "next/link";
 import {BsArrowRight} from "react-icons/bs";
 import {HiDownload} from "react-icons/hi";
 import {SocialIcon} from "react-social-icons";
+import {useActiveSectionContext} from "@/context/active-section-context";
 
 const bg = "/heatmaps/1.png";
 
@@ -25,6 +26,7 @@ const timelineEvents = [
 ];
 
 export default function AchievementsTimeline() {
+    const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
     const { theme } = useTheme();
     const [mobileIdx, setMobileIdx] = useState(0);
     const total = timelineEvents.length;

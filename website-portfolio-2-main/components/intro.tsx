@@ -2,10 +2,6 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { BsArrowRight } from 'react-icons/bs';
-import { HiDownload } from 'react-icons/hi';
-import { SocialIcon } from 'react-social-icons';
 import SectionHeading from './section-heading';
 import { useActiveSectionContext } from '@/context/active-section-context';
 import { useSectionInView } from '@/lib/hooks';
