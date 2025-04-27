@@ -45,61 +45,6 @@ export default function IntroAbout() {
                     </a>
                 </motion.div>
 
-                {/* Mobile-Only Buttons (Stacked) */}
-                <div className="flex flex-col gap-4 w-60 md:hidden">
-                    {/* 3 Buttons Stacked */}
-                    <Link
-                        href="#contact"
-                        className="group bg-gray-900 text-white px-6 py-4 flex items-center justify-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 transition"
-                        onClick={() => {
-                            setActiveSection("Contact");
-                            setTimeOfLastClick(Date.now());
-                        }}
-                    >
-                        Contact me here
-                        <BsArrowRight className="group-hover:opacity-60 group-hover:translate-x-2 transition" />
-                    </Link>
-
-                    <a
-                        className="group bg-gray-900 text-white px-6 py-4 flex items-center justify-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 transition"
-                        onClick={() => {
-                            window.open("https://www.shopveloworks.com/", "_blank");
-                            setTimeOfLastClick(Date.now());
-                        }}
-                    >
-                        Business Website
-                        <BsArrowRight className="group-hover:opacity-60 group-hover:translate-x-2 transition" />
-                    </a>
-
-                    <a
-                        className="group bg-white bg-opacity-90 px-6 py-4 flex items-center justify-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 transition cursor-pointer border border-black dark:bg-gray-950 dark:border-white dark:bg-opacity-75"
-                        href="/CV_Thomas_Bale.pdf"
-                        download
-                    >
-                        Download CV
-                        <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
-                    </a>
-
-                    {/* Social Icons in One Row */}
-                    <div className="flex justify-center gap-6 mt-2">
-                        <SocialIcon
-                            bgColor="transparent"
-                            fgColor="currentColor"
-                            className="cursor-pointer w-14 h-14"
-                            style={{ color: theme === "light" ? "black" : "white" }}
-                            url="https://www.linkedin.com/in/thomas-bale-5863542a4/"
-                        />
-
-                        <SocialIcon
-                            bgColor="transparent"
-                            fgColor="currentColor"
-                            className="cursor-pointer w-14 h-14"
-                            style={{ color: theme === "light" ? "black" : "white" }}
-                            url="https://github.com/TumCucTom"
-                        />
-                    </div>
-                </div>
-
                 {/* About Me Section (Full Width on Mobile, Right-Aligned on Desktop) */}
                 <motion.div
                     ref={aboutRef}
@@ -132,56 +77,6 @@ export default function IntroAbout() {
                     </p>
                 </motion.div>
             </div>
-            {/* Desktop Buttons (Row Layout) */}
-            <motion.div
-                className="hidden md:flex flex-wrap items-center justify-center gap-6 w-full px-4 py-10 text-lg font-medium"
-                initial={{ y: 100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-            >
-                <Link
-                    href="#contact"
-                    className="group bg-gray-900 text-white px-10 py-4 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 transition"
-                >
-                    Contact me here
-                    <BsArrowRight className="group-hover:opacity-60 group-hover:translate-x-2 transition" />
-                </Link>
-
-                <a
-                    className="group bg-gray-900 text-white px-10 py-4 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 transition"
-                    onClick={() => window.open("https://www.shopveloworks.com/", "_blank")}
-                >
-                    Business Website
-                    <BsArrowRight className="group-hover:opacity-60 group-hover:translate-x-2 transition" />
-                </a>
-
-                <a
-                    className="group bg-white bg-opacity-90 px-10 py-4 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 transition cursor-pointer border border-black dark:bg-gray-950 dark:border-white dark:bg-opacity-75"
-                    href="/CV_Thomas_Bale.pdf"
-                    download
-                >
-                    Download CV
-                    <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
-                </a>
-                {/* Social Icons in One Row */}
-                <div className="flex justify-center gap-6 mt-2">
-                    <SocialIcon
-                        bgColor="transparent"
-                        fgColor="currentColor"
-                        className="cursor-pointer w-14 h-14"
-                        style={{ color: theme === "light" ? "black" : "white" }}
-                        url="https://www.linkedin.com/in/thomas-bale-5863542a4/"
-                    />
-
-                    <SocialIcon
-                        bgColor="transparent"
-                        fgColor="currentColor"
-                        className="cursor-pointer w-14 h-14"
-                        style={{ color: theme === "light" ? "black" : "white" }}
-                        url="https://github.com/TumCucTom"
-                    />
-                </div>
-            </motion.div>
         </section>
     );
 }
