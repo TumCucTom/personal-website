@@ -53,7 +53,7 @@ export default function ParticlesBackground() {
         const handleScroll = () => {
             const scrollY = window.scrollY;
             const triggerPoint = window.innerHeight * 0.8; // 80% down the first section
-            setFadeIn(scrollY > triggerPoint);
+            setFadeIn(true);
         };
 
         window.addEventListener("scroll", handleScroll);
