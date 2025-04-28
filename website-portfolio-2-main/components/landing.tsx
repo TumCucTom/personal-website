@@ -259,7 +259,7 @@ export default function AchievementsTimeline() {
             </div>
 
             {/* Center Horizontal Line (desktop only) */}
-            <div className="hidden md:block absolute top-[40%] transform -translate-y-1/2 w-full h-1 bg-gray-300 z-0"/>
+            <div className="hidden md:block absolute top-[38%] transform -translate-y-1/2 w-full h-1 bg-gray-300 z-0"/>
 
             {/* Mobile Layout */}
             <div className="md:hidden w-full flex flex-col items-center text-center px-6">
