@@ -9,21 +9,20 @@ import {HiDownload} from "react-icons/hi";
 import {SocialIcon} from "react-social-icons";
 import {useActiveSectionContext} from "@/context/active-section-context";
 
-const bg = "/heatmaps/1.png";
 
 const timelineEvents = [
-    { date: "June 2023", title: "AI for Chess in 3 Dimensions" },
-    { date: "July 2024", title: "Ironman Switzerland 140.6" },
-    { date: "September 2024", title: "Veloworks Founded" },
-    { date: "September 2024", title: "DigitalU3 u3Core Contract" },
-    { date: "December 2025", title: "Winner - MIT iQuHack IonQ Content Bounty" },
-    { date: "December 2025", title: "Winner - UoB Quantum Computing Society Founded" },
-    { date: "February 2025", title: "Winner - ETH Oxford Hackathon" },
-    { date: "February 2025", title: "Machine Learning Researcher" },
-    { date: "February 2025", title: "Winner - ETH Oxford Hackathon" },
-    { date: "March 2025", title: "Google Deepmind Research Internship Offer" },
-    { date: "April 2025", title: "Winner - EncodeAI Wormhole Bounty" },
+    { date: "June 2023", title: "AI for Chess in 3 Dimensions", img: "/chess.png" },
+    { date: "July 2024", title: "Ironman Switzerland 140.6", img: "/IS3.png" },
+    { date: "September 2024", title: "Veloworks Founded", img: "vel.png" },
+    { date: "September 2024", title: "DigitalU3 u3Core Contract", img: "/u3.png" },
+    { date: "December 2025", title: "MIT iQuHack IonQ Content Bounty", img: "/bris2.png" },
+    { date: "December 2025", title: "UoB Quantum Computing Society Founded", img: "/bris1.png" },
+    { date: "February 2025", title: "Winner - ETH Oxford Hackathon", img: "/medi.png" },
+    { date: "February 2025", title: "Machine Learning Researcher", img: "/emotional.png" },
+    { date: "March 2025", title: "Google Deepmind Research Internship Offer", img: "/deep.png" },
+    { date: "April 2025", title: "EncodeAI Wormhole Bounty", img: "/encode.png" },
 ];
+
 
 export default function AchievementsTimeline() {
     const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
@@ -131,9 +130,6 @@ export default function AchievementsTimeline() {
                         <div className="some text-xl text-gray-600 text-center">
                             Co-Founder | Athlete | Developer
                         </div>
-                        <div className="some text-lg text-gray-600 text-center">
-                            Quantum | ML | AI
-                        </div>
                     </div>
                 </div>
             </div>
@@ -197,7 +193,7 @@ export default function AchievementsTimeline() {
                 <div className="flex space-x-20 px-20 relative h-full">
                     {timelineEvents.map((event, idx) => {
                         const isAbove = idx % 2 === 0;
-                        const initialY = isAbove ? -50 : 50;
+                        const initialY = isAbove ? 0 : 0;
 
                         return (
                             <div
@@ -205,23 +201,56 @@ export default function AchievementsTimeline() {
                                 className="relative flex-shrink-0 flex flex-col items-center justify-center min-w-[300px] snap-center h-full"
                             >
                                 {/* dot */}
-                                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-gray-600 z-20" />
+                                <div
+                                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 z-20"/>
 
                                 <motion.div
-                                    className={`relative flex flex-col items-center justify-center ${
-                                        isAbove ? "mb-48" : "mt-48"
-                                    }`}
-                                    initial={{ opacity: 0, y: initialY }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: false, amount: 0.5 }}
-                                    whileHover={{ scale: 1.05, y: isAbove ? -10 : 10 }}
-                                    transition={{ duration: 0.5, ease: "easeOut" }}
+                                    className={`relative flex flex-col items-center justify-center ${isAbove ? "mb-5" : "mt-5"}`}
+                                    initial={{opacity: 0, y: initialY}}
+                                    whileInView={{opacity: 1, y: 0}}
+                                    viewport={{once: false, amount: 0.5}}
+                                    whileHover={{scale: 1.05,}}
+                                    transition={{duration: 0.5, ease: "easeOut"}}
                                 >
-                                    {isAbove && <div className="text-xl font-bold text-gray-800 mb-2">{event.date}</div>}
-                                    <div className="p-6 bg-gray-100 rounded-xl shadow-lg text-center z-10">
-                                        <div className="text-lg text-gray-700">{event.title}</div>
-                                    </div>
-                                    {!isAbove && <div className="text-xl font-bold text-gray-800 mt-2">{event.date}</div>}
+                                    {isAbove ? (
+                                        <>
+                                        <div className="flex flex-col items-center gap-10">
+                                            {/* Date and Title */}
+                                            <div className="text-center">
+                                            <div className="text-xl font-bold text-gray-800 mb-2">{event.date}</div>
+                                            <div className="p-6 bg-gray-100 rounded-xl shadow-lg text-center z-10">
+                                                <div className="text-lg text-gray-700">{event.title}</div>
+                                            </div>
+                                            </div>
+                                            {/* Image above */}
+                                            <img
+                                                src={event.img}
+                                                alt={event.title}
+                                                className="w-48 h-48 object-cover rounded-lg mb-20 shadow-md"
+                                            />
+                                        </div>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <div className="flex flex-col items-center gap-10">
+                                            {/* Image below */}
+                                            <img
+                                                src={event.img}
+                                                alt={event.title}
+                                                className="w-48 h-48 object-cover rounded-lg mt-20 shadow-md"
+                                            />
+                                            {/* Date and Title first */}
+                                                <div className="text-center">
+                                                    <div
+                                                        className="p-6 bg-gray-100 rounded-xl shadow-lg text-center z-10">
+                                                        <div className="text-lg text-gray-700">{event.title}</div>
+                                                    </div>
+                                                    <div
+                                                        className="p-6 text-xl font-bold text-gray-800 mb-2">{event.date}</div>
+                                                </div>
+                                            </div>
+                                        </>
+                                    )}
                                 </motion.div>
                             </div>
                         );
@@ -230,7 +259,7 @@ export default function AchievementsTimeline() {
             </div>
 
             {/* Center Horizontal Line (desktop only) */}
-            <div className="hidden md:block absolute top-[40%] transform -translate-y-1/2 w-full h-1 bg-gray-300 z-0" />
+            <div className="hidden md:block absolute top-[40%] transform -translate-y-1/2 w-full h-1 bg-gray-300 z-0"/>
 
             {/* Mobile Layout */}
             <div className="md:hidden w-full flex flex-col items-center text-center px-6">
