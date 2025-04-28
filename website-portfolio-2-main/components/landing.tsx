@@ -119,7 +119,7 @@ export default function AchievementsTimeline() {
     return (
         <section
             id="home"
-            className="relative min-h-screen bg-white/0 w-full flex flex-col items-top justify-start z-10 overflow-hidden"
+            className="relative min-h-screen bg-white/50 w-full flex flex-col items-top justify-start z-10 overflow-hidden"
         >
 
             {/* Desktop Header */}
