@@ -226,7 +226,7 @@ export default function AchievementsTimeline() {
                                             <img
                                                 src={event.img}
                                                 alt={event.title}
-                                                className="w-48 h-48 object-cover rounded-lg mb-20 shadow-md"
+                                                className="w-32 h-32 object-cover rounded-lg mb-20 shadow-md"
                                             />
                                         </div>
                                         </>
@@ -237,7 +237,7 @@ export default function AchievementsTimeline() {
                                             <img
                                                 src={event.img}
                                                 alt={event.title}
-                                                className="w-48 h-48 object-cover rounded-lg mt-20 shadow-md"
+                                                className="w-32 h-32 object-cover rounded-lg mt-20 shadow-md"
                                             />
                                             {/* Date and Title first */}
                                                 <div className="text-center">
