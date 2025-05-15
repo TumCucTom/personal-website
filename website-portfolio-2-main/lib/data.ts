@@ -93,43 +93,54 @@ export const interestsAndAchievements = [
 
 export const experiencesData = [
   {
-    title: "Researcher - Machine Learning",
+    title: "UK HPC Team",
+    subtitle: "UKSCC",
+    description:'Representing the UK at ISC25. Application optimisation for OpenMX and LLMs (llama).',
+    icon: React.createElement(FaBuilding),
+    date: "May 2025 - Present",
+  },
+  {
+    title: "Machine Learning Researcher",
     subtitle: "University of Bristol",
-    description:'• Using NNs to develop a scalable and cost effective workflow for generating photorealistic stimulus sets for psychological research of emotional face stimuli. University of Bristol, School of Brain, Behaviour and Health.',
+    description:'Developed scalable NN workflows for generating photorealistic, emotional faces for psychological research. University of Bristol, School of Brain, Behaviour and Health.',
     icon: React.createElement(FaBookOpen),
-    date: "Feb 2025 - Current",
+    date: "Feb 2025 - Present",
+  },
+  {
+    title: "Machine Learning Software Engineer",
+    subtitle: "DigitalU3",
+    description:'2nd place Intel Partner AI PC Innovation, u3Core is a machine learning approach to hazard detection for IoT platforms. Engineered a machine learning-based system adaptable for various IoT integrations, focusing on efficiency. Developed a scalable web application, integrating backend functionalities and a structured database.',
+    icon: React.createElement(FaBuilding),
+    date: "Sep 2024 - Apr 2025",
+  },
+  {
+    title: "Machine Learning Engineer",
+    subtitle: "DeepSynthetics",
+    description:'Developed advanced workflows for predictive modelling in all weather horse racing. Enhancing model performance by 250%+ through diverse machine learning methodologies.',
+    icon: React.createElement(FaBuilding),
+    date: "Dec 2024 - May 2025",
   },
   {
     title: "Founder",
     subtitle: "University of Bristol Quantum Computing",
-    description:'• Founder - After gauging interest for a quantum hackathon at the University of Bristol, it was clear that there were many like-minded people eager to break into this area.',
+    description:' Founder - After gauging interest for a quantum hackathon at the University of Bristol, it was clear that there were many like-minded people eager to break into this area.',
     icon: React.createElement(GiAtom),
-    date: "Dec 2024 - Current",
+    date: "Dec 2024",
   },
   {
     title: "President",
     subtitle: "University of Bristol Quantum Computing",
-    description:'• First elected president - Prepared and managed the planning of the university’s first quantum computing hackathon. Run, manage and oversee: weekly sessions, challenges and member’s interests.',
+    description:' First elected president - Prepared and managed the planning of the university’s first quantum computing hackathon. Run, manage and oversee: weekly sessions, challenges and member’s interests.',
     icon: React.createElement(GiAtom),
-    date: "Jan 2025 - Current",
+    date: "Jan 2025 - Apr 2025",
   },
   {
-    title: "Machine Learning and Software Engineer",
-    subtitle: "DigitalU3",
-    description:'• Contract to design a product for the u3core suite for a neural network approach for fire, smoke and oil detection.\n' +
-        '• Dual deployment for AI edge and cloud cameras (existing IoT platforms). Included is a web app for real time data visualisation, logs and\n' +
-        'live video streaming.',
-    icon: React.createElement(FaBuilding),
-    date: "Sept 2024 - Current",
-  },
-  {
-    title: "Co-owner",
+    title: "Co-Founder",
     subtitle: "Veloworks Components",
     description:
-    `• Co-own and run a small business, where we create 3D printed, performance cycling products.
-      • My role involves designing new products and customising existing designs for customers, arranging sponsorships with influencer athletes and cycling/tri clubs, social media marketing, overseeing the printing process and managing accounts.`,
+    `Co-founded and operate a small business producing 3D-printed performance cycling components. Manage operations encompassing sponsorship, marketing, technical stages, and financial activities.`,
     icon: React.createElement(LuBike),
-    date: "Aug 2024 - Current",
+    date: "Aug 2024",
   },
   {
     title: "BSc Computer Science",

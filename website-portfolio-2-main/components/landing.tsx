@@ -15,12 +15,14 @@ const timelineEvents = [
     { date: "July 2024", title: "Ironman Switzerland 140.6", img: "/IS3.png" },
     { date: "September 2024", title: "Veloworks Founded", img: "vel.png" },
     { date: "September 2024", title: "DigitalU3 u3Core Contract", img: "/u3.png" },
-    { date: "December 2025", title: "MIT iQuHack IonQ Content Bounty", img: "/bris2.png" },
-    { date: "December 2025", title: "UoB Quantum Computing Society Founded", img: "/bris1.png" },
+    { date: "December 2024", title: "DeepSynthetics Racing Trading", img: "/AWH.png" },
+    { date: "December 2024", title: "MIT iQuHack IonQ Content Bounty", img: "/bris2.png" },
+    { date: "December 2024", title: "UoB Quantum Computing Society Founded", img: "/bris1.png" },
     { date: "February 2025", title: "Winner - ETH Oxford Hackathon", img: "/medi.png" },
     { date: "February 2025", title: "Machine Learning Researcher", img: "/emotional.png" },
     { date: "March 2025", title: "Google Deepmind Research Internship Offer", img: "/deep.png" },
     { date: "April 2025", title: "EncodeAI Wormhole Bounty", img: "/encode.png" },
+    { date: "May 2025", title: "UK HPC Team For ISC'25", img: "/isc.png" },
 ];
 
 
@@ -128,7 +130,7 @@ export default function AchievementsTimeline() {
                     <div className="flex flex-col items-center space-y-1">
                         <div className="header-title text-6xl font-semibold">Hi, I&apos;m Thomas Bale</div>
                         <div className="some text-xl text-gray-600 text-center">
-                            Co-Founder | Athlete | Developer
+                            Founder | Athlete | Developer
                         </div>
                     </div>
                 </div>
@@ -266,7 +268,7 @@ export default function AchievementsTimeline() {
                 {/* Name & roles */}
                 <div className="mt-6 space-y-2">
                     <div className="text-5xl font-semibold">Thomas Bale</div>
-                    <div className="text-base text-gray-600">Co-Founder | Athlete | Developer</div>
+                    <div className="text-base text-gray-600">Founder | Athlete | Developer</div>
                 </div>
 
                 {/* Mobile Timeline */}
