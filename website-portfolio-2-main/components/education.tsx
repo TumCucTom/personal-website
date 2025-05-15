@@ -1,77 +1,71 @@
 'use client';
-import React, { useContext } from 'react';
+import React from 'react';
 import { useSectionInView } from '@/lib/hooks';
 import SectionHeading from './section-heading';
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-import { experiencesData } from '@/lib/data';
-import { useInView } from 'react-intersection-observer';
+import { educationData } from '@/lib/data';
 import { useTheme } from '@/context/theme-context';
 
-export default function Experience() {
-  const { ref } = useSectionInView('Experience');
-  const {theme } = useTheme();
+export default function Education() {
+  const { theme } = useTheme();
 
   return (
-    <section
-      ref={ref}
-      id="experience"
-      className="mb-28  scroll-mt-28 text-center sm:mb-40"
-    >
-      <SectionHeading>My education</SectionHeading>
-      <VerticalTimeline lineColor=''>
-        {experiencesData.map((item, index) => {
-          // const { ref, inView } = useInView({
-          //   triggerOnce: true,
-          // });
-          return (
-            <div key={index} ref={ref} className="vertical-timeline-element">
-              <VerticalTimelineElement
-                contentStyle={{
-                  
-                  background:
-                  theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
-                  color: '#000', 
-                  boxShadow: 'none',
-                  border: '1px solid rgba(0, 0, 0, 0.05)',
-                  textAlign: 'left',
-                  padding: '1.3rem 2rem',
-                }}
-                dateClassName='dark'
-                contentArrowStyle={{
-                  borderRight:
-                    theme === "light"
-                      ? "0.4rem solid #9ca3af"
-                      : "0.4rem solid rgba(255, 255, 255, 0.5)",
-                }}
-                // visible={inView}
-                visible={true}
+      <section id="education" className="mb-28 scroll-mt-28 text-center sm:mb-40">
+        <SectionHeading>My Education</SectionHeading>
 
-                // date={item.date}
-                
-             
-                icon={item.icon}
-              
-                iconStyle={{
-                  background:
-                    theme === "light" ? "white" : "black",
-                  fontSize: "1.5rem",
-                }}
+        {/* Desktop: Two-column grid */}
+        <div className="hidden sm:grid grid-cols-1 gap-8 max-w-3xl mx-auto">
+          {educationData.map((item, index) => (
+              <div
+                  key={index}
+                  className="relative bg-opacity-75 p-6 rounded-lg shadow-lg border border-black/5
+                      flex items-start gap-4 bg-white dark:bg-white/10 dark:hover:bg-white/20"
               >
-            <h3 className="font-semibold capitalize dark:text-white/75">{item.title}</h3>
-            <h3 className="font-normal dark:text-white/75 !mt-0">{item.subtitle}</h3>
-            <p className="font-normal capitalize dark:text-white/75">{item.date}</p>
+                {/* Icon Container */}
+                <div
+                    className="w-12 h-12 flex items-center justify-center rounded-full border-2 border-gray-400
+                         bg-white dark:bg-black shadow-md text-xl"
+                >
+                  {item.icon}
+                </div>
 
-            <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75 whitespace-pre-line">
-                {item.description}</p>
-              </VerticalTimelineElement>
-            </div>
-          );
-        })}
-      </VerticalTimeline>
-    </section>
+                {/* Experience Details */}
+                <div className="text-left w-full">
+                  <h3 className="font-bold text-lg dark:text-white/80">{item.title}</h3>
+                  <h4 className="font-semibold text-md dark:text-white/60">{item.subtitle}</h4>
+                  <p className="text-gray-500 dark:text-gray-300 text-sm">{item.date}</p>
+                  <p className="text-gray-700 dark:text-white/75 mt-2 leading-relaxed whitespace-pre-line">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+          ))}
+        </div>
+
+        {/* Mobile: Stacked vertical layout */}
+        <div className="sm:hidden block space-y-6">
+          {educationData.map((item, index) => (
+              <div
+                  key={index}
+                  className="relative bg-opacity-75 p-6 rounded-lg shadow-lg border border-black/5
+                      flex items-start gap-4 bg-white dark:bg-white/10 dark:hover:bg-white/20"
+              >
+                <div
+                    className="w-12 h-12 flex items-center justify-center rounded-full border-2 border-gray-400
+                         bg-white dark:bg-black shadow-md text-xl"
+                >
+                  {item.icon}
+                </div>
+                <div className="text-left w-full">
+                  <h3 className="font-bold text-lg dark:text-white/80">{item.title}</h3>
+                  <h4 className="font-semibold text-md dark:text-white/60">{item.subtitle}</h4>
+                  <p className="text-gray-500 dark:text-gray-300 text-sm">{item.date}</p>
+                  <p className="text-gray-700 dark:text-white/75 mt-2 leading-relaxed whitespace-pre-line">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+          ))}
+        </div>
+      </section>
   );
 }

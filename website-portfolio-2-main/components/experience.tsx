@@ -11,7 +11,7 @@ export default function Experience() {
 
     return (
         <section ref={ref} id="experience" className="mb-28 scroll-mt-28 text-center sm:mb-40">
-            <SectionHeading>My Experience & Education</SectionHeading>
+            <SectionHeading>My Experience</SectionHeading>
 
             {/* Desktop: Two-column grid */}
             <div className="hidden sm:grid grid-cols-2 gap-8 max-w-6xl mx-auto">

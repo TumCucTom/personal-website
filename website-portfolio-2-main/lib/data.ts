@@ -96,7 +96,7 @@ export const experiencesData = [
     title: "UK HPC Team",
     subtitle: "UKSCC",
     description:'Representing the UK at ISC25. Application optimisation for OpenMX and LLMs (llama).',
-    icon: React.createElement(FaBuilding),
+    icon: React.createElement(AiFillDatabase),
     date: "May 2025 - Present",
   },
   {
@@ -142,11 +142,14 @@ export const experiencesData = [
     icon: React.createElement(LuBike),
     date: "Aug 2024",
   },
+] as const;
+
+export const educationData = [
   {
     title: "BSc Computer Science",
     subtitle: "University of Bristol",
     description:
-    `Achieving 83.5% (1st class), top in cohort (86%) for computer systems A
+        `Achieving 83.5% (1st class), top in cohort (86%) for computer systems A
      
      Lead a team and coached 2 teams for UoB to attend MIT's iQuHack quantum hackathon. I ran an in house quantum hackathon to select teams and sessions to prepare.
 

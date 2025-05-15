@@ -8,7 +8,8 @@ import Skills from "@/components/skills";
 import Contact from "@/components/contact";
 import Interests from "@/components/PersonalInterestsAndAchievements";
 import { Toaster } from "react-hot-toast";
-import ParticlesBackground from "@/components/ParticlesBackground"; // Import the new component
+import ParticlesBackground from "@/components/ParticlesBackground";
+import Education from "@/components/education"
 
 export default function Home() {
     return (
@@ -23,6 +24,7 @@ export default function Home() {
                     <SectionDivider />
                     <Projects />
                     <Experience />
+                    <Education />
                     <Skills />
                     <Interests />
                     <Contact />
