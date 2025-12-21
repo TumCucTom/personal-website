@@ -6,14 +6,14 @@ const projectsData = [
         title: "Quantum cross-chain arbitrage",
         description: " Winners - ETH Oxford DeFi hackathon prize ($5000)Vyperlang bounty - 2nd placeQuantum-Enhanced Cross-Chain Arbitrage Bot (QXAB) uses Quantum Approximate Optimisation Algorithm (QAOA) and Flare's blockchain protocols to execute fast, secure, and profitable cross-chain arbitrage trades via flash loans.",
         tags: ["Blockchain", "Quantum", "Vyper", "QAOA"],
-        imageUrl: "../website-portfolio-2-main/public/medi.png",
+        imageUrl: "assets/medi.png",
         link: "https://github.com/TumCucTom/quantum-cross-chain-arbitrage"
     },
     {
         title: "Llama 8B @ ISC 2025",
         description: "ISC25 Student Cluster Competition: LLaMA Fine-Tuning Task\n\nPerformance Optimisation Techniques:\nTo maximise training throughput on 8× H100 GPUs, we employed: FlashAttention 3 for H100-specific kernel optimisations, significantly reducing time per step while maintaining numerical stability. Transformer Engine with FP8 support for reduced memory usage and improved compute efficiency via autocasting and fused operations. FP8 precision for training to reduce memory footprint and accelerate computation, chosen over BF16 due to superior performance on H100s. Effective batch size of 256 (per_device_batch_size=16, num_gpus=8, gradient_accumulation_steps=2) for stable convergence within memory constraints.\n\nAccuracy Optimisation Techniques:\nDoRA (Delta-Orthogonal Rank Adaptation) - a fine-tuning technique improving upon LoRA and qLoRA by maintaining full-rank parameter contributions with minimal training overhead, achieving higher validation accuracy. Trained for 5 epochs with max_steps=69 per epoch, covering the dataset within time budget while ensuring convergence without overfitting.\n\nKey Decisions:\nChose DoRA over qLoRA prioritising model quality over minimal resource use given 8× H100 availability. Integrated FlashAttention 3 and Transformer Engine for significant throughput gains despite complexity. Selected FP8 over BF16 for larger batch sizes and faster execution, with Transformer Engine ensuring reliable training convergence.",
         tags: ["Python", "PyTorch", "HPC", "CUDA", "FP8", "FlashAttention", "Transformer Engine", "DoRA", "LLM", "Fine-tuning"],
-        imageUrl: "./assets/llama.avif",
+        imageUrl: "assets/llama.avif",
         link: "https://github.com/TumCucTom/llama-8b-ISC-25/tree/main"
     },
     {
@@ -34,35 +34,35 @@ const projectsData = [
         title: "Parallel vs Distributed Implementations for Conway's Game of Life",
         description: "86% scoring coursework. Implemented, optimised (including halo exchange, communication overhead, architecture considerations) and compared parallel (concurrent go programming) and distributed (AWS EC2 instances using RPC calls) versions for Conway's Game of Life. Report includes benchmarking algorithmic performance, Matlab for graphs and identifying bottlenecks using CPU profiling. Optimised network communication via publish/subscribe model ensuring fault tolerance and scalability.",
         tags: ["Go", "R", "AWS", "Academic writing", "LaTeX", "Concurrent programming", "Distributed", "Algorithmic optimisations"],
-        imageUrl: "../website-portfolio-2-main/public/rep.png",
+        imageUrl: "assets/rep.png",
         link: "https://github.com/TumCucTom/Distributed-Vs-Parallel-GoL"
     },
     {
         title: "AI for chess in 3 Dimensions",
         description: "The first ever game and engine for Chess in 3 dimensions. Makes use of an AI with a NN and Mini-Max. Includes a customisable UI. Includes and extensive report, with: Code, UML diagram, Flow charts for complicated algos and AI, Unity environment, configuration and assets, AI justifications, Client feedback and interviews, Research. Maximum mark scoring project.",
         tags: ["C#", "Game development", "Unity", "OOP", "AI", "ML", "MNs"],
-        imageUrl: "../website-portfolio-2-main/public/chess.png",
+        imageUrl: "assets/chess.png",
         link: "https://github.com/TumCucTom/AI-for-chess-in-3-dimensions"
     },
     {
         title: "Advent of Code",
         description: "My advent of code daily solutions. All 2024 days solved in python. 2025 solved in a different language each day.",
         tags: ["Python", "algorithms", "graph theory", "Number Theory", "Dynamic Programming"],
-        imageUrl: "../website-portfolio-2-main/public/advent.png",
+        imageUrl: "assets/advent.png",
         link: "https://github.com/TumCucTom/Advent-Of-Code"
     },
     {
         title: "georgia-AI",
         description: "An AI designed for inferring the NYT Wordle without playing the game, only using the results of how up to 20 other people had guessed. Implements NN and beam search with sampling.",
         tags: ["Python", "NumPy", "Pandas", "Torch", "NNs"],
-        imageUrl: "../website-portfolio-2-main/public/GAI.png",
+        imageUrl: "assets/GAI.png",
         link: "https://github.com/TumCucTom/georgia-AI"
     },
     {
         title: "Other Projects - GitHub",
         description: "These include: Quantum hackathon for UoB; ML challenge for sixth form society; Algorithms II minigame; .PGM to .SK converter; mandelbrot set visualisation; and decimal to binary converter.",
         tags: ["C", "Haskell", "Python", "Game development", "Hackathons"],
-        imageUrl: "../website-portfolio-2-main/public/git.png",
+        imageUrl: "assets/git.png",
         link: "https://github.com/TumCucTom/"
     }
 ];
