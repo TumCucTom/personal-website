@@ -433,6 +433,21 @@ input:checked + .toggle-slider:hover {
     }
 }
 
+/* Footer Styles */
+.cv-footer {
+    text-align: center;
+    padding: 30px 20px 20px 20px;
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+    font-size: 9pt;
+    color: #666;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cv-footer p {
+    margin: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
