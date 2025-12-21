@@ -71,6 +71,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize projects
     initializeProjects();
     
+    // Initialize achievement category expand/collapse
+    initializeAchievementCategories();
+    
     // Get all section toggles
     const sectionToggles = document.querySelectorAll('.section-toggle');
     
@@ -97,6 +100,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+function initializeAchievementCategories() {
+    const categories = document.querySelectorAll('.expandable-category');
+    
+    categories.forEach(category => {
+        const expandBtn = category.querySelector('.category-expand-btn');
+        const collapseBtn = category.querySelector('.category-collapse-btn');
+        const expandedContent = category.querySelector('.category-expanded');
+        const categoryHeader = category.querySelector('.category-header');
+        const categoryItemsInline = category.querySelector('.category-items-inline');
+        
+        // Function to expand the category
+        const expandCategory = function() {
+            expandedContent.classList.remove('hidden');
+            if (categoryHeader) categoryHeader.style.display = 'none';
+        };
+        
+        // Function to collapse the category
+        const collapseCategory = function() {
+            expandedContent.classList.add('hidden');
+            if (categoryHeader) categoryHeader.style.display = 'block';
+        };
+        
+        if (expandBtn && expandedContent) {
+            expandBtn.addEventListener('click', expandCategory);
+        }
+        
+        if (categoryItemsInline && expandedContent) {
+            categoryItemsInline.style.cursor = 'pointer';
+            categoryItemsInline.addEventListener('click', expandCategory);
+        }
+        
+        if (collapseBtn && expandedContent) {
+            collapseBtn.addEventListener('click', collapseCategory);
+        }
+    });
+}
 
 function initializeProjects() {
     const projectsWrapper = document.querySelector('.projects-scroll-wrapper');

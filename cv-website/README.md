@@ -2,6 +2,10 @@
 
 This is an interactive version of Thomas Bale's CV. The website matches the CV PDF layout exactly, but with clickable sections that expand to show detailed information.
 
+## Attribution
+
+You are welcome to use and modify this website template. Please attribute the original design to Thomas Bale when using it.
+
 ## Features
 
 - **Exact CV Layout**: Matches the original CV PDF layout and formatting

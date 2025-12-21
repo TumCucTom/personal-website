@@ -12,10 +12,10 @@
         <header class="cv-header">
             <h1 class="name">Thomas Bale</h1>
             <div class="contact-info">
-                <a href="https://thomasbale.com" target="_blank">thomasbale.com</a> | 
+                <a href="https://thomasbale.com" target="_blank" rel="noopener noreferrer">thomasbale.com</a> | 
                 <a href="mailto:tokbale@outlook.com">tokbale@outlook.com</a> | 
-                <a href="https://linkedin.com/in/thomas-bale" target="_blank">linkedin.com/in/thomas-bale</a> | 
-                <a href="https://github.com/TumCucTom" target="_blank">github.com/TumCucTom</a>
+                <a href="https://linkedin.com/in/thomas-bale" target="_blank" rel="noopener noreferrer">linkedin.com/in/thomas-bale</a> | 
+                <a href="https://github.com/TumCucTom" target="_blank" rel="noopener noreferrer">github.com/TumCucTom</a>
             </div>
         </header>
 
@@ -169,41 +169,177 @@
             </div>
         </section>
 
-        <!-- Technologies and Skills Section -->
+        <!-- Skills and Achievements Section -->
         <section class="cv-section">
             <div class="section-title-row">
-                <h2 class="section-title">Technologies and Skills</h2>
+                <h2 class="section-title">Achievements and Interests</h2>
                 <div class="toggle-container">
                     <span class="toggle-hint">Click Me →</span>
                     <label class="toggle-switch">
-                        <input type="checkbox" class="section-toggle" data-section="skills">
+                        <input type="checkbox" class="section-toggle" data-section="achievements">
                         <span class="toggle-slider"></span>
                     </label>
                 </div>
             </div>
-            <div class="section-content" data-content="skills-default">
-            
-            <div class="skills-item">
-                <div class="skills-content">
-                    <div class="skills-category">
-                        <strong>Languages:</strong> Python, Go, Java, C, C#, Haskell, HTML/CSS, JavaScript.
+            <div class="section-content" data-content="achievements-default">
+                <div class="achievement-category expandable-category">
+                    <div class="category-header">
+                        <div class="category-title-row">
+                            <div class="category-title-with-items">
+                                <h3 class="achievement-category-title">Sports:</h3>
+                                <span class="category-items-inline">Competitive Swimmer, Ironman Switzerland, Climbing</span>
+                            </div>
+                            <button class="category-expand-btn">Expand +</button>
+                        </div>
                     </div>
-                    <div class="skills-category">
-                        <strong>Frameworks/Tools:</strong> SQL, API/REST, Git/Github, React Native, PyTorch, TensorFlow, Qiskit, AWS, Cursor.
+                    <div class="category-expanded hidden">
+                        <div class="category-title-row">
+                            <h3 class="achievement-category-title">Sports:</h3>
+                            <button class="category-collapse-btn">Collapse −</button>
+                        </div>
+                        <ul class="item-details">
+                            <li><strong>Competitive Swimmer:</strong> Competing at BUCS and swimming for Bristol University performance squad.</li>
+                            <li><strong>Ironman Switzerland:</strong> Completed in 10h30m after 9 months of training with peak weeks averaging 20-25h/week with 10,000m swimming, 500km cycling and 70km of running.</li>
+                            <li><strong>Climbing:</strong> Enjoy indoor bouldering, climbing v6-7. If I'm not on my laptop or in the pool, you'll probably find me in a climbing gym!</li>
+                        </ul>
                     </div>
-                    <div class="skills-category">
-                        <strong>Skills:</strong> AGILE & Test-Driven Development, Quantum Programming, Machine Learning (ML), Artificial Intelligence (AI), High performance computing (HPC), CAD, Generative AI, Computer Vision, LLM, A/B Testing, NLP.
+                </div>
+                
+                <div class="achievement-category expandable-category">
+                    <div class="category-header">
+                        <div class="category-title-row">
+                            <div class="category-title-with-items">
+                                <h3 class="achievement-category-title">Formula 1:</h3>
+                                <span class="category-items-inline">Formula Student AI, Formula 1 Projects</span>
+                            </div>
+                            <button class="category-expand-btn">Expand +</button>
+                        </div>
+                    </div>
+                    <div class="category-expanded hidden">
+                        <div class="category-title-row">
+                            <h3 class="achievement-category-title">Formula 1:</h3>
+                            <button class="category-collapse-btn">Collapse −</button>
+                        </div>
+                        <ul class="item-details">
+                            <li><strong>Formula Student AI:</strong> Treasurer and Planning & Control Team Lead in Formula Student AI at University of Bristol.</li>
+                            <li><strong>Formula 1 Projects:</strong> Developed F1-related projects including F1 Ghost Car visualisation tool for comparing qualifying laps, and various other projects working with F1 data..</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="achievement-category expandable-category">
+                    <div class="category-header">
+                        <div class="category-title-row">
+                            <div class="category-title-with-items">
+                                <h3 class="achievement-category-title">Competitions and Other:</h3>
+                                <span class="category-items-inline">High Performance Computing, Quantum Computing, Blind Solve Rubik's Cube</span>
+                            </div>
+                            <button class="category-expand-btn">Expand +</button>
+                        </div>
+                    </div>
+                    <div class="category-expanded hidden">
+                        <div class="category-title-row">
+                            <h3 class="achievement-category-title">Competitions and Other:</h3>
+                            <button class="category-collapse-btn">Collapse −</button>
+                        </div>
+                        <ul class="item-details">
+                            <li><strong>High Performance Computing:</strong>I have represented the UK at ISC25 Student Cluster Competition and represented the University of Bristol at CIUK high performance computing cluster challenge twice.</li>
+                            <li><strong>Quantum Computing:</strong> I have casaually studied quantum computing for 3 years. Founded University of Bristol Quantum Computing after having a large uptake in applications for a UoB hackathon team for MIT iQuHack. This first involved leading a team to participate in a quantum computing hackathon hosted by MIT iQuse. Now, I run weekly sessions and plan to provide training and mentorship for new students to the area as well as designing and hosting accessible intra uni competitions.</li>
+                            <li><strong>Blind Solve Rubik's Cube:</strong> I all enjoy all types of puzzles, from Rubik's cubes to jigsaw puzzles to escape rooms. At the moment, I want to get sub 4m for a blind 3x3 Rubik's cube solve.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="section-content hidden" data-content="skills-alternate">
-                <!-- Alternative version of Technologies and Skills section (empty for now) -->
+            <div class="section-content hidden" data-content="achievements-alternate">
+                <!-- Alternative version of Skills and Achievements section (empty for now) -->
+            </div>
+        </section>
+
+        <!-- Research Interests Section -->
+        <section class="cv-section">
+            <div class="section-title-row">
+                <h2 class="section-title">Research Interests</h2>
+                <div class="toggle-container">
+                    <span class="toggle-hint">Click Me →</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" class="section-toggle" data-section="research">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="section-content" data-content="research-default">
+                <div class="skills-item">
+                    <div class="skills-content">
+                        <div class="skills-category">
+                            <strong>Theoretical:</strong> AI from computational foundations, Superintelligent AI, Trustworthy AI, Non-fallible AI, AI hallucinations.
+                        </div>
+                        <div class="skills-category">
+                            <strong>Empirical:</strong> Vision LLMs, Memory for LLMs, Multimodal LLMs, GPT, Transformers, NLP, AI hallucinations.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-content hidden" data-content="research-alternate">
+                <ul class="research-papers-list">
+                    <li class="research-paper-item">
+                        <a href="https://arxiv.org/abs/2511.20644" target="_blank" rel="noopener noreferrer" class="research-paper-title">Vision-Language Memory for Spatial Reasoning (VLM²)</a>
+                        <div class="research-paper-tags">
+                            <span class="research-paper-tag">Vision LLMs</span>
+                            <span class="research-paper-tag">Memory for LLMs</span>
+                            <span class="research-paper-tag">Multimodal LLMs</span>
+                        </div>
+                    </li>
+                    <li class="research-paper-item">
+                        <a href="https://arxiv.org/abs/2406.16902" target="_blank" rel="noopener noreferrer" class="research-paper-title">VLM-3R: Vision-Language Model for 3D Reconstruction and Reasoning</a>
+                        <div class="research-paper-tags">
+                            <span class="research-paper-tag">Vision LLMs</span>
+                            <span class="research-paper-tag">Multimodal LLMs</span>
+                        </div>
+                    </li>
+                    <li class="research-paper-item">
+                        <a href="https://arxiv.org/abs/2509.11208" target="_blank" rel="noopener noreferrer" class="research-paper-title">Predictable Compression Failures: Why Language Models Actually Hallucinate</a>
+                        <div class="research-paper-tags">
+                            <span class="research-paper-tag">AI hallucinations</span>
+                            <span class="research-paper-tag">Trustworthy AI</span>
+                        </div>
+                    </li>
+                    <li class="research-paper-item">
+                        <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noopener noreferrer" class="research-paper-title">Attention Is All You Need</a>
+                        <div class="research-paper-tags">
+                            <span class="research-paper-tag">Transformers</span>
+                            <span class="research-paper-tag">GPT</span>
+                            <span class="research-paper-tag">NLP</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Technologies and Skills Section -->
+        <section class="cv-section">
+            <div class="section-title-row">
+                <h2 class="section-title">Technologies and Skills</h2>
+            </div>
+            <div class="section-content">
+                <div class="skills-item">
+                    <div class="skills-content">
+                        <div class="skills-category">
+                            <strong>Languages:</strong> Python, Go, Java, C, C#, Haskell, HTML/CSS, JavaScript.
+                        </div>
+                        <div class="skills-category">
+                            <strong>Frameworks/Tools:</strong> SQL, API/REST, Git/Github, React Native, PyTorch, TensorFlow, Qiskit, AWS, Cursor.
+                        </div>
+                        <div class="skills-category">
+                            <strong>Skills:</strong> AGILE & Test-Driven Development, Quantum Programming, Machine Learning (ML), Artificial Intelligence (AI), High performance computing (HPC), CAD, Generative AI, Computer Vision, LLM, A/B Testing, NLP.
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
 
     <footer class="cv-footer">
         <p>&copy; Thomas Bale 2025. All rights reserved.</p>
+        <p class="footer-note">If you like my website, you can <a href="https://github.com/TumCucTom/personal-website" target="_blank" rel="noopener noreferrer">fork the repo</a>.</p>
     </footer>
 
     <script src="script.js"></script>

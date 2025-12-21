@@ -154,6 +154,10 @@ input:checked + .toggle-slider:hover {
     border-color: #000;
 }
 
+.section-content {
+    display: block;
+}
+
 .section-content.hidden {
     display: none;
 }
@@ -426,6 +430,190 @@ input:checked + .toggle-slider:hover {
     display: inline;
 }
 
+/* Carousel Styles */
+.carousel-container {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 8px;
+    position: relative;
+    height: 35px;
+    display: block;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    animation: scroll 30s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+}
+
+.carousel-track-reverse {
+    animation: scroll-reverse 35s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scroll-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.carousel-item {
+    display: inline-flex;
+    align-items: center;
+    font-size: 10pt;
+    color: #333;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 4px 12px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* Achievement Categories */
+.achievement-category {
+    margin-bottom: 15px;
+}
+
+.category-header {
+    margin-bottom: 8px;
+}
+
+.category-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.category-title-with-items {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex: 1;
+}
+
+.achievement-category-title {
+    font-size: 11pt;
+    font-weight: bold;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000;
+}
+
+.category-items-inline {
+    font-size: 9pt;
+    color: #333;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+.category-items-inline:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.category-expand-btn,
+.category-collapse-btn {
+    background: none;
+    border: none;
+    font-size: 9pt;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.category-expand-btn:hover,
+.category-collapse-btn:hover {
+    color: #000;
+}
+
+.category-expanded {
+    margin-top: 8px;
+}
+
+.category-expanded.hidden {
+    display: none;
+}
+
+.achievement-category .item-details {
+    margin-top: 4px;
+    margin-bottom: 8px;
+}
+
+.achievement-category .item-details li {
+    margin-bottom: 6px;
+}
+
+/* Research Papers Styles */
+.research-papers-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.research-paper-item {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.research-paper-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.research-paper-title {
+    font-size: 10pt;
+    color: #000;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+.research-paper-title:hover {
+    text-decoration: underline;
+    color: #333;
+}
+
+.research-paper-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.research-paper-tag {
+    font-size: 8pt;
+    padding: 2px 8px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    color: #000;
+    border-radius: 2px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
 /* Print Styles */
 @media print {
     body {
@@ -446,6 +634,26 @@ input:checked + .toggle-slider:hover {
 
 .cv-footer p {
     margin: 0;
+    margin-bottom: 8px;
+}
+
+.cv-footer p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-note {
+    font-size: 8pt;
+    color: #999;
+    font-style: italic;
+}
+
+.footer-note a {
+    color: #666;
+    text-decoration: underline;
+}
+
+.footer-note a:hover {
+    color: #000;
 }
 
 /* Responsive Design */
