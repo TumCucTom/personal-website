@@ -33,7 +33,7 @@ const projectsData = [
     {
         title: "Parallel vs Distributed Implementations for Conway's Game of Life",
         description: "86% scoring coursework. Implemented, optimised (including halo exchange, communication overhead, architecture considerations) and compared parallel (concurrent go programming) and distributed (AWS EC2 instances using RPC calls) versions for Conway's Game of Life. Report includes benchmarking algorithmic performance, Matlab for graphs and identifying bottlenecks using CPU profiling. Optimised network communication via publish/subscribe model ensuring fault tolerance and scalability.",
-        tags: ["Go", "R", "AWS", "Academic writing", "LaTeX", "Concurrent programming", "Distributed", "Algorithmic optimisations"],
+        tags: ["Go", "AWS", "Academic writing", "LaTeX", "Concurrent programming", "Distributed", "Algorithmic optimisations"],
         imageUrl: "assets/rep.png",
         link: "https://github.com/TumCucTom/Distributed-Vs-Parallel-GoL"
     },
