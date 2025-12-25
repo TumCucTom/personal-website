@@ -24,7 +24,7 @@ body {
 /* Header Styles */
 .cv-header {
     margin-bottom: 24px;
-    padding-bottom: 12px;
+    padding-bottom: 8px;
     border-bottom: 2px solid #000;
 }
 
@@ -42,7 +42,8 @@ body {
     color: #000;
     font-weight: normal;
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 0;
+    padding-bottom: 16px;
 }
 
 .contact-info a {
@@ -52,6 +53,31 @@ body {
 
 .contact-info a:hover {
     text-decoration: underline;
+}
+
+.master-toggle-row {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 8px;
+    padding-bottom: 0;
+}
+
+.section-title-row.master-toggle-row {
+    border-bottom: none !important;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.portfolio-link {
+    font-size: 11pt;
+    color: #0066cc;
+    text-decoration: underline;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.portfolio-link:hover {
+    color: #004499;
 }
 
 /* Section Styles */
@@ -67,6 +93,11 @@ body {
     border-bottom: 1px solid #000;
     padding-bottom: 2px;
     gap: 15px;
+}
+
+.section-title-row.master-toggle-row {
+    border-bottom: none !important;
+    padding-bottom: 0;
 }
 
 .section-title {
@@ -508,7 +539,7 @@ input:checked + .toggle-slider:hover {
 }
 
 .achievement-category-title {
-    font-size: 11pt;
+    font-size: 12pt;
     font-weight: bold;
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
@@ -516,7 +547,7 @@ input:checked + .toggle-slider:hover {
 }
 
 .category-items-inline {
-    font-size: 9pt;
+    font-size: 10pt;
     color: #333;
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;

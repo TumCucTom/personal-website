@@ -77,28 +77,64 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get all section toggles
     const sectionToggles = document.querySelectorAll('.section-toggle');
     
+    // Function to toggle a single section
+    function toggleSection(toggle) {
+        const sectionName = toggle.getAttribute('data-section');
+        
+        // Get both content versions for this section
+        const defaultContent = document.querySelector(`[data-content="${sectionName}-default"]`);
+        const alternateContent = document.querySelector(`[data-content="${sectionName}-alternate"]`);
+        
+        if (defaultContent && alternateContent) {
+            // Checkbox checked = show alternate, unchecked = show default
+            if (toggle.checked) {
+                // Switch to alternate
+                defaultContent.classList.add('hidden');
+                alternateContent.classList.remove('hidden');
+            } else {
+                // Switch to default
+                defaultContent.classList.remove('hidden');
+                alternateContent.classList.add('hidden');
+            }
+        }
+    }
+    
+    // Add event listeners to individual section toggles
     sectionToggles.forEach(toggle => {
         toggle.addEventListener('change', function() {
-            const sectionName = this.getAttribute('data-section');
-            
-            // Get both content versions for this section
-            const defaultContent = document.querySelector(`[data-content="${sectionName}-default"]`);
-            const alternateContent = document.querySelector(`[data-content="${sectionName}-alternate"]`);
-            
-            if (defaultContent && alternateContent) {
-                // Checkbox checked = show alternate, unchecked = show default
-                if (this.checked) {
-                    // Switch to alternate
-                    defaultContent.classList.add('hidden');
-                    alternateContent.classList.remove('hidden');
-                } else {
-                    // Switch to default
-                    defaultContent.classList.remove('hidden');
-                    alternateContent.classList.add('hidden');
-                }
-            }
+            toggleSection(this);
+            updateMasterToggle();
         });
     });
+    
+    // Master toggle functionality
+    const masterToggle = document.getElementById('master-toggle');
+    if (masterToggle) {
+        masterToggle.addEventListener('change', function() {
+            const isChecked = this.checked;
+            sectionToggles.forEach(toggle => {
+                toggle.checked = isChecked;
+                toggleSection(toggle);
+            });
+        });
+    }
+    
+    // Function to update master toggle based on individual toggles
+    function updateMasterToggle() {
+        if (masterToggle && sectionToggles.length > 0) {
+            const allChecked = Array.from(sectionToggles).every(toggle => toggle.checked);
+            const allUnchecked = Array.from(sectionToggles).every(toggle => !toggle.checked);
+            
+            if (allChecked) {
+                masterToggle.checked = true;
+            } else if (allUnchecked) {
+                masterToggle.checked = false;
+            } else {
+                // Indeterminate state - some checked, some not
+                masterToggle.indeterminate = true;
+            }
+        }
+    }
 });
 
 function initializeAchievementCategories() {
