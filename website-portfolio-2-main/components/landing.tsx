@@ -143,19 +143,29 @@ export default function AchievementsTimeline() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
             >
-                <Link
-                    href="#contact"
+                <a
+                    href="mailto:tokbale@outlook.com"
                     className="group bg-gray-900 text-white px-10 py-4 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 transition"
                 >
                     Contact me here
                     <BsArrowRight className="group-hover:opacity-60 group-hover:translate-x-2 transition" />
-                </Link>
+                </a>
 
                 <a
                     className="group bg-gray-900 text-white px-10 py-4 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 transition"
-                    onClick={() => window.open("https://www.shopveloworks.com/", "_blank")}
+                    onClick={() => window.open("https://www.instagram.com/veloworkscomponents/", "_blank")}
                 >
                     Business Website
+                    <BsArrowRight className="group-hover:opacity-60 group-hover:translate-x-2 transition" />
+                </a>
+
+                <a
+                    className="group bg-gray-900 text-white px-10 py-4 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 transition"
+                    href="https://thomasbale.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Default portfolio
                     <BsArrowRight className="group-hover:opacity-60 group-hover:translate-x-2 transition" />
                 </a>
 
@@ -302,27 +312,35 @@ export default function AchievementsTimeline() {
                 {/* Mobile-Only Buttons (Stacked) */}
                 <div className="flex flex-col gap-4 w-60 md:hidden">
                     {/* 3 Buttons Stacked */}
-                    <Link
-                        href="#contact"
+                    <a
+                        href="mailto:tokbale@outlook.com"
                         className="group bg-gray-900 text-white px-6 py-4 flex items-center justify-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 transition"
-                        onClick={() => {
-                            setActiveSection("Contact");
-                            setTimeOfLastClick(Date.now());
-                        }}
+                        onClick={() => setTimeOfLastClick(Date.now())}
                     >
                         Contact me here
                         <BsArrowRight className="group-hover:opacity-60 group-hover:translate-x-2 transition" />
-                    </Link>
+                    </a>
 
                     <a
                         className="group bg-gray-900 text-white px-6 py-4 flex items-center justify-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 transition"
                         onClick={() => {
-                            window.open("https://www.shopveloworks.com/", "_blank");
+                            window.open("https://www.instagram.com/veloworkscomponents/", "_blank");
                             setTimeOfLastClick(Date.now());
                         }}
                     >
                         Business Website
                         <BsArrowRight className="group-hover:opacity-60 group-hover:translate-x-2 transition" />
+                    </a>
+
+                    <a
+                        className="group bg-gray-900 text-white px-6 py-4 flex items-center justify-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 transition"
+                        href="https://thomasbale.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setTimeOfLastClick(Date.now())}
+                    >
+                        Default portfolio
+                        <BsArrowRight className="group-hover:opacity-60 group-hover:translate-x-1 transition" />
                     </a>
 
                     <a

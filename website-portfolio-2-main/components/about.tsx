@@ -37,12 +37,12 @@ export default function About() {
                 currently achieving
                 <span className={` ${getFontWeight(true)}`}>
                   {" "}
-                    83.5% (1st class)
+                    78.33% (First Class)
                 </span>{" "}
-                average in my contributing modules. Alongside my university work, I explore my strong super-curricular passions for quantum computing, AI and HPC. I also participate triathlons / Ironman training and co-own a performance cycling products small business.
+                average. I serve as Treasurer and Planning & Control Team Lead in Formula Student AI, and I am the Founder, President, and Competitions Lead of UoB Quantum Computing Society. Alongside my university work, I explore my strong super-curricular passions for quantum computing, AI and HPC. I also participate in triathlons / Ironman training and co-own a performance cycling products small business.
             </p>
             <p className="mb-5">
-                My academic, super curricular and professional experience have given me a good foundation in full-stack development, computer vision and ML; and quantum computing and algorithms. Find my projects below or on my GitHub relating to quantum and AI.
+                My academic, super-curricular and professional experience have given me a strong foundation in full-stack development, computer vision, ML, quantum computing and algorithms. Find my projects below or on my GitHub relating to quantum and AI.
             </p>
             <p >
                 Please contact me below if you have any queries or find out more about me on my LinkedIn profile!

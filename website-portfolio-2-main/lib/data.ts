@@ -28,6 +28,9 @@ import c1 from "@/public/c1.png"
 import c3 from "@/public/c2.png"
 import c2 from "@/public/c3.png"
 import MeDIImg from "@/public/medi.png"
+import LlamaImg from "@/public/llama.png"
+import YukiGPTImg from "@/public/aiayn.png"
+import F1GhostImg from "@/public/hungary_2024_follow.gif"
 
 export const links = [
   {
@@ -64,12 +67,7 @@ export const interestsAndAchievements = [
   {
     title: "Competitive Swimmer",
     description: "Competing at BUCS and swimming for Bristol University performance squad.",
-    photos: [
-      IS1,
-        IS2,
-        IS3,
-
-    ],
+    photos: [],
   },
   {
     title: "Ironman Switzerland - 3.8km Swim, 180km Bike, Marathon Run",
@@ -198,7 +196,7 @@ export const projectsData = [
     description:
         "ISC25 Student Cluster Competition: LLaMA Fine-Tuning Task\n\nPerformance Optimisation Techniques:\nTo maximise training throughput on 8× H100 GPUs, we employed: FlashAttention 3 for H100-specific kernel optimisations, significantly reducing time per step while maintaining numerical stability. Transformer Engine with FP8 support for reduced memory usage and improved compute efficiency via autocasting and fused operations. FP8 precision for training to reduce memory footprint and accelerate computation, chosen over BF16 due to superior performance on H100s. Effective batch size of 256 (per_device_batch_size=16, num_gpus=8, gradient_accumulation_steps=2) for stable convergence within memory constraints.\n\nAccuracy Optimisation Techniques:\nDoRA (Delta-Orthogonal Rank Adaptation) - a fine-tuning technique improving upon LoRA and qLoRA by maintaining full-rank parameter contributions with minimal training overhead, achieving higher validation accuracy. Trained for 5 epochs with max_steps=69 per epoch, covering the dataset within time budget while ensuring convergence without overfitting.\n\nKey Decisions:\nChose DoRA over qLoRA prioritising model quality over minimal resource use given 8× H100 availability. Integrated FlashAttention 3 and Transformer Engine for significant throughput gains despite complexity. Selected FP8 over BF16 for larger batch sizes and faster execution, with Transformer Engine ensuring reliable training convergence.",
     tags: ["Python", "PyTorch", "HPC", "CUDA", "FP8", "FlashAttention", "Transformer Engine", "DoRA", "LLM", "Fine-tuning"],
-    imageUrl: MeDIImg, // Using existing image, will need to add llama.avif later
+    imageUrl: LlamaImg,
     link: "https://github.com/TumCucTom/llama-8b-ISC-25/tree/main"
   },
   {
@@ -206,7 +204,7 @@ export const projectsData = [
     description:
         "A decoder-only GPT implementation based on the transformer architecture proposed in 'Attention is All You Need', without encoder or cross-attention components. Built from scratch in Python following Andrej Karpathy's educational series. Trained to generate F1 radio messages. Includes implementations of: bigram language model, self-attention mechanism, and dataset utilities. Currently working towards expanding the model and implementing a custom tokeniser.",
     tags: ["GPT", "Transformers", "NLP", "Python", "PyTorch", "Deep Learning", "Attention Mechanisms"],
-    imageUrl: GAIImg, // Using existing image, will need to add aiayn.png later
+    imageUrl: YukiGPTImg,
     link: "https://github.com/TumCucTom/YukiGPT"
   },
   {
@@ -214,13 +212,13 @@ export const projectsData = [
     description:
         "An overhead reconstruction visualisation tool for Formula 1 qualifying sessions. Creates animated comparisons of two drivers' fastest qualifying laps for a given Grand Prix. Features include: animated car tracking with realistic track layouts, follow camera mode that tracks the cars, optional realistic track surface rendering, and support for comparing any two drivers from 2018-2024. Built in Python using matplotlib for visualisation and F1 position data for accurate lap reconstruction.",
     tags: ["F1","Data Visualisation", "Matplotlib", "Animation", "Sports Analytics", "Python"],
-    imageUrl: AWHImg, // Using existing image, will need to add hungary_2024_follow.gif later
+    imageUrl: F1GhostImg,
     link: "https://github.com/TumCucTom/f1-ghost-car"
   },
   {
     title: "Parallel vs Distributed Implementations for Conway's Game of Life",
     description:
-        "86% scoring coursework. Implemented, optimised (including halo exchange, communication overhead, architecture considerations) and compared parallel (concurrent go programming) and distributed (AWS EC2 instances using RPC calls) versions for Conway's Game of Life. Report includes benchmarking algorithmic performance, Matlab for graphs and identifying bottlenecks using CPU profiling. Optimised network communication via publish/subscribe model ensuring fault tolerance and scalability.",
+    "86% scoring coursework. Implemented, optimised (including halo exchange, communication overhead, architecture considerations) and compared parallel (concurrent go programming) and distributed (AWS EC2 instances using RPC calls) versions for Conway's Game of Life. Report includes benchmarking algorithmic performance, Matlab for graphs and identifying bottlenecks using CPU profiling. Optimised network communication via publish/subscribe model ensuring fault tolerance and scalability.",
     tags: ["Go", "AWS", "Academic writing", "LaTeX", "Concurrent programming", "Distributed", "Algorithmic optimisations"],
     imageUrl: REPImg,
     link: "https://github.com/TumCucTom/Distributed-Vs-Parallel-GoL"

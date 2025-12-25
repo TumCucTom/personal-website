@@ -72,7 +72,7 @@ export default function ParticlesBackground() {
                             onClick={() => handleThemeSelection("light")}
                             className="bg-white text-black px-6 py-2 rounded-lg mb-2 w-full"
                         >
-                            Light Mode
+                            Enter website
                         </button>
                     </div>
                 </div>
