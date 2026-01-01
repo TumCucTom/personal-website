@@ -23,6 +23,8 @@ const timelineEvents = [
     { date: "March 2025", title: "Google Deepmind Research Internship Offer", img: "/deep.png" },
     { date: "April 2025", title: "EncodeAI Wormhole Bounty", img: "/encode.png" },
     { date: "May 2025", title: "UK HPC Team For ISC'25", img: "/isc.png" },
+    { date: "August 2025", title: "Demonstrator", img: "/bris-logo.png" },
+    { date: "August 2025", title: "Graduate Teacher", img: "/bris-logo.png" },
 ];
 
 
