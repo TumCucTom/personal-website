@@ -393,6 +393,134 @@ input:checked + .toggle-slider:hover {
     color: #666;
 }
 
+/* Achievements Grid Styles */
+.achievements-flip-hint {
+    font-size: 10pt;
+    font-family: 'Times New Roman', Times, serif;
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    margin: 0 0 15px 0;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.achievement-image-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #f9f9f9;
+}
+
+.achievement-image-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.achievement-grid-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.achievement-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.achievement-placeholder-text {
+    font-size: 10pt;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: #666;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Achievement Modal Styles */
+.achievement-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.achievement-modal.show {
+    opacity: 1;
+}
+
+.achievement-modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 4px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.achievement-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    line-height: 1;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    font-family: Arial, sans-serif;
+}
+
+.achievement-modal-close:hover {
+    color: #666;
+}
+
+.achievement-modal-title {
+    font-size: 14pt;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000;
+    margin: 0 0 15px 0;
+    padding-right: 30px;
+}
+
+.achievement-modal-description {
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #000;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    white-space: pre-wrap;
+}
+
 /* Item Styles */
 .experience-item,
 .education-item,
@@ -643,6 +771,98 @@ input:checked + .toggle-slider:hover {
     color: #000;
     border-radius: 2px;
     font-family: 'Times New Roman', Times, serif;
+}
+
+/* Education Alternate View Styles */
+.education-year-section {
+    margin-bottom: 24px;
+}
+
+.education-year-title {
+    font-size: 11pt;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-left: 0;
+    font-family: 'Times New Roman', Times, serif;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.module-list {
+    padding-left: 20px;
+    margin-top: 4px;
+}
+
+.module-item {
+    margin-bottom: 12px;
+}
+
+.module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+}
+
+.module-name {
+    font-size: 10pt;
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    flex: 1;
+}
+
+.module-mark {
+    font-size: 10pt;
+    font-weight: bold;
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 12px;
+    flex-shrink: 0;
+}
+
+.module-mark.in-progress {
+    font-weight: normal;
+    font-style: italic;
+    color: #666;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 6px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #28a745;
+    transition: width 0.3s ease;
+}
+
+/* Responsive Styles for Achievements Grid */
+@media (max-width: 1200px) {
+    .achievements-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .achievements-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 400px) {
+    .achievements-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /* Print Styles */

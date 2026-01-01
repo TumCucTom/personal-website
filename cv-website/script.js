@@ -67,9 +67,56 @@ const projectsData = [
     }
 ];
 
+// Achievements data
+const achievementsData = [
+    {
+        title: "Competitive Swimmer",
+        description: "Competing at BUCS and swimming for Bristol University performance squad.",
+        images: ["assets/swim1.jpg", "assets/swim2.JPEG"]
+    },
+    {
+        title: "Ironman Switzerland",
+        description: "Completed in 10h30m after 9 months of training with peak weeks averaging 20-25h/week with 10,000m swimming, 500km cycling and 70km of running.",
+        images: ["assets/IS1.png", "assets/IS2.png", "assets/IS3.png"]
+    },
+    {
+        title: "Climbing",
+        description: "Enjoy indoor bouldering, climbing v6-7. If I'm not on my laptop or in the pool, you'll probably find me in a climbing gym!",
+        images: ["assets/c1.png", "assets/c2.png", "assets/c3.png"]
+    },
+    {
+        title: "Formula Student AI",
+        description: "Treasurer and Planning & Control Team Lead in Formula Student AI at University of Bristol.",
+        images: ["assets/fsai1.PNG", "assets/fsai2.PNG"]
+    },
+    {
+        title: "Formula 1 Projects",
+        description: "Developed F1-related projects including F1 Ghost Car visualisation tool for comparing qualifying laps, and various other projects working with F1 data.",
+        images: ["assets/hungary_2024_follow.gif", "assets/TELEMETRY_ANALYSIS.gif"]
+    },
+    {
+        title: "High Performance Computing",
+        description: "I have represented the UK at ISC25 Student Cluster Competition and represented the University of Bristol at CIUK high performance computing cluster challenge twice.",
+        images: ["assets/hpc1.PNG", "assets/hpc2.PNG", "assets/hpc3.PNG", "assets/hpc4.PNG"]
+    },
+    {
+        title: "Quantum Computing Society",
+        description: "I have casually studied quantum computing for 3 years. Founded University of Bristol Quantum Computing Society after having a large uptake in applications for a UoB hackathon team for MIT iQuHack. This first involved leading a team to participate in a quantum computing hackathon hosted by MIT iQuse. Now, I run weekly sessions and plan to provide training and mentorship for new students to the area as well as designing and hosting accessible intra uni competitions.",
+        images: ["assets/bris1.png", "assets/bris2.png"]
+    },
+    {
+        title: "Blind Solve Rubik's Cube",
+        description: "I enjoy all types of puzzles, from Rubik's cubes to jigsaw puzzles to escape rooms. At the moment, I want to get sub 4m for a blind 3x3 Rubik's cube solve.",
+        images: ["assets/blind.PNG"]
+    }
+];
+
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize projects
     initializeProjects();
+    
+    // Initialize achievements grid
+    initializeAchievements();
     
     // Initialize achievement category expand/collapse
     initializeAchievementCategories();
@@ -172,6 +219,115 @@ function initializeAchievementCategories() {
             collapseBtn.addEventListener('click', collapseCategory);
         }
     });
+}
+
+function initializeAchievements() {
+    const achievementsGrid = document.querySelector('.achievements-grid');
+    if (!achievementsGrid) return;
+    
+    // Clear existing content
+    achievementsGrid.innerHTML = '';
+    
+    // Create individual image items for each achievement
+    achievementsData.forEach((achievement, index) => {
+        if (achievement.images && achievement.images.length > 0) {
+            // Create an image item for each image
+            achievement.images.forEach((img, imgIndex) => {
+                const imageItem = createAchievementImageItem(achievement, index, img, imgIndex);
+                achievementsGrid.appendChild(imageItem);
+            });
+        } else {
+            // Create a placeholder item for achievements without images
+            const placeholderItem = createAchievementPlaceholder(achievement, index);
+            achievementsGrid.appendChild(placeholderItem);
+        }
+    });
+}
+
+function createAchievementImageItem(achievement, achievementIndex, imageUrl, imageIndex) {
+    const imageItem = document.createElement('div');
+    imageItem.className = 'achievement-image-item';
+    imageItem.setAttribute('data-achievement-index', achievementIndex);
+    
+    const img = document.createElement('img');
+    img.src = imageUrl;
+    img.alt = achievement.title;
+    img.className = 'achievement-grid-image';
+    img.onerror = function() {
+        this.style.display = 'none';
+    };
+    
+    imageItem.appendChild(img);
+    
+    // Add click handler to open modal
+    imageItem.addEventListener('click', () => {
+        openAchievementModal(achievement);
+    });
+    
+    return imageItem;
+}
+
+function createAchievementPlaceholder(achievement, index) {
+    const placeholderItem = document.createElement('div');
+    placeholderItem.className = 'achievement-image-item achievement-placeholder';
+    placeholderItem.setAttribute('data-achievement-index', index);
+    
+    placeholderItem.innerHTML = `
+        <div class="achievement-placeholder-text">${achievement.title}</div>
+    `;
+    
+    // Add click handler to open modal
+    placeholderItem.addEventListener('click', () => {
+        openAchievementModal(achievement);
+    });
+    
+    return placeholderItem;
+}
+
+function openAchievementModal(achievement) {
+    // Remove existing modal if any
+    const existingModal = document.querySelector('.achievement-modal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+    
+    // Create modal
+    const modal = document.createElement('div');
+    modal.className = 'achievement-modal';
+    
+    modal.innerHTML = `
+        <div class="achievement-modal-content">
+            <button class="achievement-modal-close">&times;</button>
+            <h2 class="achievement-modal-title">${achievement.title}</h2>
+            <p class="achievement-modal-description">${achievement.description}</p>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    
+    // Close modal handlers
+    const closeBtn = modal.querySelector('.achievement-modal-close');
+    closeBtn.addEventListener('click', () => closeAchievementModal(modal));
+    
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeAchievementModal(modal);
+        }
+    });
+    
+    // Show modal with animation
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
+}
+
+function closeAchievementModal(modal) {
+    modal.classList.remove('show');
+    setTimeout(() => {
+        if (modal.parentNode) {
+            modal.remove();
+        }
+    }, 300);
 }
 
 function initializeProjects() {
