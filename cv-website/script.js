@@ -1,5 +1,93 @@
 // Section Toggle Script
 
+// Experience timeline data
+const experienceTimelineData = [
+    {
+        date: "June 2023",
+        title: "AI for Chess in 3 Dimensions",
+        subtitle: "Project",
+        image: "assets/chess.webp"
+    },
+    {
+        date: "July 2024",
+        title: "Ironman Switzerland 140.6",
+        subtitle: "Achievement",
+        image: "assets/IS3.webp"
+    },
+    {
+        date: "September 2024",
+        title: "Veloworks Founded",
+        subtitle: "Business",
+        image: "assets/vel.webp"
+    },
+    {
+        date: "September 2024",
+        title: "DigitalU3 u3Core Contract",
+        subtitle: "Internship",
+        image: "assets/u3.webp"
+    },
+    {
+        date: "December 2024",
+        title: "DeepSynthetics Racing Trading",
+        subtitle: "Project",
+        image: "assets/AWH.webp"
+    },
+    {
+        date: "December 2024",
+        title: "MIT iQuHack IonQ Content Bounty",
+        subtitle: "Competition",
+        image: "assets/bris2.webp"
+    },
+    {
+        date: "December 2024",
+        title: "UOBQC Founded",
+        subtitle: "Society",
+        image: "assets/bris1.webp"
+    },
+    {
+        date: "February 2025",
+        title: "Winner - ETH Oxford Hackathon",
+        subtitle: "Competition",
+        image: "assets/medi.webp"
+    },
+    {
+        date: "February 2025",
+        title: "Machine Learning Researcher",
+        subtitle: "University of Bristol",
+        image: "assets/emotional.webp"
+    },
+    {
+        date: "March 2025",
+        title: "Google Deepmind Research Internship Offer",
+        subtitle: "Opportunity",
+        image: "assets/deep.webp"
+    },
+    {
+        date: "April 2025",
+        title: "EncodeAI Wormhole Bounty",
+        subtitle: "Competition",
+        image: "assets/encode.webp"
+    },
+    {
+        date: "May 2025",
+        title: "UK HPC Team For ISC'25",
+        subtitle: "UKSCC",
+        image: "assets/isc.webp"
+    },
+    {
+        date: "August 2025",
+        title: "Demonstrator",
+        subtitle: "University of Bristol",
+        image: "assets/bris-logo.webp"
+    },
+    {
+        date: "August 2025",
+        title: "Graduate Teacher",
+        subtitle: "University of Bristol",
+        image: "assets/bris-logo.webp"
+    }
+];
+
 // Projects data
 const projectsData = [
     {
@@ -120,6 +208,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize achievement category expand/collapse
     initializeAchievementCategories();
+    
+    // Initialize experience timeline
+    initializeExperienceTimeline();
     
     // Get all section toggles
     const sectionToggles = document.querySelectorAll('.section-toggle');
@@ -417,4 +508,40 @@ function closeProjectModal(modal) {
     setTimeout(() => {
         modal.remove();
     }, 200);
+}
+
+function initializeExperienceTimeline() {
+    const timelineContainer = document.querySelector('.experience-timeline-container');
+    if (!timelineContainer) return;
+    
+    timelineContainer.innerHTML = '';
+    
+    experienceTimelineData.forEach((item, index) => {
+        const timelineItem = document.createElement('div');
+        timelineItem.className = 'experience-timeline-item';
+        
+        const isEven = index % 2 === 0;
+        
+        timelineItem.innerHTML = `
+            <div class="experience-timeline-content ${isEven ? 'timeline-above' : 'timeline-below'}">
+                ${isEven ? `
+                    <div class="timeline-date">${item.date}</div>
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">${item.title}</h3>
+                        <p class="timeline-subtitle">${item.subtitle}</p>
+                    </div>
+                    <img src="${item.image}" alt="${item.title}" class="timeline-image" onerror="this.style.display='none'">
+                ` : `
+                    <img src="${item.image}" alt="${item.title}" class="timeline-image" onerror="this.style.display='none'">
+                    <div class="timeline-card">
+                        <h3 class="timeline-title">${item.title}</h3>
+                        <p class="timeline-subtitle">${item.subtitle}</p>
+                    </div>
+                    <div class="timeline-date">${item.date}</div>
+                `}
+            </div>
+        `;
+        
+        timelineContainer.appendChild(timelineItem);
+    });
 }

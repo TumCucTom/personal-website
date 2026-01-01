@@ -907,6 +907,108 @@ input:checked + .toggle-slider:hover {
     color: #000;
 }
 
+/* Experience Timeline Styles */
+.experience-timeline-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    padding: 20px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-top: 0;
+}
+
+.experience-timeline-line {
+    display: none;
+}
+
+.experience-timeline-container {
+    position: relative;
+    display: flex;
+    gap: 100px;
+    padding: 0 80px;
+    align-items: center;
+    min-width: max-content;
+    z-index: 2;
+    height: 100%;
+}
+
+.experience-timeline-item {
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+    height: 100%;
+}
+
+.experience-timeline-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.timeline-above {
+    margin-bottom: 0;
+}
+
+.timeline-below {
+    margin-top: 0;
+}
+
+.timeline-date {
+    font-size: 11pt;
+    font-weight: bold;
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.timeline-card {
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 240px;
+    max-width: 300px;
+}
+
+.timeline-title {
+    font-size: 11pt;
+    font-weight: bold;
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0 0 6px 0;
+    line-height: 1.4;
+}
+
+.timeline-subtitle {
+    font-size: 9pt;
+    color: #666;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    font-style: italic;
+}
+
+.timeline-image {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
