@@ -17,7 +17,7 @@ const timelineEvents = [
     { date: "September 2024", title: "DigitalU3 u3Core Contract", img: "/u3.png" },
     { date: "December 2024", title: "DeepSynthetics Racing Trading", img: "/AWH.png" },
     { date: "December 2024", title: "MIT iQuHack IonQ Content Bounty", img: "/bris2.png" },
-    { date: "December 2024", title: "UoB Quantum Computing Society Founded", img: "/bris1.png" },
+    { date: "December 2024", title: "UOBQC Founded", img: "/bris1.png" },
     { date: "February 2025", title: "Winner - ETH Oxford Hackathon", img: "/medi.png" },
     { date: "February 2025", title: "Machine Learning Researcher", img: "/emotional.png" },
     { date: "March 2025", title: "Google Deepmind Research Internship Offer", img: "/deep.png" },
@@ -31,16 +31,15 @@ const timelineEvents = [
 export default function AchievementsTimeline() {
     const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
     const { theme } = useTheme();
-    const [mobileIdx, setMobileIdx] = useState(0);
-    const total = timelineEvents.length;
-    const aboveEvent = timelineEvents[mobileIdx];
-    const belowEvent = timelineEvents[(mobileIdx + 1) % total];
 
     const containerRef = useRef<HTMLElement>(null);
+    const mobileContainerRef = useRef<HTMLDivElement>(null);
     const indexRef = useRef(0);
     const directionRef = useRef(1);
     const isPausedRef = useRef(false);
     const scrollTimeoutRef = useRef<number>();
+    const mobileScrollPausedRef = useRef(false);
+    const mobileScrollTimeoutRef = useRef<number | undefined>(undefined);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -112,13 +111,98 @@ export default function AchievementsTimeline() {
         };
     }, []);
 
-    // Auto-cycle mobile timeline
+    // Auto-scroll mobile timeline
     useEffect(() => {
-        const interval = setInterval(() => {
-            setMobileIdx((idx) => (idx + 2) % total);
-        }, 4000);
-        return () => clearInterval(interval);
-    }, [total]);
+        const container = mobileContainerRef.current;
+        if (!container) return;
+
+        // Initialize scroll position
+        let lastScrollLeft = 0;
+        let isUserScrolling = false;
+        let isAutoScrolling = false;
+        let scrollStartDelay = setTimeout(() => {
+            lastScrollLeft = container.scrollLeft;
+        }, 100);
+
+        const scroll = () => {
+            if (mobileScrollPausedRef.current || isUserScrolling) return;
+            
+            isAutoScrolling = true;
+            const currentScroll = container.scrollLeft;
+            const scrollAmount = currentScroll + 3; // Increased from 1 to 3 pixels per interval
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            
+            // Only auto-scroll forward, don't reset if user might be scrolling
+            if (scrollAmount < maxScroll) {
+                container.scrollTo({ left: scrollAmount, behavior: 'auto' });
+            } else {
+                // Only reset if we're at the end and not paused
+                if (!mobileScrollPausedRef.current && !isUserScrolling) {
+                    container.scrollTo({ left: 0, behavior: 'auto' });
+                }
+            }
+            
+            // Reset flag after a short delay
+            setTimeout(() => {
+                isAutoScrolling = false;
+            }, 50);
+        };
+
+        // Start auto-scroll after a brief delay to ensure container is ready
+        let intervalId: number | undefined;
+        const startInterval = setTimeout(() => {
+            intervalId = window.setInterval(scroll, 20); // Smooth continuous scroll
+        }, 200);
+
+        // Detect user scrolling (only if not auto-scrolling)
+        const onScroll = () => {
+            if (isAutoScrolling) {
+                lastScrollLeft = container.scrollLeft;
+                return;
+            }
+            
+            const currentScrollLeft = container.scrollLeft;
+            const scrollDifference = Math.abs(currentScrollLeft - lastScrollLeft);
+            
+            // If scroll difference is significant and not from auto-scroll, user is scrolling
+            if (scrollDifference > 10) {
+                isUserScrolling = true;
+                mobileScrollPausedRef.current = true;
+                
+                // Clear any pending resume
+                if (mobileScrollTimeoutRef.current) clearTimeout(mobileScrollTimeoutRef.current);
+                
+                // Resume auto-scroll after user stops scrolling
+                mobileScrollTimeoutRef.current = window.setTimeout(() => {
+                    isUserScrolling = false;
+                    mobileScrollPausedRef.current = false;
+                }, 3000); // Resume after 3 seconds of no interaction
+            }
+            
+            lastScrollLeft = currentScrollLeft;
+        };
+
+        container.addEventListener("scroll", onScroll, { passive: true });
+        container.addEventListener("touchstart", () => {
+            isUserScrolling = true;
+            mobileScrollPausedRef.current = true;
+        });
+        container.addEventListener("touchend", () => {
+            if (mobileScrollTimeoutRef.current) clearTimeout(mobileScrollTimeoutRef.current);
+            mobileScrollTimeoutRef.current = window.setTimeout(() => {
+                isUserScrolling = false;
+                mobileScrollPausedRef.current = false;
+            }, 3000);
+        });
+
+        return () => {
+            clearTimeout(scrollStartDelay);
+            clearTimeout(startInterval);
+            if (intervalId) clearInterval(intervalId);
+            container.removeEventListener("scroll", onScroll);
+            if (mobileScrollTimeoutRef.current) clearTimeout(mobileScrollTimeoutRef.current);
+        };
+    }, []);
 
     return (
         <section
@@ -284,32 +368,43 @@ export default function AchievementsTimeline() {
                 </div>
 
                 {/* Mobile Timeline */}
-                <div className="relative w-full h-[300px] flex flex-col items-center justify-center mt-8">
-                    <motion.div
-                        key={`above-${mobileIdx}`}
-                        initial={{opacity: 0, y: -50}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{duration: 0.4, ease: "easeOut"}}
-                        className="flex flex-col items-center"
-                    >
-                        <div className="text-xl font-bold text-gray-800 mb-2">{aboveEvent.date}</div>
-                        <div className="p-4 bg-gray-100 rounded-xl shadow-lg text-center w-full max-w-xs break-words">
-                            <div className="text-lg text-gray-700">{aboveEvent.title}</div>
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        key={`below-${mobileIdx}`}
-                        initial={{opacity: 0, y: 50}}
-                        animate={{opacity: 1, y: 0}}
-                        transition={{duration: 0.4, ease: "easeOut"}}
-                        className="flex flex-col items-center pt-6"
-                    >
-                        <div className="p-4 bg-gray-100 rounded-xl shadow-lg text-center w-full max-w-xs break-words">
-                            <div className="text-lg text-gray-700">{belowEvent.title}</div>
-                        </div>
-                        <div className="text-xl font-bold text-gray-800 mt-2">{belowEvent.date}</div>
-                    </motion.div>
+                <div 
+                    ref={mobileContainerRef}
+                    className="relative w-full flex items-center justify-start mt-8 overflow-x-auto overflow-y-hidden snap-x snap-mandatory pb-4 scrollbar-hide"
+                    style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'smooth' }}
+                >
+                    <div className="flex space-x-6 px-4 relative items-start" style={{ width: 'max-content', minWidth: '100%' }}>
+                        {timelineEvents.map((event, idx) => {
+                            return (
+                                <div
+                                    key={idx}
+                                    className="relative flex-shrink-0 flex flex-col items-center justify-center w-[200px] snap-center"
+                                >
+                                    <motion.div
+                                        className="relative flex flex-col items-center gap-3"
+                                        initial={{opacity: 0, y: 20}}
+                                        whileInView={{opacity: 1, y: 0}}
+                                        viewport={{once: false, amount: 0.3}}
+                                        transition={{duration: 0.4, ease: "easeOut"}}
+                                    >
+                                        {/* Title above */}
+                                        <div className="text-center w-full">
+                                            <div className="text-sm font-bold text-gray-800 mb-1">{event.date}</div>
+                                            <div className="p-3 bg-gray-100 rounded-xl shadow-lg text-center">
+                                                <div className="text-sm text-gray-700 leading-tight">{event.title}</div>
+                                            </div>
+                                        </div>
+                                        {/* Image below - square */}
+                                        <img
+                                            src={event.img}
+                                            alt={event.title}
+                                            className="w-32 h-32 object-cover rounded-lg shadow-md"
+                                        />
+                                    </motion.div>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
                 {/* Mobile-Only Buttons (Stacked) */}
                 <div className="flex flex-col gap-4 w-60 md:hidden">

@@ -29,7 +29,7 @@ export default function PersonalInterestsAndAchievements() {
                     <h2 className="text-2xl font-semibold mb-2">{item.title}</h2>
                     <p className="text-gray-700 dark:text-gray-300">{item.description}</p>
                     {item.photos && item.photos.length > 0 && (
-                        <div className="mt-4 overflow-x-auto flex space-x-4 pb-4">
+                        <div className={`mt-4 overflow-x-auto flex space-x-4 pb-4 ${item.photos.length < 3 ? 'sm:justify-center' : ''}`}>
                             {item.photos.slice(0, 3).map((photo, photoIndex) => (
                                 <div key={photoIndex} className="flex-shrink-0">
                                     <Image

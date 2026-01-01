@@ -31,6 +31,16 @@ import MeDIImg from "@/public/medi.png"
 import LlamaImg from "@/public/llama.png"
 import YukiGPTImg from "@/public/aiayn.png"
 import F1GhostImg from "@/public/hungary_2024_follow.gif"
+import swim1 from "@/public/swim1.webp"
+import swim2 from "@/public/swim2.webp"
+import fsai1 from "@/public/fsai1.webp"
+import fsai2 from "@/public/fsai2.webp"
+import hpc1 from "@/public/hpc1.webp"
+import hpc2 from "@/public/hpc2.webp"
+import hpc3 from "@/public/hpc3.webp"
+import hpc4 from "@/public/hpc4.webp"
+import blind from "@/public/blind.webp"
+import TELEMETRYImg from "@/public/TELEMETRY_ANALYSIS.gif"
 
 export const links = [
   {
@@ -67,7 +77,7 @@ export const interestsAndAchievements = [
   {
     title: "Competitive Swimmer",
     description: "Competing at BUCS and swimming for Bristol University performance squad.",
-    photos: [],
+    photos: [swim1, swim2],
   },
   {
     title: "Ironman Switzerland - 3.8km Swim, 180km Bike, Marathon Run",
@@ -91,17 +101,17 @@ export const interestsAndAchievements = [
   {
     title: "Formula Student AI",
     description: "Treasurer and Planning & Control Team Lead in Formula Student AI at University of Bristol.",
-    photos: [],
+    photos: [fsai1, fsai2],
   },
   {
     title: "Formula 1 Projects",
     description: "Developed F1-related projects including F1 Ghost Car visualisation tool for comparing qualifying laps, and various other projects working with F1 data.",
-    photos: [],
+    photos: [F1GhostImg, TELEMETRYImg],
   },
   {
     title: "High Performance Computing",
     description: "I have represented the UK at ISC25 Student Cluster Competition and represented the University of Bristol at CIUK high performance computing cluster challenge twice.",
-    photos: [],
+    photos: [hpc1, hpc2, hpc3, hpc4],
   },
   {
     title: "Quantum Computing",
@@ -115,7 +125,7 @@ export const interestsAndAchievements = [
   {
     title: "Blind Solve Rubik's Cube",
     description: "I all enjoy all types of puzzles, from Rubik's cubes to jigsaw puzzles to escape rooms. At the moment, I want to get sub 4m for a blind 3x3 Rubik's cube solve.",
-    photos: [],
+    photos: [blind],
   },
 ];
 
