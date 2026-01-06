@@ -257,7 +257,7 @@ export default function AchievementsTimeline() {
 
                 <a
                     className="group bg-white bg-opacity-90 px-10 py-4 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 transition cursor-pointer border border-black dark:bg-gray-950 dark:border-white dark:bg-opacity-75"
-                    href="/CV_Thomas_Bale.pdf"
+                    href="/Thomas_Bale_Website_CV.pdf"
                     download
                 >
                     Download CV
@@ -442,7 +442,7 @@ export default function AchievementsTimeline() {
 
                     <a
                         className="group bg-white bg-opacity-90 px-6 py-4 flex items-center justify-center gap-2 rounded-full outline-none focus:scale-105 hover:scale-105 transition cursor-pointer border border-black dark:bg-gray-950 dark:border-white dark:bg-opacity-75"
-                        href="/CV_Thomas_Bale.pdf"
+                        href="/Thomas_Bale_Website_CV.pdf"
                         download
                     >
                         Download CV
