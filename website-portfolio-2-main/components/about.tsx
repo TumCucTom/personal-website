@@ -37,9 +37,8 @@ export default function About() {
                 currently achieving
                 <span className={` ${getFontWeight(true)}`}>
                   {" "}
-                    78.33% (First Class)
-                </span>{" "}
-                average. I serve as Treasurer and Planning & Control Team Lead in Formula Student AI, and I am the Founder, President, and Competitions Lead of UoB Quantum Computing Society. Alongside my university work, I explore my strong super-curricular passions for quantum computing, AI and HPC. I also participate in triathlons / Ironman training and co-own a performance cycling products small business.
+                    85.3% average in final year (First Class)
+                </span>. I serve as Treasurer and Planning & Control Team Lead in Formula Student AI, and I am the Founder, President, and Competitions Lead of UoB Quantum Computing Society. Alongside my university work, I explore my strong super-curricular passions for quantum computing, AI and HPC. I also participate in triathlons / Ironman training and co-own a performance cycling products small business.
             </p>
             <p className="mb-5">
                 My academic, super-curricular and professional experience have given me a strong foundation in full-stack development, computer vision, ML, quantum computing and algorithms. Find my projects below or on my GitHub relating to quantum and AI.

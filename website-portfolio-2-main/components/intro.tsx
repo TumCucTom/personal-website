@@ -56,7 +56,7 @@ export default function IntroAbout() {
                         student, developer, business owner, and Ironman AG Athlete. I am pursuing a
                         Bachelor&apos;s degree in <span className="font-bold">Computer Science</span> at the{" "}
                         <span className="font-bold">University of Bristol</span>, currently achieving{" "}
-                        <span className="font-bold">78.33% (First Class)</span> average. I serve as Treasurer and Planning & Control Team Lead in Formula Student AI, and I am the Founder, President, and Competitions Lead of UoB Quantum Computing Society. Alongside my university work,
+                        <span className="font-bold">85.3% average in final year (First Class)</span>. I serve as Treasurer and Planning & Control Team Lead in Formula Student AI, and I am the Founder, President, and Competitions Lead of UoB Quantum Computing Society. Alongside my university work,
                         I explore my strong super-curricular passions
                         for quantum computing, AI, and HPC. I also participate in triathlons/Ironman training
                         and co-own a performance cycling products small business.

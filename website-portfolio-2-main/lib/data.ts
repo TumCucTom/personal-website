@@ -172,7 +172,7 @@ export const educationData = [
     title: "BSc in Computer Science",
     subtitle: "University of Bristol",
     description:
-        `78.33% avg; First Class
+        `85.3% average in final year; First Class
      
      Treasurer and Planning & Control Team Lead in Formula Student AI.
 
