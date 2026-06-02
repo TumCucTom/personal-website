@@ -1,0 +1,49 @@
+name: refresh-commits
+
+on:
+  schedule:
+    # every 4h = 6x/day at 00:00, 04:00, 08:00, 12:00, 16:00, 20:00 UTC
+    - cron: "0 */4 * * *"
+  workflow_dispatch:
+  push:
+    paths:
+      - "site/scripts/commits.mjs"
+      - ".github/workflows/refresh-commits.yml"
+
+concurrency:
+  group: refresh-commits
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Fetch live commit stats
+        working-directory: site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/commits.mjs
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet site/data/live-commits.json; then
+            echo "live-commits.json unchanged — nothing to commit"
+            exit 0
+          fi
+          git config user.name "Thomas Bale"
+          git config user.email "hf23482@bristol.ac.uk"
+          git add site/data/live-commits.json
+          git commit -m "refresh: live-commits.json [skip ci]" \
+            -m "Co-Authored-By: Zippy AI <tomkinsbale@icloud.com>"
+          git push
