@@ -1,4 +1,4 @@
-FROM golang:1.21-alpine AS builder
+FROM golang:1.23-alpine AS builder
 
 WORKDIR /app
 COPY go.mod go.sum ./
@@ -11,12 +11,9 @@ FROM alpine:3.19
 
 RUN apk add --no-cache openssh-server
 
-RUN ssh-keygen -A
-
-RUN mkdir -p /run/sshd
+RUN ssh-keygen -A && mkdir -p /run/sshd
 
 COPY --from=builder /tui /tui
-COPY --from=builder /etc/ssh/ssh_host_* /etc/ssh/
 
 EXPOSE 2222
 
