@@ -1,0 +1,2 @@
+# Add public keys here for SSH access (one per line)
+# Format: ssh-rsa AAAA... user@host
