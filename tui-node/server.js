@@ -9,6 +9,10 @@ const RESET = `${ESC}0m`;
 const DIM = `${ESC}90m`;
 const BRIGHT = `${ESC}97m`;
 const HIGHLIGHT = `${ESC}7m`;
+const CYAN = `${ESC}96m`;
+const MAGENTA = `${ESC}95m`;
+const YELLOW = `${ESC}93m`;
+const GREEN = `${ESC}92m`;
 const HIDE_CURSOR = `${ESC}?25l`;
 const SHOW_CURSOR = `${ESC}?25h`;
 const ALT_SCREEN = `${ESC}?1049h`;
@@ -18,7 +22,6 @@ const HOME = `${ESC}H`;
 
 const DEFAULT_HOST_KEY_PATH = path.join(process.cwd(), "data", "tui-host-key.pem");
 
-// Thomas Bale's profile data
 const profile = {
   name: "Thomas Bale",
   tagline: "Founder | Athlete | Developer",
@@ -120,9 +123,7 @@ const profile = {
   ],
 };
 
-let currentSection = 0;
 const sections = ["About", "Education", "Experience", "Projects", "Contact"];
-let scroll = 0;
 
 function getHostKey() {
   if (process.env.TUI_HOST_KEY) {
@@ -156,6 +157,13 @@ class TuiSession {
     this.scroll = 0;
     this.closed = false;
     this.lastInfo = "j/k: navigate  |  q: quit";
+    this.typedSections = new Set();
+    this.typeIndex = 0;
+    this.typeTimer = null;
+    this.pulseOn = false;
+    this.pulseTimer = null;
+    this.wipeTimer = null;
+    this.startPulse();
   }
 
   start() {
@@ -176,6 +184,8 @@ class TuiSession {
     const input = data.toString("utf8");
 
     if (input.includes("\x03") || input.includes("q")) {
+      this.stopPulse();
+      this.stopTyping();
       this.close(true);
       return;
     }
@@ -183,28 +193,91 @@ class TuiSession {
     if (input.includes("k") || input.includes("\x1b[B")) {
       this.currentSection = (this.currentSection + 1) % sections.length;
       this.scroll = 0;
-      this.render();
-      return;
-    }
-
-    if (input.includes("j") || input.includes("\x1b[A")) {
+    } else if (input.includes("j") || input.includes("\x1b[A")) {
       this.currentSection = (this.currentSection - 1 + sections.length) % sections.length;
       this.scroll = 0;
-      this.render();
+    } else if (input.includes(" ")) {
+      this.currentSection = (this.currentSection + 1) % sections.length;
+      this.scroll = 0;
+    } else {
       return;
     }
 
-    if (input.includes(" ")) {
-      this.currentSection = (this.currentSection + 1) % sections.length;
-      this.scroll = 0;
+    this.animateWipe(() => {
+      if (this.closed) return;
+      this.typedSections.delete(this.currentSection);
+      this.typeIndex = 0;
       this.render();
-      return;
+      this.startTyping();
+    });
+  }
+
+  startPulse() {
+    this.pulseTimer = setInterval(() => {
+      this.pulseOn = !this.pulseOn;
+      if (!this.closed) this.renderPulse();
+    }, 500);
+  }
+
+  renderPulse() {
+    const pulseStyle = this.pulseOn ? HIGHLIGHT : RESET;
+    const navItems = sections.map((sec, i) =>
+      i === this.currentSection ? `${pulseStyle}${sec}${RESET}` : DIM + sec + RESET
+    ).join("  ");
+    this.stream.write(`\r\x1b[1A${HOME}${style(navItems, RESET)}`);
+  }
+
+  animateWipe(callback) {
+    if (this.wipeTimer) clearInterval(this.wipeTimer);
+    const lines = this.rows - 2;
+    let i = 0;
+    this.wipeTimer = setInterval(() => {
+      if (this.closed) { clearInterval(this.wipeTimer); return; }
+      this.stream.write(`\x1b[${i + 1};${this.cols}H${style("█", DIM)}\x1b[K`);
+      i++;
+      if (i >= lines) { clearInterval(this.wipeTimer); callback(); }
+    }, 8);
+  }
+
+  startTyping() {
+    if (this.typedSections.has(this.currentSection)) return;
+    const text = this.getTypingText();
+    if (!text) return;
+
+    this.typedSections.add(this.currentSection);
+    this.typeIndex = 0;
+    if (this.typeTimer) clearInterval(this.typeTimer);
+
+    this.typeTimer = setInterval(() => {
+      if (this.closed) { clearInterval(this.typeTimer); return; }
+      this.typeIndex++;
+      this.stream.write(`${CLEAR}${HOME}${renderScreen(this, this.typeIndex)}`);
+      if (this.typeIndex >= text.length) clearInterval(this.typeTimer);
+    }, 15);
+  }
+
+  stopTyping() {
+    if (this.typeTimer) clearInterval(this.typeTimer);
+  }
+
+  getTypingText() {
+    switch (this.currentSection) {
+      case 0: return profile.bio;
+      case 2: return profile.experience.map(e => `${e.role} @ ${e.org}`).join(" ");
+      default: return null;
     }
+  }
+
+  stopPulse() {
+    if (this.pulseTimer) clearInterval(this.pulseTimer);
   }
 
   close(endStream) {
     if (this.closed) return;
     this.closed = true;
+    if (this.pulseTimer) clearInterval(this.pulseTimer);
+    if (this.typeTimer) clearInterval(this.typeTimer);
+    if (this.wipeTimer) clearInterval(this.wipeTimer);
     this.stream.write(`${SHOW_CURSOR}${MAIN_SCREEN}${RESET}`);
     if (endStream) {
       this.stream.exit?.(0);
@@ -215,10 +288,11 @@ class TuiSession {
   render() {
     if (this.closed) return;
     this.stream.write(`${CLEAR}${HOME}${renderScreen(this)}`);
+    this.startTyping();
   }
 }
 
-function renderScreen(state) {
+function renderScreen(state, typeIndex) {
   const cols = Math.max(40, state.cols);
   const rows = Math.max(12, state.rows);
 
@@ -233,21 +307,11 @@ function renderScreen(state) {
   let body = "";
 
   switch (state.currentSection) {
-    case 0: // About
-      body = renderAbout(state, cols, bodyRows);
-      break;
-    case 1: // Education
-      body = renderEducation(state, cols, bodyRows);
-      break;
-    case 2: // Experience
-      body = renderExperience(state, cols, bodyRows);
-      break;
-    case 3: // Projects
-      body = renderProjects(state, cols, bodyRows);
-      break;
-    case 4: // Contact
-      body = renderContact(state, cols, bodyRows);
-      break;
+    case 0: body = renderAbout(state, cols, bodyRows, typeIndex); break;
+    case 1: body = renderEducation(state, cols, bodyRows); break;
+    case 2: body = renderExperience(state, cols, bodyRows, typeIndex); break;
+    case 3: body = renderProjects(state, cols, bodyRows); break;
+    case 4: body = renderContact(state, cols, bodyRows); break;
   }
 
   const footer = style(`ssh thomasbale.com | ${state.lastInfo}`, DIM);
@@ -261,11 +325,13 @@ function renderScreen(state) {
   ].slice(0, rows).map((line) => formatLine(line, cols)).join("\r\n");
 }
 
-function renderAbout(state, cols, rows) {
+function renderAbout(state, cols, rows, typeIndex) {
+  const bio = typeIndex ? profile.bio.slice(0, typeIndex) : profile.bio;
+  const cursor = typeIndex && typeIndex < profile.bio.length ? "█" : "";
   const lines = [
-    style("About", BRIGHT),
+    style("▸ About", CYAN),
     "",
-    profile.bio,
+    bio + cursor,
     "",
     style(`Location: ${profile.location}`, DIM),
     style(`Email: ${profile.email}`, DIM),
@@ -274,58 +340,51 @@ function renderAbout(state, cols, rows) {
 }
 
 function renderEducation(state, cols, rows) {
-  const lines = [style("Education", BRIGHT), ""];
+  const lines = [style("▸ Education", MAGENTA), ""];
   for (const edu of profile.education) {
     lines.push(style(edu.institution, BRIGHT));
     lines.push(`  ${edu.degree} (${edu.grade})`);
     lines.push(`  ${edu.dates}`);
     lines.push(`  ${edu.detail}`);
     if (edu.modules && edu.modules.length > 0) {
-      lines.push(`  Modules: ${edu.modules.join(", ")}`);
+      lines.push(`  ${style("Modules:", DIM)} ${edu.modules.join(", ")}`);
     }
     lines.push("");
   }
   return visibleWindow(lines, rows, cols, state.scroll).join("\n");
 }
 
-function renderExperience(state, cols, rows) {
-  const lines = [style("Experience", BRIGHT), ""];
+function renderExperience(state, cols, rows, typeIndex) {
+  const lines = [style("▸ Experience", YELLOW), ""];
+  let idx = 0;
   for (const exp of profile.experience) {
-    lines.push(style(exp.role, BRIGHT));
-    lines.push(`  @ ${exp.org}`);
-    lines.push(`  ${exp.dates}`);
+    const expText = `${style(exp.role, BRIGHT)}  ${style("@", DIM)} ${exp.org}`;
+    const showText = typeIndex ? expText.slice(0, Math.min(idx + typeIndex, expText.length)) : expText;
+    lines.push(showText + (typeIndex && idx + typeIndex < expText.length ? "█" : ""));
+    lines.push(`  ${style("─", DIM)} ${exp.dates}`);
     lines.push(`  ${exp.detail}`);
     lines.push("");
+    idx += expText.length + exp.dates.length + exp.detail.length;
   }
   return visibleWindow(lines, rows, cols, state.scroll).join("\n");
 }
 
 function renderProjects(state, cols, rows) {
-  const lines = [style("Projects", BRIGHT), ""];
+  const lines = [style("▸ Projects", GREEN), ""];
   for (const proj of profile.projects) {
-    lines.push(style(proj.name, BRIGHT) + (proj.award ? style(` ${proj.award}`, DIM) : ""));
+    lines.push(style(`› ${proj.name}`, CYAN));
     lines.push(`  ${proj.description}`);
-    lines.push(`  ${proj.tags.join(" • ")}`);
-    lines.push(`  ${proj.link}`);
-    lines.push("");
-  }
-  return visibleWindow(lines, rows, cols, state.scroll).join("\n");
-}
-
-function renderSkills(state, cols, rows) {
-  const lines = [style("Skills", BRIGHT), ""];
-  for (const group of profile.skills) {
-    lines.push(style(group.category, BRIGHT));
-    lines.push(`  ${group.skills.join(", ")}`);
+    lines.push(`  ${style(proj.tags.join(" · "), DIM)}`);
+    lines.push(`  ${style(`→ ${proj.link}`, DIM)}`);
     lines.push("");
   }
   return visibleWindow(lines, rows, cols, state.scroll).join("\n");
 }
 
 function renderContact(state, cols, rows) {
-  const lines = [style("Contact & Links", BRIGHT), ""];
+  const lines = [style("▸ Contact", CYAN), ""];
   for (const link of profile.links) {
-    lines.push(`- ${link.label}: ${link.url}`);
+    lines.push(`  ${style("›", BRIGHT)} ${link.label}: ${link.url}`);
   }
   lines.push("");
   return visibleWindow(lines, rows, cols, state.scroll).join("\n");
@@ -368,18 +427,12 @@ const server = new Server(
           let tui = null;
 
           session.on("pty", (acceptPty, _reject, info = {}) => {
-            size = {
-              cols: info.cols || size.cols,
-              rows: info.rows || size.rows,
-            };
+            size = { cols: info.cols || size.cols, rows: info.rows || size.rows };
             acceptPty?.();
           });
 
           session.on("window-change", (acceptWindow, _reject, info = {}) => {
-            size = {
-              cols: info.cols || size.cols,
-              rows: info.rows || size.rows,
-            };
+            size = { cols: info.cols || size.cols, rows: info.rows || size.rows };
             acceptWindow?.();
             tui?.resize(size);
           });
