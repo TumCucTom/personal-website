@@ -1,0 +1,36 @@
+{
+  "season": 2026,
+  "races": [
+    { "round": 1,  "name": "Bahrain GP",          "circuit": "Bahrain International Circuit",         "city": "Sakhir",         "country": "BH", "raceDate": "2026-03-08", "raceTime": "15:00", "sprint": false },
+    { "round": 2,  "name": "Saudi Arabian GP",    "circuit": "Jeddah Corniche Circuit",               "city": "Jeddah",         "country": "SA", "raceDate": "2026-03-15", "raceTime": "17:00", "sprint": false },
+    { "round": 3,  "name": "Australian GP",       "circuit": "Albert Park Circuit",                   "city": "Melbourne",      "country": "AU", "raceDate": "2026-03-29", "raceTime": "05:00", "sprint": false },
+    { "round": 4,  "name": "Japanese GP",         "circuit": "Suzuka International Racing Course",    "city": "Suzuka",         "country": "JP", "raceDate": "2026-04-12", "raceTime": "05:00", "sprint": true  },
+    { "round": 5,  "name": "Chinese GP",          "circuit": "Shanghai International Circuit",        "city": "Shanghai",       "country": "CN", "raceDate": "2026-04-19", "raceTime": "07:00", "sprint": false },
+    { "round": 6,  "name": "Miami GP",            "circuit": "Miami International Autodrome",         "city": "Miami",          "country": "US", "raceDate": "2026-05-03", "raceTime": "20:00", "sprint": true  },
+    { "round": 7,  "name": "Emilia Romagna GP",   "circuit": "Autodromo Enzo e Dino Ferrari (Imola)",  "city": "Imola",          "country": "IT", "raceDate": "2026-05-17", "raceTime": "13:00", "sprint": false },
+    { "round": 8,  "name": "Monaco GP",           "circuit": "Circuit de Monaco",                     "city": "Monte Carlo",    "country": "MC", "raceDate": "2026-06-07", "raceTime": "13:00", "sprint": false, "pb": "1:12.48" },
+    { "round": 9,  "name": "Canadian GP",         "circuit": "Circuit Gilles Villeneuve",             "city": "Montréal",       "country": "CA", "raceDate": "2026-06-21", "raceTime": "18:00", "sprint": false },
+    { "round": 10, "name": "Spanish GP",          "circuit": "Circuit de Barcelona-Catalunya",        "city": "Barcelona",      "country": "ES", "raceDate": "2026-06-28", "raceTime": "13:00", "sprint": false },
+    { "round": 11, "name": "Austrian GP",         "circuit": "Red Bull Ring",                         "city": "Spielberg",      "country": "AT", "raceDate": "2026-07-05", "raceTime": "13:00", "sprint": true  },
+    { "round": 12, "name": "British GP",          "circuit": "Silverstone Circuit",                   "city": "Silverstone",    "country": "GB", "raceDate": "2026-07-19", "raceTime": "14:00", "sprint": false },
+    { "round": 13, "name": "Hungarian GP",        "circuit": "Hungaroring",                           "city": "Mogyoród",       "country": "HU", "raceDate": "2026-07-26", "raceTime": "13:00", "sprint": false },
+    { "round": 14, "name": "Belgian GP",          "circuit": "Circuit de Spa-Francorchamps",          "city": "Spa",            "country": "BE", "raceDate": "2026-08-02", "raceTime": "13:00", "sprint": true  },
+    { "round": 15, "name": "Dutch GP",            "circuit": "Circuit Zandvoort",                     "city": "Zandvoort",      "country": "NL", "raceDate": "2026-08-23", "raceTime": "13:00", "sprint": false },
+    { "round": 16, "name": "Italian GP",          "circuit": "Autodromo Nazionale Monza",             "city": "Monza",          "country": "IT", "raceDate": "2026-09-06", "raceTime": "13:00", "sprint": false },
+    { "round": 17, "name": "Azerbaijan GP",       "circuit": "Baku City Circuit",                     "city": "Baku",           "country": "AZ", "raceDate": "2026-09-20", "raceTime": "11:00", "sprint": false },
+    { "round": 18, "name": "Singapore GP",        "circuit": "Marina Bay Street Circuit",             "city": "Singapore",      "country": "SG", "raceDate": "2026-10-04", "raceTime": "12:00", "sprint": true  },
+    { "round": 19, "name": "United States GP",    "circuit": "Circuit of the Americas",               "city": "Austin",         "country": "US", "raceDate": "2026-10-25", "raceTime": "19:00", "sprint": false },
+    { "round": 20, "name": "Mexico City GP",      "circuit": "Autódromo Hermanos Rodríguez",          "city": "Mexico City",    "country": "MX", "raceDate": "2026-11-01", "raceTime": "20:00", "sprint": false },
+    { "round": 21, "name": "São Paulo GP",        "circuit": "Autódromo José Carlos Pace (Interlagos)","city": "São Paulo",      "country": "BR", "raceDate": "2026-11-08", "raceTime": "17:00", "sprint": true  },
+    { "round": 22, "name": "Las Vegas GP",        "circuit": "Las Vegas Strip Circuit",               "city": "Las Vegas",      "country": "US", "raceDate": "2026-11-21", "raceTime": "22:00", "sprint": false },
+    { "round": 23, "name": "Qatar GP",            "circuit": "Lusail International Circuit",          "city": "Lusail",         "country": "QA", "raceDate": "2026-11-29", "raceTime": "17:00", "sprint": true  },
+    { "round": 24, "name": "Abu Dhabi GP",        "circuit": "Yas Marina Circuit",                    "city": "Abu Dhabi",      "country": "AE", "raceDate": "2026-12-06", "raceTime": "13:00", "sprint": false }
+  ],
+  "simPB": {
+    "track": "Circuit de Monaco",
+    "time": "1:11.96",
+    "sim": "F1 25",
+    "car": "Dallara F2",
+    "setOn": "2026-04-22"
+  }
+}
