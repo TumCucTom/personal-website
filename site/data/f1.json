@@ -26,8 +26,6 @@
   "simPB": {
     "track": "Circuit de Monaco",
     "time": "1:11.96",
-    "sim": "F1 25",
-    "car": "Dallara F2",
-    "setOn": "2026-04-22"
+    "sim": "F1 25"
   }
 }
